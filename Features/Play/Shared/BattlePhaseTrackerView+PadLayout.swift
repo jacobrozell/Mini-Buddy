@@ -3,7 +3,7 @@ import TabletomeDomain
 
 extension BattlePhaseTrackerView {
     var usesPadTabbedTwoColumnLayout: Bool {
-        layoutContext.usesPadSplitNavigation && !dynamicTypeSize.needsLayoutAdaptation
+        layoutContext.usesSplitNavigation && !dynamicTypeSize.needsLayoutAdaptation
     }
 
     var showsBattleTrackerSectionTabs: Bool {
@@ -11,26 +11,22 @@ extension BattlePhaseTrackerView {
     }
 
     var padControlColumnMaxWidth: CGFloat {
-        layoutContext == .padLandscape
-            ? DesignTokens.battleTrackerLandscapeControlColumnMaxWidth
-            : DesignTokens.battleTrackerControlColumnMaxWidth
+        DesignTokens.battleTrackerControlColumnMaxWidth
     }
 
     var padSidebarColumnMaxWidth: CGFloat {
         if isEmbeddedInGuidedMatch {
-            return layoutContext == .padLandscape ? 320 : 300
+            return 300
         }
-        return layoutContext == .padLandscape ? 340 : 380
+        return 380
     }
 
     var padEmbeddedCombatSidebarMaxWidth: CGFloat {
-        layoutContext == .padLandscape ? 320 : 300
+        300
     }
 
     var padLayoutSpacing: CGFloat {
-        layoutContext == .padLandscape
-            ? DesignTokens.battleTrackerLandscapeSectionSpacing
-            : DesignTokens.Spacing.lg
+        DesignTokens.Spacing.lg
     }
 
     var padTabbedTwoColumnLayout: some View {

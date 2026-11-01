@@ -19,11 +19,7 @@ extension GuidedMatchView {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { padSidebarToolbar }
             }
-            .navigationSplitViewColumnWidth(
-                min: isPadLandscape ? 220 : 240,
-                ideal: isPadLandscape ? 280 : 320,
-                max: isPadLandscape ? 320 : 360
-            )
+            .navigationSplitViewColumnWidth(min: 260, ideal: 320, max: 360)
         } detail: {
             NavigationStack(path: $padDetailNavigationPath) {
                 guidedMatchDetail(catalog: catalog)
@@ -39,7 +35,7 @@ extension GuidedMatchView {
             applySpearheadPadInitialDestinationIfNeeded()
         }
         .onChange(of: viewModel.matchState.hasBothArmies) { _, hasBoth in
-            guard hasBoth, usesPadSplitNavigation, selectedDestination == nil else { return }
+            guard hasBoth, usesSplitNavigation, selectedDestination == nil else { return }
             guard !AppLaunchArguments.shouldSnapshotGuidedMatchArmies else { return }
             applySpearheadPadInitialDestinationIfNeeded()
         }

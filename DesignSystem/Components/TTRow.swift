@@ -57,6 +57,7 @@ public struct TTRow: View {
         }
         .frame(maxWidth: .infinity, minHeight: 56, alignment: .leading)
         .accessibilityElement(children: .combine)
+        .padding(4)
     }
 
     private var label: some View {

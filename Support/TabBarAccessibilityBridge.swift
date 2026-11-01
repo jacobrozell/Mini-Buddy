@@ -78,6 +78,23 @@ struct TabBarAccessibilityBridge: UIViewControllerRepresentable {
     }
 }
 
+/// Sidebar-adaptable tabs at regular width and height; tab bar elsewhere (Duo open vs folded).
+struct AdaptiveTabStyle: ViewModifier {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+
+    func body(content: Content) -> some View {
+        if TabletomeLayout.usesSplitNavigation(
+            horizontalSizeClass: horizontalSizeClass,
+            verticalSizeClass: verticalSizeClass
+        ) {
+            content.tabViewStyle(.sidebarAdaptable)
+        } else {
+            content.tabViewStyle(.tabBarOnly)
+        }
+    }
+}
+
 /// Keeps tabs in the tab bar on iPhone and iPad (avoids iPad sidebar selection/content desync).
 struct TabBarOnlyStyle: ViewModifier {
     func body(content: Content) -> some View {

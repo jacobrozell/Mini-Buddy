@@ -182,7 +182,6 @@ struct RosterEditorContent: View {
         }
         .listStyle(.insetGrouped)
         .tabBarScrollInset()
-        .readableContentWidth()
         .navigationTitle(roster.name)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {

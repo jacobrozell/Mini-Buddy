@@ -4,6 +4,7 @@ import TabletomeHobbyData
 /// Bench pillar — MiniMuster Collection + Paints merged into one tab.
 struct BenchTab: View {
   @Environment(AppRouter.self) private var router
+  @Environment(\.verticalSizeClass) private var verticalSizeClass
   @State private var section: BenchSection = .collection
 
   enum BenchSection: String, CaseIterable, Identifiable, Hashable {
@@ -35,21 +36,15 @@ struct BenchTab: View {
   }
 
   var body: some View {
-    VStack(spacing: 0) {
-      if visibleSections.count > 1 {
-        sectionPicker
+    Group {
+      switch section {
+      case .collection:
+        CollectionTab(showsSectionPicker: showsSectionPicker) { sectionPicker }
+      case .paints:
+        PaintsTab(showsSectionPicker: showsSectionPicker) { sectionPicker }
       }
-
-      Group {
-        switch section {
-        case .collection:
-          CollectionTab()
-        case .paints:
-          PaintsTab()
-        }
-      }
-      .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .onAppear { syncSectionFromRouter() }
     .onChange(of: router.tab) { _, _ in syncSectionFromRouter() }
     .onChange(of: section) { _, newValue in
@@ -61,41 +56,23 @@ struct BenchTab: View {
     .accessibilityIdentifier("bench.root")
   }
 
-  /// Visual control is `TTSegmentedControl`. Clear buttons sit on top so the
-  /// existing segment identifiers stay hittable for UI tests.
-  private var sectionPicker: some View {
-    ZStack {
-      TTSegmentedControl(
-        selection: $section,
-        options: visibleSections,
-        title: { $0.label },
-        systemImage: { $0.icon }
-      )
-      .accessibilityHidden(true)
-      .allowsHitTesting(false)
+  private var showsSectionPicker: Bool {
+    visibleSections.count > 1
+  }
 
-      HStack(spacing: DesignTokens.Spacing.xxs) {
-        ForEach(visibleSections) { item in
-          Button {
-            section = item
-          } label: {
-            Text(item.label)
-              .frame(maxWidth: .infinity, minHeight: DesignTokens.minTouchTarget)
-          }
-          .buttonStyle(.plain)
-          .foregroundStyle(.clear)
-          .accessibilityIdentifier("bench.section.\(item.rawValue)")
-          .accessibilityLabel(item.label)
-          .accessibilityAddTraits(section == item ? .isSelected : [])
-        }
-      }
-    }
+  /// Sits under the navigation bar. A sibling above the stack is covered by that
+  /// bar, so the Paints segment never receives the tap.
+  private var sectionPicker: some View {
+    TTSegmentedControl(
+      selection: $section,
+      options: visibleSections,
+      title: { $0.label },
+      systemImage: { $0.icon },
+      accessibilityIdentifier: { "bench.section.\($0.rawValue)" }
+    )
     .padding(.horizontal, DesignTokens.Spacing.md)
-    .padding(.vertical, DesignTokens.Spacing.sm)
+    .padding(.vertical, verticalSizeClass == .compact ? DesignTokens.Spacing.xs : DesignTokens.Spacing.sm)
     .background(TTColor.canvas)
-    .accessibilityElement(children: .contain)
-    .accessibilityIdentifier("bench.sectionPicker")
-    .accessibilityHint(String(localized: "Switch between your armies and paint inventory"))
   }
 
   private func syncSectionFromRouter() {
@@ -106,4 +83,19 @@ struct BenchTab: View {
     case .muster: break
     }
   }
+}
+
+extension View {
+    /// Pins the Collection / Paints switch under the navigation bar.
+    @ViewBuilder
+    func benchSectionPicker<Picker: View>(
+        enabled: Bool,
+        @ViewBuilder picker: () -> Picker
+    ) -> some View {
+        if enabled {
+            safeAreaInset(edge: .top, spacing: 0, content: picker)
+        } else {
+            self
+        }
+    }
 }

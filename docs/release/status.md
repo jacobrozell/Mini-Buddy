@@ -4,7 +4,7 @@
 |-------|-------|
 | **Version** | 1.0.0 (`MARKETING_VERSION` in `project.yml`) |
 | **Phase** | **TestFlight** — not App Store production |
-| **Branch** | `feature/uioverhaul` |
+| **Branch** | `main` |
 | **Build** | **11** (`CURRENT_PROJECT_VERSION` in `project.yml`) — [TestFlight notes](testflight-1.0.0-build-11.md) |
 
 ## 1.0.0 scope

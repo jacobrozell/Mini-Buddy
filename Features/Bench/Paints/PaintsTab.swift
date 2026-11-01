@@ -2,8 +2,9 @@ import SwiftUI
 import SwiftData
 import TabletomeHobbyData
 
-struct PaintsTab: View {
+struct PaintsTab<SectionPicker: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.modelContext) private var context
     @Environment(BannerCenter.self) private var banner
@@ -15,13 +16,20 @@ struct PaintsTab: View {
     @State private var showAdd = false
     @State private var showFilters = false
     @State private var showHobbySettings = false
+    private let showsSectionPicker: Bool
+    private let sectionPicker: () -> SectionPicker
+
+    init(showsSectionPicker: Bool = false, @ViewBuilder sectionPicker: @escaping () -> SectionPicker) {
+        self.showsSectionPicker = showsSectionPicker
+        self.sectionPicker = sectionPicker
+    }
 
     private var cfg: AppConfiguration { configs.first ?? HobbyConfig.current(context) }
     private var types: [String] { Array(Set(paints.map(\.type).filter { !$0.isEmpty })).sorted() }
     private var brands: [String] { Array(Set(paints.map(\.brand).filter { !$0.isEmpty })).sorted() }
 
     private var usesSplitLayout: Bool {
-        AdaptiveLayout.usesSplitNavigation(horizontalSizeClass)
+        AdaptiveLayout.usesSplitNavigation(horizontalSizeClass, verticalSizeClass)
     }
 
     private var sidebarWidth: (min: CGFloat, ideal: CGFloat, max: CGFloat) {
@@ -78,6 +86,7 @@ struct PaintsTab: View {
     private var splitView: some View {
         NavigationSplitView {
             paintList(preferSidebarSelection: true) { _ in }
+                .benchSectionPicker(enabled: showsSectionPicker, picker: sectionPicker)
                 .navigationSplitViewColumnWidth(min: sidebarWidth.min, ideal: sidebarWidth.ideal, max: sidebarWidth.max)
         } detail: {
             if let id = selectedPaintId {
@@ -113,6 +122,7 @@ struct PaintsTab: View {
     private var compactView: some View {
         NavigationStack(path: $compactPath) {
             paintList(preferSidebarSelection: false) { selectedPaintId = $0 }
+                .benchSectionPicker(enabled: showsSectionPicker, picker: sectionPicker)
                 .navigationDestination(for: PaintRoute.self) { route in
                     if case .paint(let paintId) = route {
                         PaintDetailView(paintId: paintId)

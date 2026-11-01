@@ -93,7 +93,6 @@ struct RosterEntrySheet: View {
                     }
                 }
             }
-            .readableContentWidth()
             .navigationTitle(String(localized: "Edit unit"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

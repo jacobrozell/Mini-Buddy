@@ -41,7 +41,7 @@ struct MusterHomeView: View {
             else { listContent }
         }
         .navigationTitle(String(localized: "Army Lists"))
-        .searchable(text: $search, prompt: String(localized: "Lists, factions…"))
+        .ttSearchable(text: $search, prompt: String(localized: "Lists, factions…"))
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(String(localized: "New list"), systemImage: "plus") { showNewRoster = true }

@@ -81,7 +81,7 @@ struct AcknowledgementsView: View {
                     .accessibilityHint(String(localized: "Opens the Apache License, Version 2.0, in Safari"))
                 }
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .ttScreenBackground()

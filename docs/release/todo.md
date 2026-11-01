@@ -10,6 +10,7 @@ Metadata: [`status.md`](status.md) · Expanded: [`release_checklist.md`](release
 - [ ] **Tab bar** — Models, Play, Rules, Settings
 - [ ] **Core flows** — Spearhead Getting Started and Guided Match; match history; offline smoke
 - [ ] **Quality** — VoiceOver; AXXXL; iPhone Pro Max landscape Models stack nav
+- [ ] **Adaptive layout QA** — iPhone landscape battle, iPad window resize, iPhone Duo folded/open (`ongoing/adaptive-layout-1.0.md`)
 - [ ] **Settings legal links** — GitHub Pages open (privacy updated 2026-06-29)
 
 ## TestFlight upload

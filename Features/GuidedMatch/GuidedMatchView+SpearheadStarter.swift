@@ -19,7 +19,7 @@ extension GuidedMatchView {
                 action: { hubTab = .setup }
             )
         )
-        if usesPadSplitNavigation {
+        if usesSplitNavigation {
             selectedDestination = spearheadPadDetailDestination ?? .battleTracker
         } else if navigateToSetup {
             hubTab = .setup

@@ -7,8 +7,14 @@ import UIKit
 enum AdaptiveLayout {
     /// Two-column split (sidebar + detail) on iPad and Mac when horizontal space is regular.
     @MainActor
-    static func usesSplitNavigation(_ horizontal: UserInterfaceSizeClass?) -> Bool {
-        TabletomeLayout.usesLargeScreenLayout(horizontalSizeClass: horizontal)
+    static func usesSplitNavigation(
+        _ horizontal: UserInterfaceSizeClass?,
+        _ vertical: UserInterfaceSizeClass? = nil
+    ) -> Bool {
+        TabletomeLayout.usesSplitNavigation(
+            horizontalSizeClass: horizontal,
+            verticalSizeClass: vertical
+        )
     }
 
     /// Sidebar-style list chrome inside a split column on iPad.
@@ -49,10 +55,11 @@ enum AdaptiveLayout {
 
 private struct AdaptiveEmptyStateLayout: ViewModifier {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     func body(content: Content) -> some View {
         let clearance = AdaptiveLayout.tabBarClearance(for: dynamicTypeSize)
-        if dynamicTypeSize.isAccessibilitySize {
+        if dynamicTypeSize.isAccessibilitySize || verticalSizeClass == .compact {
             ScrollView {
                 content
                     .frame(maxWidth: .infinity, alignment: .top)

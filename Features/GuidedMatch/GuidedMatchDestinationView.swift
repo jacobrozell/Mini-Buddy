@@ -24,6 +24,8 @@ private struct GuidedMatchDestinationContent: View {
 
     @StateObject private var viewModel: GuidedMatchViewModel
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var ruleSections: [RuleSection]?
     @State private var errorMessage: String?
 
@@ -37,7 +39,11 @@ private struct GuidedMatchDestinationContent: View {
     }
 
     private var hidesOuterNavigationBar: Bool {
-        horizontalSizeClass == .regular
+        TabletomeLayout.usesSplitNavigation(
+            horizontalSizeClass: horizontalSizeClass,
+            verticalSizeClass: verticalSizeClass,
+            dynamicTypeSize: dynamicTypeSize
+        )
     }
 
     var body: some View {

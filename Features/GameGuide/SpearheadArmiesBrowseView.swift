@@ -40,7 +40,7 @@ struct SpearheadArmiesBrowseView: View {
             }
         }
         .ttGroupedList()
-        .searchable(text: $query, prompt: String(localized: "Search armies or factions"))
+        .ttSearchable(text: $query, prompt: String(localized: "Search armies or factions"))
         .navigationTitle(String(localized: "Spearhead Armies"))
         .accessibilityIdentifier("armies.browse")
         .task { await load() }

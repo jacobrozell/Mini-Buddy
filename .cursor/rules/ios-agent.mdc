@@ -57,7 +57,10 @@ globs:
 
 ## Layout
 
-- Use `UIDevice.current.userInterfaceIdiom` for phone vs pad — not horizontal size class alone.
+- Choose shell and navigation from size classes via `TabletomeLayout.context` (`compact`, `shortHeight`, `regular`). Do not use `userInterfaceIdiom` or `UIScreen.main` for layout (breaks iPhone Duo and resizable iPad windows).
+- Column layouts inside screens use measured container size (see `BattleScreenArrangement`).
+- iPhone Pro Max landscape is `shortHeight` (regular width, compact height), not iPad.
+- State that must survive fold/resize lives above layout branches (`GuidedMatchLayoutSync`, `SpearheadBattlePresentation`).
 
 ## Scope updates
 

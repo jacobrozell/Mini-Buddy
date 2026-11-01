@@ -99,6 +99,7 @@ extension GuidedMatchView {
             onVictoryPresented: handleVictoryPresented
         )
         .environment(\.battleTrackerIsEmbeddedInGuidedMatch, true)
+        .environment(\.spearheadBattlePresentation, battlePresentation)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .accessibilityIdentifier("guidedMatch.embeddedBattleTracker")
     }

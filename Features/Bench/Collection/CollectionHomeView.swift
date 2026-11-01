@@ -80,7 +80,7 @@ struct CollectionHomeView: View {
         }
         .ttScreenBackground()
         .navigationTitle(String(localized: "Models"))
-        .searchable(text: $search, prompt: String(localized: "Armies, factions, units…"))
+        .ttSearchable(text: $search, prompt: String(localized: "Armies, factions, units…"))
         .toolbar { toolbarContent }
         .sheet(isPresented: Binding(
             get: { armyToRename != nil },

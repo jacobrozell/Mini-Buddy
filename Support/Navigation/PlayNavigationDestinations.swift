@@ -3,13 +3,12 @@ import TabletomeDomain
 
 extension View {
     /// Register Play-tab deep links once on the `NavigationStack` root (`HomeView`, Rules tab).
-    /// Pair with `glossaryEntryNavigation()` on that root; nested shells (e.g. Guided Match) register their own.
+    /// Phone Guided Match is pushed onto that same stack, so it must not register these types again.
     func playNavigationDestinations() -> some View {
         modifier(PlayNavigationDestinationsModifier())
     }
 
-    /// Destinations reachable from inside Guided Match without re-registering `GuidedMatchLink`
-    /// (avoids nested-stack navigation thrash and accidental pops of the outer Play stack).
+    /// Same deep links for a NavigationStack that is not the Play root — the iPad Guided Match detail column.
     func guidedMatchNestedNavigationDestinations() -> some View {
         modifier(GuidedMatchNestedNavigationDestinationsModifier())
     }

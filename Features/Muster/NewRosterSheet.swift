@@ -245,7 +245,6 @@ struct NewRosterSheet: View {
             .scrollDismissesKeyboard(.interactively)
             .navigationTitle(String(localized: "New list"))
             .navigationBarTitleDisplayMode(.inline)
-            .readableContentWidth()
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(String(localized: "Cancel")) { dismiss() }

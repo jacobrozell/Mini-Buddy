@@ -112,7 +112,7 @@ struct AppSearchResultDetailView: View {
                     ruleSections: ruleSections
                 )
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .navigationTitle(result.title)

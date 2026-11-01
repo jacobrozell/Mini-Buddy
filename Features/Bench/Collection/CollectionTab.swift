@@ -4,8 +4,9 @@ import TabletomeHobbyData
 import TabletomeDomain
 
 /// Collection tab with adaptive split view (iPad) and navigation stack (iPhone).
-struct CollectionTab: View {
+struct CollectionTab<SectionPicker: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.modelContext) private var context
     @Environment(AppRouter.self) private var router
@@ -20,13 +21,20 @@ struct CollectionTab: View {
     @State private var showFilters = false
     @State private var showHobbySettings = false
     @State private var showCollectionIntro = false
+    private let showsSectionPicker: Bool
+    private let sectionPicker: () -> SectionPicker
+
+    init(showsSectionPicker: Bool = false, @ViewBuilder sectionPicker: @escaping () -> SectionPicker) {
+        self.showsSectionPicker = showsSectionPicker
+        self.sectionPicker = sectionPicker
+    }
 
     private var cfg: AppConfiguration { configs.first ?? HobbyConfig.current(context) }
     private var overrides: [FactionPresetOverride] { cfg.factionOverrides }
     private var globalPipeline: [PipelineStage]? { cfg.globalPipeline }
 
     private var usesSplitLayout: Bool {
-        AdaptiveLayout.usesSplitNavigation(horizontalSizeClass)
+        AdaptiveLayout.usesSplitNavigation(horizontalSizeClass, verticalSizeClass)
     }
 
     private var sidebarWidth: (min: CGFloat, ideal: CGFloat, max: CGFloat) {
@@ -150,6 +158,7 @@ struct CollectionTab: View {
         NavigationSplitView {
             NavigationStack {
                 collectionHome(preferSidebarSelection: true) { selectedArmyId = $0 }
+                    .benchSectionPicker(enabled: showsSectionPicker, picker: sectionPicker)
                     .navigationDestination(for: CollectionRoute.self) { route in
                         if case .overview = route {
                             CollectionOverviewView()
@@ -213,6 +222,7 @@ struct CollectionTab: View {
             collectionHome(preferSidebarSelection: false) { id in
                 selectedArmyId = id
             }
+            .benchSectionPicker(enabled: showsSectionPicker, picker: sectionPicker)
             .navigationDestination(for: CollectionRoute.self) { route in
                 switch route {
                 case .overview:
@@ -229,5 +239,11 @@ struct CollectionTab: View {
                 }
             }
         }
+    }
+}
+
+extension CollectionTab where SectionPicker == EmptyView {
+    init() {
+        self.init(showsSectionPicker: false) { EmptyView() }
     }
 }

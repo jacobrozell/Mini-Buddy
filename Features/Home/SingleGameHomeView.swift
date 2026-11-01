@@ -31,7 +31,7 @@ struct SingleGameHomeView: View {
             }
             .padding(.horizontal, DesignTokens.Spacing.md)
             .padding(.top, DesignTokens.Spacing.sm)
-            .readableContentWidth()
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .ttScreenBackground()
         .tabBarScrollInset()

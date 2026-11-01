@@ -19,13 +19,13 @@ extension BattlePhaseTrackerView {
         ScrollView(.vertical) {
             Group {
                 switch layoutContext {
-                case .padLandscape, .padPortrait:
+                case .regular:
                     if usesAccessibilityLayout {
                         compactLayout
                     } else {
                         padTabbedTwoColumnLayout
                     }
-                case .phonePortrait, .phoneLandscape:
+                case .compact, .shortHeight:
                     compactLayout
                 }
             }

@@ -20,6 +20,11 @@ final class GuidedMatchLandscapeUITests: XCTestCase {
         app = XCUIApplication()
     }
 
+    override func tearDown() async throws {
+        XCUIDevice.shared.orientation = .portrait
+        try await super.tearDown()
+    }
+
     private func launchApp(extraArguments: [String] = []) {
         app.terminate()
         app.launchArguments = guidedMatchLaunchArgs + extraArguments
@@ -44,26 +49,39 @@ final class GuidedMatchLandscapeUITests: XCTestCase {
         let guidedMatch = app.descendants(matching: .any)["guidedMatch.screen"]
         XCTAssertTrue(guidedMatch.waitForExistence(timeout: 20))
 
-        let battleMarker = app.descendants(matching: .any)["spearheadBattle.vpSummary"]
-        if !battleMarker.waitForExistence(timeout: 25) {
-            let battleTab = app.buttons["guidedMatch.hubTab.battle"]
-            if battleTab.waitForExistence(timeout: 4) {
-                battleTab.tap()
-            }
+        let battleTab = app.buttons["guidedMatch.hubTab.battle"]
+        if battleTab.waitForExistence(timeout: 8) {
+            battleTab.tap()
         }
+        let scoreboard = app.descendants(matching: .any)["battleTracker.scoreboard.playerOne"]
+        let primaryAction = app.buttons["battleGuide.action"]
         XCTAssertTrue(
-            battleMarker.waitForExistence(timeout: 15),
-            "Spearhead battle tracker should appear after launch automation completes setup"
+            scoreboard.waitForExistence(timeout: 30)
+                || primaryAction.waitForExistence(timeout: 30),
+            "Spearhead battle should appear after launch automation completes setup"
         )
 
         XCUIDevice.shared.orientation = .landscapeLeft
 
-        let opponentColumn = app.descendants(matching: .any)["spearheadBattle.phoneLandscape.opponentColumn"]
+        let twoColumnLayout = app.descendants(matching: .any)["battleScreen.layout.twoColumn"]
         XCTAssertTrue(
-            opponentColumn.waitForExistence(timeout: 8),
-            "Spearhead battle should use the phone landscape split layout"
+            twoColumnLayout.waitForExistence(timeout: 8),
+            "Spearhead battle should use the phone landscape two-column layout"
         )
-        XCTAssertTrue(battleMarker.waitForExistence(timeout: 4))
+        XCTAssertTrue(app.buttons["battleGuide.action"].waitForExistence(timeout: 4))
+        XCTAssertTrue(app.descendants(matching: .any)["battleTracker.menu"].waitForExistence(timeout: 4))
+    }
+
+    func testGuidedMatchKeepsBackButtonInLandscape() {
+        launchApp()
+        let guidedMatch = app.descendants(matching: .any)["guidedMatch.screen"]
+        XCTAssertTrue(guidedMatch.waitForExistence(timeout: 12))
+
+        XCUIDevice.shared.orientation = .landscapeLeft
+        XCTAssertTrue(
+            app.navigationBars.buttons.firstMatch.waitForExistence(timeout: 6),
+            "Guided Match should keep a navigation back control in landscape"
+        )
     }
 
     func testStartGuidedMatchFromChooserInLandscape() {

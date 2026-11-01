@@ -114,7 +114,7 @@ struct ArmySelectionView: View {
             .navigationDestination(for: FactionPickLink.self) { link in
                 armyPickLevel(factionId: link.factionId)
             }
-            .searchable(
+            .ttSearchable(
                 text: $armySearchText,
                 prompt: String(localized: "Search factions or armies")
             )

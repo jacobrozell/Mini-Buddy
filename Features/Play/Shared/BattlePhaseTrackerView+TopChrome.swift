@@ -23,7 +23,7 @@ extension BattlePhaseTrackerView {
             activePlayerIsOne: viewModel.trackerState.activePlayerIsOne,
             isTopChromeCollapsed: isTopChromeCollapsed,
             isEmbeddedInGuidedMatch: isEmbeddedInGuidedMatch,
-            prefersCollapsedBattleChrome: layoutContext.prefersCollapsedBattleChrome,
+            prefersCollapsedBattleChrome: layoutContext.isShortHeight,
             selectedSectionTab: $selectedSectionTab,
             onExpand: expandTopChrome,
             onCollapse: collapseTopChrome
@@ -47,7 +47,7 @@ extension BattlePhaseTrackerView {
     }
 
     func applyCompactTopChromeDefault() {
-        let prefersCollapsedByDefault = layoutContext.prefersCollapsedBattleChrome
+        let prefersCollapsedByDefault = layoutContext.isShortHeight
             || (isEmbeddedInGuidedMatch && usesCompactBattleTrackerChrome)
         guard prefersCollapsedByDefault, !topChromeExpandedInLandscape else { return }
         guard !isTopChromeCollapsed else { return }

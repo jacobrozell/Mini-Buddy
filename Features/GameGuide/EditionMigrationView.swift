@@ -65,7 +65,6 @@ struct EditionMigrationView: View {
             }
         }
         .listStyle(.plain)
-        .readableContentWidth()
         .navigationTitle(navigationTitleText)
         .accessibilityIdentifier("guide.migrationList")
     }

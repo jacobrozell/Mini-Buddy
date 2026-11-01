@@ -186,7 +186,7 @@ struct BattlePhaseTrackerView: View {
             applyCompactTopChromeDefault()
         }
         .onChange(of: isTopChromeCollapsed) { _, collapsed in
-            if layoutContext.prefersCollapsedBattleChrome || isEmbeddedInGuidedMatch {
+            if layoutContext.isShortHeight || isEmbeddedInGuidedMatch {
                 topChromeExpandedInLandscape = !collapsed
             }
         }
@@ -210,19 +210,15 @@ struct BattlePhaseTrackerView: View {
         )
     }
 
-    var isPadLandscape: Bool {
-        layoutContext == .padLandscape
-    }
-
     var usesCompactBattleTrackerChrome: Bool {
-        !layoutContext.usesPadSplitNavigation || dynamicTypeSize.needsLayoutAdaptation
+        !layoutContext.usesSplitNavigation || dynamicTypeSize.needsLayoutAdaptation
     }
 
     var trackerContentPadding: CGFloat {
         switch layoutContext {
-        case .padLandscape: DesignTokens.Spacing.sm
-        case .phoneLandscape: DesignTokens.phoneLandscapeHorizontalPadding
-        default: DesignTokens.Spacing.md
+        case .regular: DesignTokens.Spacing.sm
+        case .shortHeight: DesignTokens.phoneLandscapeHorizontalPadding
+        case .compact: DesignTokens.Spacing.md
         }
     }
 
@@ -241,7 +237,7 @@ struct BattlePhaseTrackerView: View {
 
     /// iPad Guided Match split: show section tabs expanded on first open (avoid collapsed header + dead zone).
     func expandEmbeddedPadBattleChromeIfNeeded() {
-        guard isEmbeddedInGuidedMatch, layoutContext.usesPadSplitNavigation else { return }
+        guard isEmbeddedInGuidedMatch, layoutContext.usesSplitNavigation else { return }
         guard isTopChromeCollapsed else { return }
         isTopChromeCollapsed = false
     }
@@ -290,11 +286,6 @@ struct BattleTrackerContentWidth: ViewModifier {
     let layoutContext: TabletomeLayoutContext
 
     func body(content: Content) -> some View {
-        switch layoutContext {
-        case .padPortrait, .padLandscape:
-            content
-        case .phoneLandscape, .phonePortrait:
-            content
-        }
+        content
     }
 }

@@ -96,7 +96,7 @@ struct GuideStepDetailView: View {
                     )
                 }
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
     }
 

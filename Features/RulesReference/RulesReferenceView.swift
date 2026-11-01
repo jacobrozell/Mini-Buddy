@@ -103,10 +103,10 @@ struct RulesReferenceView: View {
         }
         .ttGroupedList()
         .textCase(nil)
-        .searchable(
+        .ttSearchable(
             text: $viewModel.searchText,
-            placement: .navigationBarDrawer(displayMode: .always),
-            prompt: GameSystemRulesLabels.rulesSearchPrompt(gameSystemId: viewModel.selectedGameSystemId)
+            prompt: GameSystemRulesLabels.rulesSearchPrompt(gameSystemId: viewModel.selectedGameSystemId),
+            displayMode: .always
         )
         .tabBarScrollInset(additionalBottom: DesignTokens.Spacing.xxl) // first rows otherwise sit under the tab bar
         .accessibilityIdentifier("rules.sectionList")
@@ -337,7 +337,7 @@ extension RulesReferenceView {
         NavigationStack {
             ScrollView {
                 editionComparison
-                    .readableContentWidth()
+                    .readableContentWidth(measuresText: true)
                     .padding(DesignTokens.Spacing.md)
             }
             .ttScreenBackground()

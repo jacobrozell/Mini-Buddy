@@ -4,6 +4,7 @@ import TabletomeDomain
 /// Short, self-contained Spearhead walkthrough of one turn's phases — no match state required.
 struct SampleTurnWalkthroughView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.dismiss) private var dismiss
     @Environment(AppRouter.self) private var router
     @State private var step = 0
@@ -96,11 +97,13 @@ struct SampleTurnWalkthroughView: View {
         ]
     }
 
+    private var isShortHeight: Bool { verticalSizeClass == .compact }
+
     var body: some View {
-        VStack(spacing: DesignTokens.Spacing.lg) {
+        VStack(spacing: isShortHeight ? DesignTokens.Spacing.sm : DesignTokens.Spacing.lg) {
             WalkthroughProgressSegments(current: step, total: pages.count)
                 .padding(.horizontal, DesignTokens.Spacing.md)
-                .padding(.top, DesignTokens.Spacing.sm)
+                .padding(.top, isShortHeight ? DesignTokens.Spacing.xs : DesignTokens.Spacing.sm)
 
             Group {
                 if reduceMotion {
@@ -150,8 +153,8 @@ struct SampleTurnWalkthroughView: View {
 
     private func pageView(_ page: Page, index: Int) -> some View {
         ScrollView {
-            VStack(spacing: DesignTokens.Spacing.lg) {
-                TTIconTile(systemImage: page.systemImage, tone: .brand, size: 120)
+            VStack(spacing: isShortHeight ? DesignTokens.Spacing.md : DesignTokens.Spacing.lg) {
+                TTIconTile(systemImage: page.systemImage, tone: .brand, size: isShortHeight ? 64 : 120)
                 VStack(spacing: DesignTokens.Spacing.sm) {
                     Text(page.title).ttEyebrow()
                     Text(page.headline)

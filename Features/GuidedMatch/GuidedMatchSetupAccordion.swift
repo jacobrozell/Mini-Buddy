@@ -7,21 +7,24 @@ struct SetupAccordion: View {
     let onStartBattle: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(BannerCenter.self) private var banners
     @State private var editingStepId: String?
+
+    private var isShortHeight: Bool { verticalSizeClass == .compact }
 
     var body: some View {
         ScrollViewReader { proxy in
             VStack(spacing: 0) {
                 ScrollView {
-                    VStack(spacing: DesignTokens.Spacing.sm) {
+                    VStack(spacing: isShortHeight ? DesignTokens.Spacing.xs : DesignTokens.Spacing.sm) {
                         ForEach(Array(viewModel.sortedMatchSteps.enumerated()), id: \.element.id) { index, step in
                             stepRow(step, number: index + 1)
                                 .id(step.id)
                         }
                     }
-                    .readableContentWidth()
-                    .padding(DesignTokens.Spacing.md)
+                    .padding(isShortHeight ? DesignTokens.Spacing.sm : DesignTokens.Spacing.md)
+                    .modifier(SetupAccordionReadableWidth(constrain: !isShortHeight))
                 }
                 progressBar
             }
@@ -51,20 +54,25 @@ struct SetupAccordion: View {
 
     private var progressBar: some View {
         let progress = viewModel.setupProgress
-        return HStack(spacing: DesignTokens.Spacing.md) {
+        return HStack(spacing: isShortHeight ? DesignTokens.Spacing.sm : DesignTokens.Spacing.md) {
             VStack(alignment: .leading, spacing: DesignTokens.Spacing.xxs) {
                 TTProgressBar(fraction: viewModel.setupProgressFraction, tone: .brand, criticalThreshold: nil)
                 Text(String(localized: "\(progress.completed) of \(progress.total) steps"))
-                    .font(TTFont.footnote)
+                    .font(isShortHeight ? TTFont.caption : TTFont.footnote)
                     .foregroundStyle(TTColor.inkSecondary)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             Button(String(localized: "Start Battle"), action: onStartBattle)
                 .buttonStyle(.ttPrimaryInline)
+                .controlSize(isShortHeight ? .small : .regular)
                 .disabled(!viewModel.setupIsComplete)
                 .accessibilityIdentifier("guidedMatch.startBattle")
         }
-        .padding(DesignTokens.Spacing.md)
-        .barChromeBackground()
+        .padding(isShortHeight ? 0 : DesignTokens.Spacing.md)
+        .barChromeBackground(
+            horizontalPadding: DesignTokens.Spacing.md,
+            verticalPadding: isShortHeight ? DesignTokens.Spacing.xxs : DesignTokens.Spacing.sm
+        )
     }
 
     @ViewBuilder
@@ -101,14 +109,14 @@ struct SetupAccordion: View {
             }
             .buttonStyle(.ttTertiary)
         }
-        .frame(minHeight: 52)
+        .frame(minHeight: isShortHeight ? DesignTokens.minTouchTarget : 52)
         .accessibilityElement(children: .combine)
         .accessibilityIdentifier("guidedMatch.setupStep.\(step.id)")
         .accessibilityLabel(String(localized: "Step \(number), \(step.title), complete"))
     }
 
     private func currentCard(_ step: MatchSetupStep, number: Int) -> some View {
-        VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
+        VStack(alignment: .leading, spacing: isShortHeight ? DesignTokens.Spacing.xs : DesignTokens.Spacing.sm) {
             HStack(alignment: .firstTextBaseline, spacing: DesignTokens.Spacing.sm) {
                 Text("\(number)")
                     .font(TTFont.numericSmall)
@@ -136,7 +144,7 @@ struct SetupAccordion: View {
             .buttonStyle(.ttTertiary)
             .accessibilityIdentifier("guidedMatch.stepGuide.\(step.id)")
         }
-        .surfaceCard()
+        .surfaceCard(padding: isShortHeight ? DesignTokens.Spacing.sm : DesignTokens.Spacing.md)
         .accessibilityIdentifier("guidedMatch.setupStep.\(step.id)")
     }
 
@@ -154,9 +162,23 @@ struct SetupAccordion: View {
                 .foregroundStyle(TTColor.inkTertiary)
             Spacer(minLength: 0)
         }
-        .frame(minHeight: 52)
+        .frame(minHeight: isShortHeight ? DesignTokens.minTouchTarget : 52)
         .accessibilityElement(children: .combine)
         .accessibilityIdentifier("guidedMatch.setupStep.\(step.id)")
         .accessibilityLabel(String(localized: "Step \(number), \(step.title), not started"))
+    }
+}
+
+/// Landscape already has little height; a 560pt column wastes the width that paired player cards need.
+private struct SetupAccordionReadableWidth: ViewModifier {
+    var constrain: Bool
+
+    @ViewBuilder
+    func body(content: Content) -> some View {
+        if constrain {
+            content.readableContentWidth()
+        } else {
+            content
+        }
     }
 }

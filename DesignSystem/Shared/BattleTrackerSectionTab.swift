@@ -132,7 +132,7 @@ struct BattleTrackerSectionTabBar: View {
     }
 
     private var usesCompactTabBar: Bool {
-        layoutContext.prefersCollapsedBattleChrome && !dynamicTypeSize.needsLayoutAdaptation
+        layoutContext.isShortHeight && !dynamicTypeSize.needsLayoutAdaptation
     }
 
     var body: some View {

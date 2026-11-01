@@ -18,6 +18,7 @@ struct TabletomeApp: App {
             RootTabView()
                 .tint(TTColor.brandFill)
                 .background(TTColor.canvas.ignoresSafeArea())
+                .ttWindowBackground()
                 .environmentObject(dependencies)
                 .environment(router)
                 .environment(hobbyBanner)

@@ -92,7 +92,7 @@ struct AccessibilityView: View {
                 .accessibilityIdentifier("accessibility.openWeb")
                 .accessibilityHint(String(localized: "Opens accessibility statement in Safari"))
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .ttScreenBackground()

@@ -85,7 +85,7 @@ extension GuidedMatchView {
 
     func openSpearheadSetupStep(_ stepId: String) {
         hubTab = .setup
-        if usesPadSplitNavigation {
+        if usesSplitNavigation {
             selectedDestination = .step(stepId)
         } else {
             router.learnPath.append(GuidedMatchDestination.step(stepId))
@@ -133,20 +133,24 @@ extension GuidedMatchView {
 
     /// Phone battle tab: hide redundant hub chrome so the tracker scroll area gets vertical space.
     var hidesGuidedMatchHubChromeWhenEmbedded: Bool {
-        showsEmbeddedBattleTracker && !layoutContext.usesPadSplitNavigation
+        showsEmbeddedBattleTracker && !usesSplitNavigation
     }
 
     var usesPhoneLandscapeBattleImmersion: Bool {
-        layoutContext.prefersCollapsedBattleChrome && showsEmbeddedBattleTracker
+        layoutContext.isShortHeight && showsEmbeddedBattleTracker
     }
 
-    var hidesTabBarInLandscapeBattle: Bool {
-        usesPhoneLandscapeBattleImmersion
+    /// Landscape height is ~400pt. The floating tab bar, on top of the nav bar and hub header, leaves a peephole.
+    var hidesTabBarInShortHeight: Bool {
+        layoutContext.isShortHeight && !usesSplitNavigation
     }
 
     var usesCompactHubStatusBar: Bool {
         hidesGuidedMatchHubChromeWhenEmbedded
-            || TabletomeLayout.prefersCompactGuidedMatchChrome(layoutContext)
+            || TabletomeLayout.prefersCompactGuidedMatchChrome(
+                layoutContext,
+                containerHeight: containerHeight
+            )
     }
 
     func hubChromeSummaryLine(catalog: SpearheadCatalog) -> String {
@@ -217,19 +221,20 @@ struct GuidedMatchStageHeader: View {
     var locksArmiesTab: Bool = false
     var setupCompleted: Int = 0
     var setupTotal: Int = 0
+    var compact: Bool = false
 
     @State private var lockedTabAttempt: GuidedMatchHubTab?
 
     var body: some View {
         VStack(alignment: .leading, spacing: DesignTokens.Spacing.xs) {
-            HStack(alignment: .top, spacing: 0) {
+            HStack(alignment: compact ? .center : .top, spacing: 0) {
                 ForEach(Array(visibleTabs.enumerated()), id: \.element.id) { index, tab in
                     if index > 0 {
                         Rectangle()
                             .fill(TTColor.stroke)
                             .frame(height: 2)
                             .frame(maxWidth: .infinity)
-                            .padding(.top, 15)
+                            .padding(.top, compact ? 0 : 15)
                     }
                     node(tab)
                 }
@@ -242,10 +247,13 @@ struct GuidedMatchStageHeader: View {
                     .accessibilityIdentifier("guidedMatch.hubTabs.lockedNotice")
             }
         }
-        .padding(.horizontal, DesignTokens.Spacing.md)
-        .padding(.vertical, DesignTokens.Spacing.sm)
-        .frame(minHeight: 64)
-        .barChromeBackground()
+        .padding(.horizontal, compact ? 0 : DesignTokens.Spacing.md)
+        .padding(.vertical, compact ? 0 : DesignTokens.Spacing.sm)
+        .frame(minHeight: compact ? nil : 64)
+        .barChromeBackground(
+            horizontalPadding: DesignTokens.Spacing.md,
+            verticalPadding: compact ? 0 : DesignTokens.Spacing.sm
+        )
     }
 
     private func node(_ tab: GuidedMatchHubTab) -> some View {
@@ -263,14 +271,26 @@ struct GuidedMatchStageHeader: View {
                 selection = tab
             }
         } label: {
-            VStack(spacing: DesignTokens.Spacing.xxs) {
-                nodeMark(tab, selected: selected)
-                Text(label(for: tab))
-                    .font(tab == .setup ? TTFont.numericSmall : TTFont.caption)
-                    .foregroundStyle(selected ? TTColor.inkPrimary : TTColor.inkSecondary)
-                    .lineLimit(1)
+            Group {
+                if compact {
+                    HStack(spacing: DesignTokens.Spacing.xs) {
+                        nodeMark(tab, selected: selected, diameter: 20)
+                        Text(label(for: tab))
+                            .font(tab == .setup ? TTFont.numericSmall : TTFont.caption)
+                            .foregroundStyle(selected ? TTColor.inkPrimary : TTColor.inkSecondary)
+                            .lineLimit(1)
+                    }
+                } else {
+                    VStack(spacing: DesignTokens.Spacing.xxs) {
+                        nodeMark(tab, selected: selected, diameter: 28)
+                        Text(label(for: tab))
+                            .font(tab == .setup ? TTFont.numericSmall : TTFont.caption)
+                            .foregroundStyle(selected ? TTColor.inkPrimary : TTColor.inkSecondary)
+                            .lineLimit(1)
+                    }
+                }
             }
-            .frame(minWidth: 72)
+            .frame(minWidth: compact ? 56 : 72, minHeight: compact ? DesignTokens.minTouchTarget : 0)
             .opacity(locked ? 0.4 : 1)
         }
         .buttonStyle(.plain)
@@ -287,19 +307,20 @@ struct GuidedMatchStageHeader: View {
     }
 
     @ViewBuilder
-    private func nodeMark(_ tab: GuidedMatchHubTab, selected: Bool) -> some View {
+    private func nodeMark(_ tab: GuidedMatchHubTab, selected: Bool, diameter: CGFloat = 28) -> some View {
         let done = isDone(tab)
+        let innerDot = max(8, diameter * 0.42)
         ZStack {
             Circle()
                 .strokeBorder(done ? TTColor.success : (selected ? TTColor.brandFill : TTColor.stroke), lineWidth: 2)
-                .frame(width: 28, height: 28)
+                .frame(width: diameter, height: diameter)
             if done {
-                Circle().fill(TTColor.success).frame(width: 28, height: 28)
+                Circle().fill(TTColor.success).frame(width: diameter, height: diameter)
                 Image(systemName: "checkmark")
                     .font(TTFont.caption.weight(.bold))
                     .foregroundStyle(TTColor.inkOnPlayer)
             } else if selected {
-                Circle().fill(TTColor.brandFill).frame(width: 12, height: 12)
+                Circle().fill(TTColor.brandFill).frame(width: innerDot, height: innerDot)
             }
         }
         .accessibilityHidden(true)

@@ -6,12 +6,14 @@ struct SpearheadPreBattleLoadoutStep: View {
     let parts: GuidedMatchStepParts
     let ruleSections: [RuleSection]
 
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @State private var showsLoadoutSheet = false
 
+    private var isShortHeight: Bool { verticalSizeClass == .compact }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: DesignTokens.Spacing.lg) {
-            parts.regimentAbilityCoachingCallout()
-            parts.enhancementCoachingCallout()
+        VStack(alignment: .leading, spacing: isShortHeight ? DesignTokens.Spacing.sm : DesignTokens.Spacing.lg) {
+            coachingCallouts
             parts.recommendedDefaultsControls()
 
             Button {
@@ -49,6 +51,19 @@ struct SpearheadPreBattleLoadoutStep: View {
                     viewModel.setStepComplete(SpearheadSetupStepId.preBattleLoadout, complete: true)
                 }
             )
+        }
+    }
+
+    @ViewBuilder
+    private var coachingCallouts: some View {
+        if isShortHeight {
+            HStack(alignment: .top, spacing: DesignTokens.Spacing.sm) {
+                parts.regimentAbilityCoachingCallout()
+                parts.enhancementCoachingCallout()
+            }
+        } else {
+            parts.regimentAbilityCoachingCallout()
+            parts.enhancementCoachingCallout()
         }
     }
 }

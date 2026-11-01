@@ -175,7 +175,7 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 |------|------|------|
 | Tokens, colors | `DesignSystem/DesignTokens.swift`, `BrandColors.swift` | `DesignSystemSpec.md` |
 | Shared battle / guide chrome | `DesignSystem/Shared/` | `DesignSystemSpec.md` |
-| Layout helpers | `DesignSystem/TabletomeLayout.swift`, `ReadableContentWidth.swift` | `iPhoneLandscapePlan.md` |
+| Layout helpers | `DesignSystem/TabletomeLayout.swift`, `ReadableContentWidth.swift`, `BattleScreenArrangement.swift`, `GuidedMatchLayoutSync.swift`, `TTWindowBackground.swift` | `AdaptiveLayoutSpec.md` |
 | Hobby form components | `DesignSystem/Hobby/` | `DesignSystemSpec.md` |
 
 ---
@@ -186,7 +186,7 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 |------|------|------|
 | Unit tests | `Tests/Unit/` | `TestPlanSpec.md` |
 | UI tests | `Tests/UI/` (if present) | `TestPlanSpec.md` |
-| Layout tests | search `TabletomeLayoutTests` | `iPhoneLandscapePlan.md` |
+| Layout tests | `TabletomeLayoutTests`, `BattleScreenArrangementTests`, `GuidedMatchLayoutSyncTests` | `AdaptiveLayoutSpec.md` |
 | Firebase tests | `Firebase*Tests.swift`, `AnalyticsFeatureUsageStoreTests.swift` | `firebase-analytics.md` |
 
 ---

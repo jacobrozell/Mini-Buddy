@@ -63,7 +63,7 @@ struct RootTabView: View {
             }
             .tag(AppTab.settings)
         }
-        .modifier(TabBarOnlyStyle())
+        .modifier(AdaptiveTabStyle())
         .toolbar(tabBarChrome.isHidden ? .hidden : .visible, for: .tabBar)
         .background {
             TabBarAccessibilityBridge(

@@ -496,7 +496,7 @@
         },
         {
           "id": "sentinels-embergard",
-          "name": "Sentinel's of Embergard",
+          "name": "Sentinels of Embergard",
           "general": "Jorvan Kreel, Heir of the Kraken",
           "tagline": "Combo-focused support heroes",
           "playstyle": "Positioning-heavy synergies. Gallants hit hard with setup but the army is fragile.",
@@ -3279,7 +3279,7 @@
         },
         {
           "id": "kavalos-vanguard",
-          "name": "Kavalo's Vanguard",
+          "name": "Kavalos Vanguard",
           "general": "Liege-Kavalos",
           "tagline": "Mobile tempo army",
           "playstyle": "Free retreats, Fly, and charge-blocking. Wins through movement control.",

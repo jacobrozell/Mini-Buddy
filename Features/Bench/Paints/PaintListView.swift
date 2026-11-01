@@ -69,7 +69,7 @@ struct PaintListView: View {
             else { listBody }
         }
         .navigationTitle(String(localized: "Paints"))
-        .searchable(text: $search, prompt: String(localized: "Paints, brands, sources…"))
+        .ttSearchable(text: $search, prompt: String(localized: "Paints, brands, sources…"))
         .toolbar { toolbar }
         .confirmationDialog(
             String(localized: "Delete \"\(paintToDelete?.name ?? "")\"?"),

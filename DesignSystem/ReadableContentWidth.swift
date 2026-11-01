@@ -6,6 +6,7 @@ public extension DesignTokens {
 }
 
 private struct ReadableContentWidthModifier: ViewModifier {
+    var measuresText: Bool
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
@@ -15,26 +16,28 @@ private struct ReadableContentWidthModifier: ViewModifier {
             verticalSizeClass: verticalSizeClass
         )
         switch layoutContext {
-        case .padPortrait, .padLandscape:
+        case .regular:
             content
                 .frame(maxWidth: DesignTokens.readableContentMaxWidth)
                 .frame(maxWidth: .infinity)
-        case .phoneLandscape:
+        case .shortHeight where measuresText:
             content
                 .frame(maxWidth: DesignTokens.readableContentMaxWidthPhoneLandscape)
                 .frame(maxWidth: .infinity)
-        case .phonePortrait:
+        case .shortHeight, .compact:
             content
         }
     }
 }
 
 public extension View {
-    /// Centers content in a readable column on iPad and iPhone landscape.
-    /// Apply to inner scroll content (e.g. a `VStack` inside `ScrollView`), not to `Form` or `List` —
-    /// constraining those containers narrows the scroll hit area to the centered column.
-    func readableContentWidth() -> some View {
-        modifier(ReadableContentWidthModifier())
+    /// Centers content on iPad.
+    /// Phone landscape stays full width so cards reach the side edges.
+    /// Pass `measuresText: true` for long-form prose, which keeps a measure in landscape.
+    /// Apply to inner scroll content, not to `Form` or `List` — constraining those
+    /// containers narrows the scroll hit area to the centered column.
+    func readableContentWidth(measuresText: Bool = false) -> some View {
+        modifier(ReadableContentWidthModifier(measuresText: measuresText))
     }
 
     /// Small bottom pad so the last row is not flush with the floating tab bar.

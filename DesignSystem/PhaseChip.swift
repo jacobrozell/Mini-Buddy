@@ -106,7 +106,7 @@ struct PhaseChipRow: View {
         return TabletomeLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
-        ) == .padPortrait
+        ) == .regular
     }
 
     var body: some View {

@@ -37,6 +37,22 @@ public extension View {
         listRowBackground(TTColor.surface)
     }
 
+    /// Pins search to the drawer under the navigation bar.
+    /// Default placement follows the horizontal size class and, on iOS 26, moves the
+    /// field into the navigation-bar platter. UIKit then breaks constraints and skips
+    /// search-bar placement callbacks when that size class changes (rotation, tab switch).
+    func ttSearchable(
+        text: Binding<String>,
+        prompt: String,
+        displayMode: SearchFieldPlacement.NavigationBarDrawerDisplayMode = .automatic
+    ) -> some View {
+        searchable(
+            text: text,
+            placement: .navigationBarDrawer(displayMode: displayMode),
+            prompt: prompt
+        )
+    }
+
     /// Keeps the last visible line from showing through the floating tab bar.
     @ViewBuilder
     func ttBottomScrollEdge() -> some View {

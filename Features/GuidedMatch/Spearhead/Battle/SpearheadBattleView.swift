@@ -73,11 +73,11 @@ struct SpearheadBattleView: View {
     }
 
     var usesTwoColumnLayout: Bool {
-        layoutContext.usesPadSplitNavigation && !dynamicTypeSize.needsLayoutAdaptation
+        layoutContext.usesSplitNavigation && !dynamicTypeSize.needsLayoutAdaptation
     }
 
     var usesPhoneLandscapeLayout: Bool {
-        layoutContext == .phoneLandscape && !dynamicTypeSize.needsLayoutAdaptation
+        layoutContext == .shortHeight && !dynamicTypeSize.needsLayoutAdaptation
     }
 
     var usesNewBattleScreen: Bool {

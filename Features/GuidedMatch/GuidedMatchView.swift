@@ -37,9 +37,10 @@ struct GuidedMatchView: View {
     @State var showsMatchHistory = false
     @State var showsPreBattleLoadoutSheet = false
     @State var householdPlayers: HouseholdPlayersState?
-    @AppStorage(BattleTrackerChromeStorage.guidedMatchHubCollapsedKey) var isHubChromeCollapsed = false
     @AppStorage(SpearheadStarterBoxStorage.selectedBoxIdKey) var selectedSpearheadBoxId = SpearheadStarterBoxStorage.defaultBoxId
     @State var splitColumnVisibility: NavigationSplitViewVisibility = .all
+    @State var containerHeight: CGFloat = 0
+    @State var battlePresentation = SpearheadBattlePresentation()
 
     let initialHubTab: GuidedMatchHubTab?
 
@@ -82,7 +83,7 @@ struct GuidedMatchView: View {
 
     var body: some View {
         ZStack {
-            if usesPadSplitNavigation {
+            if usesSplitNavigation {
                 if let catalog = viewModel.catalog {
                     regularLayout(catalog: catalog)
                 } else {
@@ -92,7 +93,7 @@ struct GuidedMatchView: View {
                 compactLayout(catalog: viewModel.catalog)
             }
 
-            if usesPadSplitNavigation, viewModel.catalog == nil {
+            if usesSplitNavigation, viewModel.catalog == nil {
                 if let errorMessage = viewModel.errorMessage {
                     EmptyStateView(
                         title: String(localized: "Unavailable"),
@@ -105,7 +106,7 @@ struct GuidedMatchView: View {
                     ProgressView(String(localized: "Loading guided match…"))
                         .asyncContentShell()
                 }
-            } else if !usesPadSplitNavigation, let errorMessage = viewModel.errorMessage {
+            } else if !usesSplitNavigation, let errorMessage = viewModel.errorMessage {
                 EmptyStateView(
                     title: String(localized: "Unavailable"),
                     message: errorMessage,
@@ -116,7 +117,7 @@ struct GuidedMatchView: View {
             }
         }
         .modifier(GuidedMatchNavigationChrome(
-            usesPadSplitNavigation: usesPadSplitNavigation,
+            usesSplitNavigation: usesSplitNavigation,
             title: guidedMatchNavigationTitle,
             displayMode: guidedMatchNavigationTitleDisplayMode,
             toolbar: { matchSyncToolbar }
@@ -172,7 +173,7 @@ struct GuidedMatchView: View {
                     viewModel.applyStarterMatchup(household: householdPlayers)
                 }
                 hubTab = .setup
-                if usesPadSplitNavigation {
+                if usesSplitNavigation {
                     selectedDestination = .playerOne
                 }
             } else if AppLaunchArguments.shouldOpenBattleTracker
@@ -195,7 +196,7 @@ struct GuidedMatchView: View {
                 if wantsStarterArmies, !viewModel.matchState.hasBothArmies {
                     viewModel.applyStarterMatchup(household: householdPlayers)
                 }
-                if AppLaunchArguments.shouldApplyStarterMatchup, usesPadSplitNavigation {
+                if AppLaunchArguments.shouldApplyStarterMatchup, usesSplitNavigation {
                     selectedDestination = .battleTracker
                 }
             }
@@ -209,6 +210,21 @@ struct GuidedMatchView: View {
         }
         .accessibilityIdentifier("guidedMatch.screen")
         .glossaryEntryNavigation()
+        .onGeometryChange(for: CGFloat.self) { proxy in proxy.size.height } action: { containerHeight = $0 }
+        .onChange(of: usesSplitNavigation) { _, nowSplit in
+            if nowSplit {
+                selectedDestination = GuidedMatchLayoutSync.destination(
+                    for: hubTab,
+                    showsBattle: showsEmbeddedBattleTracker,
+                    nextIncompleteStepId: viewModel.nextIncompleteStep?.id,
+                    current: selectedDestination
+                )
+            } else {
+                hubTab = GuidedMatchLayoutSync.hubTab(for: selectedDestination, current: hubTab)
+                syncHubTabWithVisibleTabs()
+                tabBarChrome.isHidden = hidesTabBarInShortHeight
+            }
+        }
         .onReceive(NotificationCenter.default.publisher(for: .matchSyncStateDidChange)) { notification in
             let shouldBroadcast = notification.userInfo?[MatchSyncNotifications.shouldBroadcastToPeersKey] as? Bool ?? true
             guard !shouldBroadcast else { return }
@@ -224,8 +240,12 @@ struct GuidedMatchView: View {
         )
     }
 
-    var usesPadSplitNavigation: Bool {
-        layoutContext.usesPadSplitNavigation && !dynamicTypeSize.needsLayoutAdaptation
+    var usesSplitNavigation: Bool {
+        TabletomeLayout.usesSplitNavigation(
+            horizontalSizeClass: horizontalSizeClass,
+            verticalSizeClass: verticalSizeClass,
+            dynamicTypeSize: dynamicTypeSize
+        )
     }
 
     var guidedMatchNavigationTitle: String {
@@ -237,14 +257,10 @@ struct GuidedMatchView: View {
 
     /// Large titles collapse when the embedded battle tracker scrolls and draw over hub chrome on phone.
     var guidedMatchNavigationTitleDisplayMode: NavigationBarItem.TitleDisplayMode {
-        if usesPadSplitNavigation || layoutContext.isCompactHeight || layoutContext == .phonePortrait {
+        if usesSplitNavigation || layoutContext != .compact {
             return .inline
         }
         return .large
-    }
-
-    var isPadLandscape: Bool {
-        layoutContext == .padLandscape
     }
 }
 
@@ -299,13 +315,13 @@ struct PlayerArmyRow: View {
 // swiftlint:enable type_body_length
 
 private struct GuidedMatchNavigationChrome<Toolbar: ToolbarContent>: ViewModifier {
-    let usesPadSplitNavigation: Bool
+    let usesSplitNavigation: Bool
     let title: String
     let displayMode: NavigationBarItem.TitleDisplayMode
     @ToolbarContentBuilder let toolbar: () -> Toolbar
 
     func body(content: Content) -> some View {
-        if usesPadSplitNavigation {
+        if usesSplitNavigation {
             content
                 .toolbar(.hidden, for: .navigationBar)
         } else {

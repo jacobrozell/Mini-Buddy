@@ -190,7 +190,7 @@ struct PrivacyPolicyView: View {
                 .accessibilityIdentifier("privacy.openWeb")
                 .accessibilityHint(String(localized: "Opens privacy policy in Safari"))
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .ttScreenBackground()

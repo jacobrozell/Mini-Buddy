@@ -3,7 +3,7 @@ import TabletomeDomain
 
 extension BattlePhaseTrackerView {
     var compactLayoutSpacing: CGFloat {
-        layoutContext == .phoneLandscape
+        layoutContext == .shortHeight
             ? DesignTokens.phoneLandscapeSectionSpacing
             : DesignTokens.Spacing.lg
     }

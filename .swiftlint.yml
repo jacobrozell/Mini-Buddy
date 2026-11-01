@@ -29,6 +29,14 @@ identifier_name:
     - x
     - y
 
+custom_rules:
+  no_device_idiom_layout:
+    name: "No device idiom in layout"
+    regex: 'userInterfaceIdiom|UIScreen\.main'
+    excluded: "Support/Diagnostics/"
+    message: "Choose layouts from size classes or container size (TabletomeLayout). Device idiom breaks iPhone Duo and resizable iPad windows."
+    severity: error
+
 excluded:
   - DerivedData
   - .build

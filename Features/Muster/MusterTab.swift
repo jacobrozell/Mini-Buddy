@@ -6,6 +6,7 @@ import TabletomeDomain
 /// Muster tab with adaptive split view (iPad) and navigation stack (iPhone).
 struct MusterTab: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.modelContext) private var context
     @Environment(AppRouter.self) private var router
@@ -18,7 +19,7 @@ struct MusterTab: View {
     @State private var showNewRoster = false
 
     private var usesSplitLayout: Bool {
-        AdaptiveLayout.usesSplitNavigation(horizontalSizeClass)
+        AdaptiveLayout.usesSplitNavigation(horizontalSizeClass, verticalSizeClass)
     }
 
     private var sidebarWidth: (min: CGFloat, ideal: CGFloat, max: CGFloat) {

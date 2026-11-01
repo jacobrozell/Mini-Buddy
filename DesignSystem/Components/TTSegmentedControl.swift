@@ -7,6 +7,7 @@ public struct TTSegmentedControl<T: Hashable & Identifiable>: View {
     private let options: [T]
     private let title: (T) -> String
     private let systemImage: ((T) -> String)?
+    private let accessibilityIdentifier: ((T) -> String)?
     private let isDisabled: (T) -> Bool
     @Namespace private var selectionSpace
 
@@ -15,12 +16,14 @@ public struct TTSegmentedControl<T: Hashable & Identifiable>: View {
         options: [T],
         title: @escaping (T) -> String,
         systemImage: ((T) -> String)? = nil,
+        accessibilityIdentifier: ((T) -> String)? = nil,
         isDisabled: @escaping (T) -> Bool = { _ in false }
     ) {
         _selection = selection
         self.options = options
         self.title = title
         self.systemImage = systemImage
+        self.accessibilityIdentifier = accessibilityIdentifier
         self.isDisabled = isDisabled
     }
 
@@ -46,6 +49,7 @@ public struct TTSegmentedControl<T: Hashable & Identifiable>: View {
                     HStack(spacing: DesignTokens.Spacing.xxs) {
                         if let systemImage {
                             Image(systemName: systemImage(option))
+                                .accessibilityHidden(true)
                         }
                         Text(title(option))
                             .lineLimit(1)
@@ -57,6 +61,7 @@ public struct TTSegmentedControl<T: Hashable & Identifiable>: View {
                     .frame(maxWidth: dynamicTypeSize.needsLayoutAdaptation ? nil : .infinity)
                     .frame(minHeight: 36)
                     .padding(.vertical, 4)
+                    .contentShape(Rectangle())
                     .background {
                         if option == selection, !dynamicTypeSize.needsLayoutAdaptation {
                             RoundedRectangle(cornerRadius: DesignTokens.Radius.sm, style: .continuous)
@@ -71,9 +76,22 @@ public struct TTSegmentedControl<T: Hashable & Identifiable>: View {
                 .buttonStyle(.plain)
                 .disabled(isDisabled(option))
                 .accessibilityAddTraits(option == selection ? .isSelected : [])
+                .modifier(SegmentAccessibilityIdentifier(identifier: accessibilityIdentifier?(option)))
             }
         }
         .padding(DesignTokens.Spacing.xxs)
         .animation(TTMotion.standard(reduceMotion: reduceMotion), value: selection)
+    }
+}
+
+private struct SegmentAccessibilityIdentifier: ViewModifier {
+    let identifier: String?
+
+    func body(content: Content) -> some View {
+        if let identifier {
+            content.accessibilityIdentifier(identifier)
+        } else {
+            content
+        }
     }
 }

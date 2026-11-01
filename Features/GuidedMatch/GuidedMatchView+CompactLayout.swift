@@ -18,23 +18,17 @@ extension GuidedMatchView {
                     ProgressView()
                 }
             }
-            .guidedMatchNestedNavigationDestinations()
-        .onChange(of: hidesTabBarInLandscapeBattle) { _, hidden in
+        .onChange(of: hidesTabBarInShortHeight) { _, hidden in
             tabBarChrome.isHidden = hidden
         }
-        .onChange(of: layoutContext) { oldContext, newContext in
-            tabBarChrome.isHidden = hidesTabBarInLandscapeBattle
-            if newContext == .phoneLandscape,
-               oldContext != .phoneLandscape,
-               !showsEmbeddedBattleTracker {
-                isHubChromeCollapsed = true
-            }
+        .onChange(of: layoutContext) { _, _ in
+            tabBarChrome.isHidden = hidesTabBarInShortHeight
         }
         .onDisappear {
             tabBarChrome.isHidden = false
         }
         .onAppear {
-            tabBarChrome.isHidden = hidesTabBarInLandscapeBattle
+            tabBarChrome.isHidden = hidesTabBarInShortHeight
         }
         .onChange(of: viewModel.matchState.hasBothArmies) { _, _ in
             guard hasAppliedInitialHubTab else { return }
@@ -44,9 +38,6 @@ extension GuidedMatchView {
             hubTab = suggestedHubTab
         }
         .onChange(of: hubTab) { _, newTab in
-            if newTab == .setup, !setupIsComplete {
-                isHubChromeCollapsed = true
-            }
             if newTab == .battle, setupIsComplete {
                 logBattleTrackerOpened(source: "hub_tab")
             }
@@ -125,7 +116,8 @@ extension GuidedMatchView {
                     setupComplete: setupIsComplete,
                     locksArmiesTab: hasResumableBattleSession,
                     setupCompleted: viewModel.setupProgress.completed,
-                    setupTotal: viewModel.setupProgress.total
+                    setupTotal: viewModel.setupProgress.total,
+                    compact: layoutContext.isShortHeight
                 )
             }
         }

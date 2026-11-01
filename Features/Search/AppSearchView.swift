@@ -39,7 +39,7 @@ struct AppSearchView: View {
                 }
                 .listStyle(.insetGrouped)
                 .tabBarScrollInset()
-                .searchable(
+                .ttSearchable(
                     text: $viewModel.searchText,
                     prompt: GameSystemRulesLabels.searchPrompt(gameSystemId: viewModel.scopedGameSystemId)
                 )

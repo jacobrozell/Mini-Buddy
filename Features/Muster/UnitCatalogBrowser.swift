@@ -86,7 +86,7 @@ struct UnitCatalogBrowser: View {
                     .tabBarScrollInset()
                 }
             }
-            .searchable(text: $search, prompt: String(localized: "Units, keywords…"))
+            .ttSearchable(text: $search, prompt: String(localized: "Units, keywords…"))
             .navigationTitle(String(localized: "Add unit"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

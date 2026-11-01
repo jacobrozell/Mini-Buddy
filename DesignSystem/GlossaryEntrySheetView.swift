@@ -87,7 +87,7 @@ struct GlossaryEntrySheetView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .readableContentWidth()
+                .readableContentWidth(measuresText: true)
                 .padding(DesignTokens.Spacing.md)
             }
         }

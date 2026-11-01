@@ -1,159 +1,70 @@
 import SwiftUI
-#if canImport(UIKit)
-import UIKit
-#endif
 
 public enum TabletomeLayoutContext: Equatable, Sendable {
-    case phonePortrait
-    case phoneLandscape
-    case padPortrait
-    case padLandscape
+    /// Compact width, regular height: iPhone portrait, Duo folded, narrow iPad windows.
+    case compact
+    /// Compact height: every iPhone in landscape (Pro Max reports regular width), Duo folded landscape.
+    case shortHeight
+    /// Regular width and height: iPad in either orientation, Duo open, wide windows.
+    case regular
 
-    public var isCompactHeight: Bool {
-        switch self {
-        case .phoneLandscape, .padLandscape: true
-        default: false
-        }
-    }
+    public var isShortHeight: Bool { self == .shortHeight }
 
-    public var usesPadSplitNavigation: Bool {
-        switch self {
-        case .padPortrait, .padLandscape: true
-        default: false
-        }
-    }
-
-    /// iPhone landscape has very little vertical space — collapse decorative chrome during battle.
-    public var prefersCollapsedBattleChrome: Bool {
-        self == .phoneLandscape
-    }
+    public var usesSplitNavigation: Bool { self == .regular }
 }
 
 public enum TabletomeLayout {
-    /// iPhone SE / 8 (667pt) and 13 mini (812pt) portrait heights — extra chrome eats scroll room.
-    public static let compactPhoneHeightThreshold: CGFloat = 812
+    public static let compactContainerHeightThreshold: CGFloat = 740
 
-    public enum Idiom: Equatable, Sendable {
-        case phone
-        case pad
-        case other
-    }
-
-    @MainActor
-    public static func prefersCompactGuidedMatchChrome(
-        _ context: TabletomeLayoutContext,
-        idiom: Idiom? = nil,
-        boundsHeight: CGFloat? = nil
-    ) -> Bool {
-        switch context {
-        case .phoneLandscape:
-            true
-        case .phonePortrait:
-            isCompactPhoneHeight(idiom: idiom, boundsHeight: boundsHeight)
-        default:
-            false
-        }
-    }
-
-    @MainActor
-    public static func isCompactPhoneHeight(
-        idiom: Idiom? = nil,
-        boundsHeight: CGFloat? = nil
-    ) -> Bool {
-        #if canImport(UIKit)
-        guard (idiom ?? currentIdiom()) == .phone else { return false }
-        let height = boundsHeight ?? UIScreen.main.bounds.height
-        return height <= compactPhoneHeightThreshold
-        #else
-        return false
-        #endif
-    }
-
-    @MainActor
-    public static func currentIdiom() -> Idiom {
-        #if canImport(UIKit)
-        switch UIDevice.current.userInterfaceIdiom {
-        case .phone: return .phone
-        case .pad: return .pad
-        default: return .other
-        }
-        #else
-        return .other
-        #endif
-    }
-
-    @MainActor
     public static func context(
-        idiom: Idiom? = nil,
         horizontalSizeClass: UserInterfaceSizeClass?,
         verticalSizeClass: UserInterfaceSizeClass?
     ) -> TabletomeLayoutContext {
-        let resolvedIdiom = idiom ?? currentIdiom()
-        let compactHeight = verticalSizeClass == .compact
-        switch resolvedIdiom {
-        case .phone:
-            return compactHeight ? .phoneLandscape : .phonePortrait
-        case .pad:
-            return compactHeight ? .padLandscape : .padPortrait
-        case .other:
-            if compactHeight { return .padLandscape }
-            return horizontalSizeClass == .regular ? .padPortrait : .phonePortrait
-        }
+        if verticalSizeClass == .compact { return .shortHeight }
+        if horizontalSizeClass == .regular { return .regular }
+        return .compact
     }
 
-    @MainActor
-    public static func isPadLandscape(
-        idiom: Idiom? = nil,
+    public static func usesSplitNavigation(
         horizontalSizeClass: UserInterfaceSizeClass?,
-        verticalSizeClass: UserInterfaceSizeClass?
+        verticalSizeClass: UserInterfaceSizeClass?,
+        dynamicTypeSize: DynamicTypeSize = .large
     ) -> Bool {
-        context(
-            idiom: idiom,
-            horizontalSizeClass: horizontalSizeClass,
-            verticalSizeClass: verticalSizeClass
-        ) == .padLandscape
+        context(horizontalSizeClass: horizontalSizeClass, verticalSizeClass: verticalSizeClass) == .regular
+            && !dynamicTypeSize.needsLayoutAdaptation
     }
 
-    @MainActor
-    public static func isPhone(
-        idiom: Idiom? = nil,
-        horizontalSizeClass: UserInterfaceSizeClass?,
-        verticalSizeClass: UserInterfaceSizeClass?
-    ) -> Bool {
-        switch context(
-            idiom: idiom,
-            horizontalSizeClass: horizontalSizeClass,
-            verticalSizeClass: verticalSizeClass
-        ) {
-        case .phonePortrait, .phoneLandscape: true
-        default: false
-        }
-    }
-
-    /// iPad and Mac (Designed for iPad) with regular horizontal width.
-    @MainActor
-    public static func usesLargeScreenLayout(
-        idiom: Idiom? = nil,
-        horizontalSizeClass: UserInterfaceSizeClass?
-    ) -> Bool {
-        guard horizontalSizeClass == .regular else { return false }
-        switch idiom ?? currentIdiom() {
-        case .pad, .other:
-            return true
-        case .phone:
-            return false
-        }
-    }
-
-    @MainActor
     public static func usesSideBySideLayout(
-        idiom: Idiom? = nil,
         horizontalSizeClass: UserInterfaceSizeClass?,
-        verticalSizeClass: UserInterfaceSizeClass? = nil,
+        verticalSizeClass: UserInterfaceSizeClass?,
         isAccessibilitySize: Bool = false
     ) -> Bool {
-        guard !isAccessibilitySize else { return false }
-        return usesLargeScreenLayout(idiom: idiom, horizontalSizeClass: horizontalSizeClass)
+        !isAccessibilitySize
+            && context(horizontalSizeClass: horizontalSizeClass, verticalSizeClass: verticalSizeClass) == .regular
+    }
+
+    /// Two-player cards sit side by side on iPad and in landscape, where width is the available axis.
+    public static func usesPairedPlayerColumns(
+        horizontalSizeClass: UserInterfaceSizeClass?,
+        verticalSizeClass: UserInterfaceSizeClass?,
+        isAccessibilitySize: Bool = false
+    ) -> Bool {
+        if isAccessibilitySize { return false }
+        switch context(horizontalSizeClass: horizontalSizeClass, verticalSizeClass: verticalSizeClass) {
+        case .regular, .shortHeight: return true
+        case .compact: return false
+        }
+    }
+
+    public static func prefersCompactGuidedMatchChrome(
+        _ context: TabletomeLayoutContext,
+        containerHeight: CGFloat
+    ) -> Bool {
+        switch context {
+        case .shortHeight: true
+        case .compact: containerHeight > 0 && containerHeight <= compactContainerHeightThreshold
+        case .regular: false
+        }
     }
 }
 

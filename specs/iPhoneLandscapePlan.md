@@ -1,5 +1,7 @@
 # iPhone Landscape & Large Text Support — Master Plan
 
+> **Superseded for implementation** by [`AdaptiveLayoutSpec.md`](AdaptiveLayoutSpec.md) (size classes, not idiom). Kept for historical UX/accessibility notes.
+
 Phased plan to enable iPhone landscape across every screen, align layout logic with idiom (not size class alone), and harden Dynamic Type at the same time.
 
 Today the app is **portrait-only on iPhone** (`project.yml`), with landscape work aimed at **iPad** and a few screens that already react to `verticalSizeClass == .compact` (notably onboarding).

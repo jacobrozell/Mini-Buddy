@@ -19,7 +19,7 @@ struct MatchStepDetailView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     private var usesSideBySideColumns: Bool {
-        TabletomeLayout.usesSideBySideLayout(
+        TabletomeLayout.usesPairedPlayerColumns(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass,
             isAccessibilitySize: dynamicTypeSize.needsLayoutAdaptation
@@ -109,7 +109,7 @@ struct MatchStepDetailView: View {
                     TipsCard(tips: step.tips)
                 }
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .tabBarScrollInset()

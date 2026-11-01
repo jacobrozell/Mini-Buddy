@@ -3,15 +3,15 @@ import TabletomeDomain
 
 extension SpearheadBattleView {
     var battleScreen: some View {
-        BattleScreenLayout(layoutContext: layoutContext, dynamicTypeSize: dynamicTypeSize) {
-            scoreboardHeader
-        } phaseRail: {
+        BattleScreenLayout(layoutContext: layoutContext, dynamicTypeSize: dynamicTypeSize) { arrangement in
+            scoreboardHeader(compact: arrangement == .twoColumn)
+        } phaseRail: { _ in
             BattlePhaseRail(
                 phases: railPhases,
                 current: viewModel.trackerState.currentPhase,
                 tone: TTTone.player(viewModel.trackerState.activePlayerIsOne),
                 gameSystemId: viewModel.gameSystemId.rawValue,
-                axis: layoutContext == .phoneLandscape ? .vertical : .horizontal,
+                axis: .horizontal,
                 showsDeployment: isDeploymentMoment
             ) { phase in
                 viewModel.setPhase(phase)
@@ -38,16 +38,16 @@ extension SpearheadBattleView {
             opponentUnitsSection(embedsResolver: false)
         }
         .ttScreenBackground()
-        .overlay(alignment: .topTrailing) {
-            battleMenu
-                .padding(.trailing, DesignTokens.Spacing.sm)
-                .padding(.top, DesignTokens.Spacing.xs)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                battleMenu
+            }
         }
         .ttHaptic(.phaseAdvanced, trigger: primaryTapCount)
         .ttHaptic(.handoff, trigger: viewModel.trackerState.battleRound)
     }
 
-    private var scoreboardHeader: some View {
+    private func scoreboardHeader(compact: Bool) -> some View {
         let activeIsOne = viewModel.trackerState.activePlayerIsOne
         let underdog = viewModel.trackerState.battleRound >= 2 ? viewModel.underdogIsPlayerOne : nil
         return BattleScoreboardHeader(
@@ -69,7 +69,7 @@ extension SpearheadBattleView {
             ),
             round: viewModel.trackerState.battleRound,
             roundCount: viewModel.maxBattleRounds,
-            compact: layoutContext == .phoneLandscape,
+            compact: compact,
             onTapScore: { _ in showsVictoryPointsSheet = true },
             onTapRound: { showsRoundPicker = true }
         )

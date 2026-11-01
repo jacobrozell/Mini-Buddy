@@ -81,7 +81,7 @@ struct GameSystemRulesReferenceView: View {
         }
         .listStyle(.insetGrouped)
         .tabBarScrollInset()
-        .searchable(text: $searchText, prompt: GameSystemRulesLabels.rulesSearchPrompt(gameSystemId: gameSystem.id))
+        .ttSearchable(text: $searchText, prompt: GameSystemRulesLabels.rulesSearchPrompt(gameSystemId: gameSystem.id))
         .navigationTitle(GameSystemRulesLabels.rulesReferenceTitle(gameSystemId: gameSystem.id))
         .accessibilityIdentifier("guide.rulesList.\(gameSystem.id)")
     }

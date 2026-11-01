@@ -120,11 +120,11 @@ Other APIs the new UI calls:
 
 ### 1.3 Phone landscape (BT-12)
 
-Two columns: left 42% = scoreboard (stacked vertically) + phase rail (vertical list) + action bar; right 58% = Now panel. Tab bar stays hidden (existing `hidesTabBarInLandscapeBattle`).
+**Implemented:** `BattleScreenArrangement.twoColumn` — left sidebar (scoreboard, scrollable) ~30% width; right column = horizontal phase rail + scrolling Now panel + action bar. Tab bar hidden (`hidesTabBarInLandscapeBattle`). UI id `battleScreen.layout.twoColumn`.
 
-### 1.4 iPad (BT-12)
+### 1.4 iPad / wide (BT-12)
 
-Three regions: top scoreboard + phase rail spanning the width; left column (≤ 420 pt) = Now panel; right column = Units panel (always visible, BT-09) with the combat resolver opening as a sheet over it. Action bar pinned at the bottom of the left column.
+**Implemented:** `BattleScreenArrangement.wide` when container ≥ 720×560; `stacked` in narrow split detail. Wide layout: scoreboard + phase rail (max 720); Now column (~45% width) + Units side panel; action bar under Now column.
 
 ### 1.5 Where the old tabs' content goes
 

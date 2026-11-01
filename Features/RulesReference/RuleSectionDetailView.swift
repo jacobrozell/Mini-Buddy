@@ -78,7 +78,7 @@ struct RuleSectionDetailView: View {
                     }
                 }
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .ttScreenBackground()

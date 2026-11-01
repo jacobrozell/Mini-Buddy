@@ -106,7 +106,7 @@ extension GuidedMatchView {
 
     /// On phone Setup tab, hub status + Up Next are enough — hide the duplicate checklist.
     private var showsSetupProgressChecklist: Bool {
-        usesPadSplitNavigation || hubTab != .setup
+        usesSplitNavigation || hubTab != .setup
     }
 
     var matchupSectionView: some View {

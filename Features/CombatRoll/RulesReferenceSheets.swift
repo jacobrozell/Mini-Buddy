@@ -124,7 +124,7 @@ struct GlossaryEntryDetailView: View {
                 }
                 .accessibilityIdentifier("glossary.browseAll")
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .tabBarScrollInset()
@@ -158,7 +158,7 @@ struct BattleTacticsReferenceView: View {
                     .accessibilityIdentifier("battleTactics.scoringRules")
                 }
             }
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
             .padding(DesignTokens.Spacing.md)
         }
         .tabBarScrollInset()

@@ -5,6 +5,7 @@ struct OnboardingPageView: View {
     let wideLayout: Bool
 
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     var body: some View {
         Group {
@@ -27,7 +28,9 @@ struct OnboardingPageView: View {
                 VStack(spacing: DesignTokens.Spacing.lg) {
                     Spacer(minLength: 24)
                     illustration
-                        .containerRelativeFrame(.vertical) { height, _ in height * 0.4 }
+                        .containerRelativeFrame(.vertical) { height, _ in
+                            height * (verticalSizeClass == .compact ? 0.3 : 0.4)
+                        }
                     textBlock(alignment: .center)
                     Spacer(minLength: 24)
                 }

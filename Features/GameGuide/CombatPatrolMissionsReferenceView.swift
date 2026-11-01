@@ -55,7 +55,7 @@ struct CombatPatrolMissionsReferenceView: View {
                 }
             }
             .padding(DesignTokens.Spacing.md)
-            .readableContentWidth()
+            .readableContentWidth(measuresText: true)
         }
         .navigationTitle(String(localized: "Combat Patrol Missions"))
         .navigationBarTitleDisplayMode(.inline)
