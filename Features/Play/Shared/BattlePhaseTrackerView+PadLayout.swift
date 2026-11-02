@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerView {
     var usesPadTabbedTwoColumnLayout: Bool {

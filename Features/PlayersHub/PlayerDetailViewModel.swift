@@ -1,6 +1,6 @@
 import Foundation
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 @MainActor
 final class PlayerDetailViewModel: ObservableObject {

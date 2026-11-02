@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 struct MusterSettingsSection: View {
     @Environment(\.modelContext) private var context

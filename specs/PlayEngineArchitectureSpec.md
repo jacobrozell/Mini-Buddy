@@ -388,6 +388,6 @@ Insert **before Phase 7 (Play pillar consolidation)** in [UnifiedAppPlan.md](Uni
 | Target release | Pre–Kill Team / Blood Bowl |
 | Last verified | 2026-06-18 |
 | Code paths | `Domain/Registry/`, `Data/JSON/BundledPlayCatalogRepository.swift`, `Data/Registry/GameSystemsManifestLoader.swift`, `App/AppDependencies.swift` |
-| Tests | `GameSystemRegistryTests` (manifest validation), full `TabletomeTests` green |
+| Tests | `GameSystemRegistryTests` (manifest validation), full `MiniBuddyTests` green |
 | Completed | P1–P3 registry/engine; P4 partial (Domain migrated, VM context, VP scoring, manifest validation, key DesignSystem) |
 | Remaining | P4 Features view migration; P5 tracker split by engine |

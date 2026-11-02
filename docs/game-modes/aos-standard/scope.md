@@ -6,7 +6,7 @@
 
 ---
 
-## What Tabletome ships for AoS
+## What Mini Buddy ships for AoS
 
 | Capability | Spearhead | Standard AoS |
 |------------|-----------|--------------|
@@ -19,7 +19,7 @@
 | Manifestation / endless spells tracking | No | No |
 | Pitched battle / Matched Play missions | No | No |
 
-Default game system in onboarding remains **AoS Spearhead**. Users picking Tabletome for “full Age of Sigmar” should be directed to official GW materials until a future `GameSystemId` exists.
+Default game system in onboarding remains **AoS Spearhead**. Users picking Mini Buddy for “full Age of Sigmar” should be directed to official GW materials until a future `GameSystemId` exists.
 
 ---
 

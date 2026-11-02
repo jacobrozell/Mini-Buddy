@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 @MainActor
 class BattlePhaseTrackerViewModel: ObservableObject {
@@ -139,7 +139,7 @@ class BattlePhaseTrackerViewModel: ObservableObject {
     }
 
     func resetTracker() {
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_reset",
             message: "Battle tracker reset.",

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 /// Applies launch-argument fixtures for UI tests and screenshot automation.
 enum UITestLaunchConfiguration {

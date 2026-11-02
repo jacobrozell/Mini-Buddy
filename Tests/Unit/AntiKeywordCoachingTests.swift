@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class AntiKeywordCoachingTests: XCTestCase {
     private let judgementBlade = SpearheadWeapon(

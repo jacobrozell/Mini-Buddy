@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Short, self-contained Spearhead walkthrough of one turn's phases — no match state required.
 struct SampleTurnWalkthroughView: View {

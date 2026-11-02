@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// One distinct paint pot / basing product. Mirrors the web `HobbyPaint` typedef
 /// `{ name, type, swatch, qty, brand, source, notes, low? }`. Uniqueness of `name`

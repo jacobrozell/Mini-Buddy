@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Physical items and time needed for a first Combat Patrol game.
 struct CombatPatrolWhatYouNeedCard: View {

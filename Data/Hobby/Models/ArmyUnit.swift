@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// One entry in an army. May represent many physical models. Mirrors the web unit row
 /// `{ unit, qty, source, state, spearhead?, notes, members? }`.

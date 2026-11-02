@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 private enum SpearheadBattlePresentationKey: EnvironmentKey {
     static let defaultValue: SpearheadBattlePresentation? = nil

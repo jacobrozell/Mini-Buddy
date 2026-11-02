@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class HobbyModelCountTests: XCTestCase {
     func testSingleParenGroupTimesQty() {

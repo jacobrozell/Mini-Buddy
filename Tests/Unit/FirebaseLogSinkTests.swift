@@ -1,6 +1,6 @@
 import XCTest
-@testable import Tabletome
-import TabletomeData
+@testable import MiniBuddy
+import MiniBuddyData
 
 final class FirebaseLogSinkTests: XCTestCase {
     func testAnalyticsSinkSkipsWhenCollectionDisabled() {

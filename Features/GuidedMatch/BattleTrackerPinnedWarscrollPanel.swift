@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Compact warscroll reference for iPhone landscape combat split (Phase E).
 struct BattleTrackerPinnedWarscrollPanel: View {

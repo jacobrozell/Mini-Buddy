@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct NewRosterStarterBoxBanner: View {
     let guidance: NewRosterPrefillResolver.StarterBoxGuidance

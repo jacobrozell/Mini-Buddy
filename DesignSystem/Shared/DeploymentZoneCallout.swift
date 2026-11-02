@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Clarifies that deployment zones come from the printed map — not a universal 6\" or 9\" depth.
 struct DeploymentZoneCallout: View {

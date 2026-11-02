@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public final class BundledRulesRepository: RulesRepository, @unchecked Sendable {
     private let bundle: Bundle

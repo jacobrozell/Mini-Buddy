@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 import UIKit
 
 struct WarscrollInfoButton: View {

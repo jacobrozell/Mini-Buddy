@@ -25,10 +25,10 @@ Locked 28 Oct 2026. No launch arguments.
 
 - [ ] VoiceOver pass on Play + Rules + Models tabs
 - [ ] Dynamic Type AXXXL on step detail and Guided Match hub tabs
-- [ ] iPhone Pro Max landscape — Models uses stack navigation (no split view) — logic verified in `TabletomeLayoutTests`; manual spot-check recommended
+- [ ] iPhone Pro Max landscape — Models uses stack navigation (no split view) — logic verified in `MiniBuddyLayoutTests`; manual spot-check recommended
 - [ ] Guided Match battle tab landscape — scrollable content with tab bar hidden — `usesPhoneLandscapeBattleImmersion` + `PhoneTabBarOnlyStyle`
 - [ ] Play → **Return to battle** lands on the embedded battle tracker (no Armies/Match Setup back-links) — `GuidedMatchResumeUITests`
-- [ ] Deep link `xcrun simctl openurl booted "tabletome://collection/backlog"` → Open → Models tab with backlog filter
+- [ ] Deep link `xcrun simctl openurl booted "minibuddy://collection/backlog"` → Open → Models tab with backlog filter
 - [ ] iPad portrait/landscape — Collection split view + Guided Match `NavigationSplitView`; iPad split smoke-tested 2026-06-22
 - [ ] Settings legal links open (GitHub Pages — updated 2026-06-22 for v1.0)
 - [ ] Replay app tour and battle tracker tips from Settings

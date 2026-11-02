@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension SpearheadBattleView {
     var battleScreen: some View {

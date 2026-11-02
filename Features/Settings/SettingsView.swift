@@ -1,7 +1,7 @@
 import StoreKit
 import SwiftUI
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 struct SettingsView: View {
     @Environment(AppRouter.self) private var router
@@ -93,7 +93,7 @@ struct SettingsView: View {
             AdaptiveHStack(alignment: .top, spacing: DesignTokens.Spacing.md) {
                 BrandCrest(size: 56)
                 VStack(alignment: .leading, spacing: DesignTokens.Spacing.xs) {
-                    Text(String(localized: "Tabletome"))
+                    Text(String(localized: "Mini Buddy"))
                         .font(TTFont.title)
                         .foregroundStyle(TTColor.inkPrimary)
                     Text(String(localized: "Version \(Bundle.main.appVersion)"))
@@ -348,7 +348,7 @@ struct SettingsView: View {
                 FeedbackFormView()
             }
             actionRow(
-                title: String(localized: "Rate Tabletome"),
+                title: String(localized: "Rate Mini Buddy"),
                 systemImage: "star",
                 identifier: "settings.rate",
                 hint: String(localized: "Asks for an App Store review")

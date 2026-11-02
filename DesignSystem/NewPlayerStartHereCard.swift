@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Recommended first-game path shown on the Spearhead game guide screen.
 struct NewPlayerStartHereCard: View {
@@ -106,7 +106,7 @@ struct WhatYouNeedCard: View {
 struct HomeWelcomeCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: DesignTokens.Spacing.md) {
-            Label(String(localized: "Welcome to Tabletome"), systemImage: "hand.wave.fill")
+            Label(String(localized: "Welcome to Mini Buddy"), systemImage: "hand.wave.fill")
                 .font(.headline)
                 .foregroundStyle(Color.accentOnSurface)
 
@@ -123,7 +123,7 @@ struct HomeWelcomeCard: View {
             .fixedSize(horizontal: false, vertical: true)
 
             Label(
-                String(localized: "You roll physical dice at the table — Tabletome tracks phases, score, and rules."),
+                String(localized: "You roll physical dice at the table — Mini Buddy tracks phases, score, and rules."),
                 systemImage: "dice.fill"
             )
             .font(.caption)

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Shared chrome for game-guide "Start here" cards — engine-specific paths plug in below the intro.
 struct GameGuideStartHereShell<Tracks: View, Footer: View>: View {

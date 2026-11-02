@@ -1,6 +1,6 @@
 import XCTest
-@testable import Tabletome
-@testable import TabletomeDomain
+@testable import MiniBuddy
+@testable import MiniBuddyDomain
 
 final class SpearheadHubTabsTests: XCTestCase {
     func testVisibleTabsBeforeArmiesChosen() {

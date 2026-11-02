@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Score breakdown and per-round editing — opened from the sticky battle header.
 struct SpearheadVictoryPointsSheet: View {

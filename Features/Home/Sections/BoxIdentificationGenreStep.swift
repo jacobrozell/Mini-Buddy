@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BoxIdentificationGenreStep: View {
     let visibleGenres: [BoxIdentificationSheet.Genre]

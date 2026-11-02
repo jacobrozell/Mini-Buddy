@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum TabletomeLayoutContext: Equatable, Sendable {
+public enum MiniBuddyLayoutContext: Equatable, Sendable {
     /// Compact width, regular height: iPhone portrait, Duo folded, narrow iPad windows.
     case compact
     /// Compact height: every iPhone in landscape (Pro Max reports regular width), Duo folded landscape.
@@ -13,13 +13,13 @@ public enum TabletomeLayoutContext: Equatable, Sendable {
     public var usesSplitNavigation: Bool { self == .regular }
 }
 
-public enum TabletomeLayout {
+public enum MiniBuddyLayout {
     public static let compactContainerHeightThreshold: CGFloat = 740
 
     public static func context(
         horizontalSizeClass: UserInterfaceSizeClass?,
         verticalSizeClass: UserInterfaceSizeClass?
-    ) -> TabletomeLayoutContext {
+    ) -> MiniBuddyLayoutContext {
         if verticalSizeClass == .compact { return .shortHeight }
         if horizontalSizeClass == .regular { return .regular }
         return .compact
@@ -57,7 +57,7 @@ public enum TabletomeLayout {
     }
 
     public static func prefersCompactGuidedMatchChrome(
-        _ context: TabletomeLayoutContext,
+        _ context: MiniBuddyLayoutContext,
         containerHeight: CGFloat
     ) -> Bool {
         switch context {
@@ -68,14 +68,14 @@ public enum TabletomeLayout {
     }
 }
 
-struct TabletomeLayoutReader<Content: View>: View {
+struct MiniBuddyLayoutReader<Content: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
-    @ViewBuilder let content: (_ context: TabletomeLayoutContext) -> Content
+    @ViewBuilder let content: (_ context: MiniBuddyLayoutContext) -> Content
 
     var body: some View {
         content(
-            TabletomeLayout.context(
+            MiniBuddyLayout.context(
                 horizontalSizeClass: horizontalSizeClass,
                 verticalSizeClass: verticalSizeClass
             )

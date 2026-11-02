@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 /// Compact painting-stage path for empty army detail — key milestones only.
 struct PipelineBeginnerLegend: View {

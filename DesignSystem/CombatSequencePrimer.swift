@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CombatSequencePrimer: View {
     @Binding var isExpanded: Bool

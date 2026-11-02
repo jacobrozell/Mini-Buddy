@@ -147,7 +147,7 @@ Section {
 
 Replace developer copy in `BattlePhaseTrackerView.emptyState` with:
 
-> Ability reminders for this army aren't in Tabletome yet. Use the **GW Spearhead PDF** link on the army picker for full rules.
+> Ability reminders for this army aren't in Mini Buddy yet. Use the **GW Spearhead PDF** link on the army picker for full rules.
 
 #### 3d — Coverage badge copy
 

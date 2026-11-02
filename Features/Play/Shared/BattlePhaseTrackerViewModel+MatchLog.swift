@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerViewModel {
     func recordMatchLog(kind: MatchLogEventKind, payload: MatchLogEventPayload) {
@@ -9,7 +9,7 @@ extension BattlePhaseTrackerViewModel {
 
     func recordPhaseChanged(previousPhase: BattleTurnPhase) {
         guard previousPhase != trackerState.currentPhase else { return }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_phase_changed",
             message: "Battle phase changed.",
@@ -46,7 +46,7 @@ extension BattlePhaseTrackerViewModel {
 
     func recordRoundAdvanced(previousRound: Int) {
         guard trackerState.battleRound != previousRound else { return }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_round_advanced",
             message: "Battle round advanced.",
@@ -70,7 +70,7 @@ extension BattlePhaseTrackerViewModel {
         reason: MatchVictoryPointsReason
     ) {
         guard delta != 0 else { return }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_vp_adjusted",
             message: "Victory points adjusted.",
@@ -175,7 +175,7 @@ extension BattlePhaseTrackerViewModel {
     }
 
     func recordCombatBatchResolved(_ context: CombatBatchLogContext) {
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_combat_resolved",
             message: "Combat batch resolved.",

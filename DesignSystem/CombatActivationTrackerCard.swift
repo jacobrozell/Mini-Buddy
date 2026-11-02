@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// New-player friendly "who's up / who's fought" tracker for the active player's
 /// units in a combat-related phase. Tapping a unit opens the dice resolver; the

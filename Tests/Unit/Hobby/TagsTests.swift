@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class HobbyTagsTests: XCTestCase {
     func testExtractsLowercasedHashTags() {

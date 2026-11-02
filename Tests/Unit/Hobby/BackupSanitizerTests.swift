@@ -1,6 +1,6 @@
 import XCTest
-@testable import TabletomeHobbyData
-@testable import TabletomeDomain
+@testable import MiniBuddyHobbyData
+@testable import MiniBuddyDomain
 
 final class BackupSanitizerTests: XCTestCase {
     func testParseRejectsOversizePayload() {

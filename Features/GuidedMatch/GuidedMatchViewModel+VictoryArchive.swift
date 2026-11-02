@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GuidedMatchViewModel {
     /// Spearhead auto-saves to history when the victory screen appears.
@@ -65,7 +65,7 @@ extension GuidedMatchViewModel {
                 message: "Failed to archive match.",
                 metadata: matchAnalyticsMetadata(
                     status: "completed",
-                    errorCode: TabletomeAnalytics.errorCode(for: error)
+                    errorCode: MiniBuddyAnalytics.errorCode(for: error)
                 )
             )
             saveFailureNotice = matchSaveFailureMessage(status: .completed)

@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Automatic log when a unit or squad member painting state changes.
 @Model

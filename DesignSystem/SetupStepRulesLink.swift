@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// In-flow escape hatch to Rules Search or the Rules tab from Guided Match setup.
 struct SetupStepRulesLink: View {

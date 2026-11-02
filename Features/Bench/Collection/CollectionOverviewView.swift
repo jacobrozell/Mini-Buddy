@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Collection-wide progress hero used at the top of the Models list and on the overview screen.
 struct CollectionOverviewHero: View {

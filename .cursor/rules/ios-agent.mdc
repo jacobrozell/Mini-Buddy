@@ -1,5 +1,5 @@
 ---
-description: Tabletome iOS agent conventions — architecture, git, accessibility, docs
+description: Mini Buddy iOS agent conventions — architecture, git, accessibility, docs
 globs:
   - "**/*.swift"
   - "**/project.yml"
@@ -8,7 +8,7 @@ globs:
   - "AGENTS.md"
 ---
 
-# Tabletome iOS Agent Rules
+# Mini Buddy iOS Agent Rules
 
 **Start every session:** read [`AGENTS.md`](../../AGENTS.md) and [`docs/development/code-map.md`](../../docs/development/code-map.md).
 
@@ -57,7 +57,7 @@ globs:
 
 ## Layout
 
-- Choose shell and navigation from size classes via `TabletomeLayout.context` (`compact`, `shortHeight`, `regular`). Do not use `userInterfaceIdiom` or `UIScreen.main` for layout (breaks iPhone Duo and resizable iPad windows).
+- Choose shell and navigation from size classes via `MiniBuddyLayout.context` (`compact`, `shortHeight`, `regular`). Do not use `userInterfaceIdiom` or `UIScreen.main` for layout (breaks iPhone Duo and resizable iPad windows).
 - Column layouts inside screens use measured container size (see `BattleScreenArrangement`).
 - iPhone Pro Max landscape is `shortHeight` (regular width, compact height), not iPad.
 - State that must survive fold/resize lives above layout branches (`GuidedMatchLayoutSync`, `SpearheadBattlePresentation`).

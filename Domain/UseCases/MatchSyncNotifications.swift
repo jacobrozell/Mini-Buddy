@@ -1,7 +1,7 @@
 import Foundation
 
 extension Notification.Name {
-    public static let matchSyncStateDidChange = Notification.Name("tabletome.matchSyncStateDidChange")
+    public static let matchSyncStateDidChange = Notification.Name("minibuddy.matchSyncStateDidChange")
 }
 
 public enum MatchSyncNotifications {

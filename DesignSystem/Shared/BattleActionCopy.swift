@@ -1,4 +1,4 @@
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleActionPresentation: Equatable {
     let title: String

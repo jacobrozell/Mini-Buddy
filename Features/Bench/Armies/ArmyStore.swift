@@ -1,8 +1,8 @@
 import Foundation
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Army/unit mutations for the Armies tab. Ports the relevant store methods from
 /// `js/core/store.js` (`addArmy`, `renameArmy`, `removeArmy`, `addUnit`, `updateUnit`,

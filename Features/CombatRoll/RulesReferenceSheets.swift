@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct RulesGlossaryView: View {
     let highlightedEntryId: String?

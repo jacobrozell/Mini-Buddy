@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 #if canImport(UIKit)
 import UIKit
 #endif

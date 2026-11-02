@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum DiceRollDisplay {
     static func purposeLabel(_ purpose: RollPurpose) -> String {

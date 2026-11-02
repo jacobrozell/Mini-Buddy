@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 @MainActor
 final class MatchHistoryViewModel: ObservableObject {
@@ -79,7 +79,7 @@ final class MatchHistoryViewModel: ObservableObject {
                 eventName: "match_history_load_failed",
                 message: "Match history load failed.",
                 metadata: [
-                    "errorCode": TabletomeAnalytics.errorCode(for: error),
+                    "errorCode": MiniBuddyAnalytics.errorCode(for: error),
                     "filterGameSystemId": filterGameSystemId ?? "all"
                 ]
             )

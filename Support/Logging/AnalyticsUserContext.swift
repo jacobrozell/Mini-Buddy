@@ -1,6 +1,6 @@
 import FirebaseAnalytics
 import Foundation
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// Privacy-safe user properties for retention and product-health segmentation.
 @MainActor

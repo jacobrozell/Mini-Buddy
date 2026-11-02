@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct SpearheadArmiesBrowseLink: Hashable {
     let gameSystemId: String

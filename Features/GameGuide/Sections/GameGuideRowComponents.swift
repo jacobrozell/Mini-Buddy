@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct GameGuideStarterArmyRow: View {
     let factionName: String

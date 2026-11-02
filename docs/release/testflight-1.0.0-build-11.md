@@ -30,7 +30,7 @@
 
 - Muster/Lists fully gated; match-history save failure alert
 - Accessibility: VoiceOver, Reduce Motion, 44pt targets
-- Deep links `tabletome://`; backup `tabletome-backup-*.json`
+- Deep links `minibuddy://`; backup `minibuddy-backup-*.json`
 
 ## Developer tooling
 

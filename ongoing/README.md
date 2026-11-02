@@ -46,7 +46,7 @@ _Move rows here when shipped._
 
 | Plan | Doc | Status | Notes |
 |------|-----|--------|-------|
-| App audit + Guided Match UX supplement | Cursor plans (`tabletome_app_audit`, `guided_match_ux_supplement`) | **Complete — manual QA pending** | Deep links (`tabletome://` now registered), play-from-roster, landscape chrome, a11y/copy fixes, `GuidedMatchResumeUITests`. 40k 11e resolver copy + iPad tracker columns cancelled |
+| App audit + Guided Match UX supplement | Cursor plans (`minibuddy_app_audit`, `guided_match_ux_supplement`) | **Complete — manual QA pending** | Deep links (`minibuddy://` now registered), play-from-roster, landscape chrome, a11y/copy fixes, `GuidedMatchResumeUITests`. 40k 11e resolver copy + iPad tracker columns cancelled |
 | Guided Match setup friction | [`guided-match-setup-friction.md`](guided-match-setup-friction.md) | **Complete** | Onboarding→Guided Match, inline setup UX, status copy |
 | Beginner UI polish | [`beginner-ui-polish-plan.md`](beginner-ui-polish-plan.md) | **Complete** | Glossary sheets, Play tab badge, path dedupe |
 | New player first launch | [`FutureIdeas/NewPlayerFirstLaunchPlan.md`](../FutureIdeas/NewPlayerFirstLaunchPlan.md) | **Complete** | P0–P2 checklist done |

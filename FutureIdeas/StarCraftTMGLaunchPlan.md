@@ -19,13 +19,13 @@ Game Guide → Start Here → Guided Match → Battle Tracker → (optional) Com
 
 **Ship target:** a new player (or SC II veteran) can run their **first full game** from the app without hunting the rulebook mid-battle.
 
-**Not in scope for Tabletome:** Archon [Command Center](https://starcraft-tmg.com/news/rules/starcraft-tabletop-miniatures-game-rules) map editor, mission draft UI, or full card browser — link out in setup steps and Official Resources.
+**Not in scope for Mini Buddy:** Archon [Command Center](https://starcraft-tmg.com/news/rules/starcraft-tabletop-miniatures-game-rules) map editor, mission draft UI, or full card browser — link out in setup steps and Official Resources.
 
 ---
 
 ## What this is
 
-**StarCraft: Tabletop Miniatures Game** (SC TMG) — skirmish wargame by Archon Studio / Blizzard. Combat Patrol–scale battles (~1–2 hr), three factions with sub-factions, supply/reserve deployment, alternating activations, minerals + vespene, tactical cards. IP and vibe are **StarCraft II**; Tabletome copy can say "StarCraft" per official naming.
+**StarCraft: Tabletop Miniatures Game** (SC TMG) — skirmish wargame by Archon Studio / Blizzard. Combat Patrol–scale battles (~1–2 hr), three factions with sub-factions, supply/reserve deployment, alternating activations, minerals + vespene, tactical cards. IP and vibe are **StarCraft II**; Mini Buddy copy can say "StarCraft" per official naming.
 
 ---
 
@@ -55,7 +55,7 @@ Source: [StarCraft Tabletop Miniatures Game Rules](https://starcraft-tmg.com/new
 
 Archon's **Command Center** covers pre-game and reference workflows:
 
-| Module | Archon owns | Tabletome v1 |
+| Module | Archon owns | Mini Buddy v1 |
 |--------|-------------|--------------|
 | Rules + unit/card browser | **The Game** | Link out; optional short glossary only |
 | Map editor + mission generator | **Tools of War** | Link out; preset map **name** in guided match only |

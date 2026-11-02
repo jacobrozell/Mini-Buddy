@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct Wh40k11eDeploymentSetupSection: View {
     @ObservedObject var viewModel: GuidedMatchViewModel

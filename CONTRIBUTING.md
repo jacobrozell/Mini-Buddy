@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to Tabletome. Start with [`AGENTS.md`](AGENTS.md) (agents) or [`docs/development/setup.md`](docs/development/setup.md) (humans).
+Thanks for contributing to Mini Buddy. Start with [`AGENTS.md`](AGENTS.md) (agents) or [`docs/development/setup.md`](docs/development/setup.md) (humans).
 
 **Last updated:** 2026-06-29
 
@@ -45,7 +45,7 @@ Full code map: [`docs/development/code-map.md`](docs/development/code-map.md)
 - [ ] `xcodegen generate` run if `project.yml` changed
 - [ ] Accessibility identifiers on new interactive controls
 - [ ] No secrets (`GoogleService-Info.plist`, credentials)
-- [ ] SwiftLint clean (`TabletomeCI` scheme)
+- [ ] SwiftLint clean (`MiniBuddyCI` scheme)
 
 ---
 
@@ -76,8 +76,8 @@ See [`docs/development/testing.md`](docs/development/testing.md).
 
 ```bash
 xcodegen generate
-xcodebuild test -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+xcodebuild test -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 ```
 

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct SetupCompleteHandoffSection: View {
     let setupIsComplete: Bool
@@ -17,7 +17,7 @@ struct SetupCompleteHandoffSection: View {
                     Text(
                         String(
                             localized: """
-                            Open the Battle tab when you're at the table. Roll physical dice — Tabletome tracks phases and score.
+                            Open the Battle tab when you're at the table. Roll physical dice — Mini Buddy tracks phases and score.
                             """
                         )
                     )

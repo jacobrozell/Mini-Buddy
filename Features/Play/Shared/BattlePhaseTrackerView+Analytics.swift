@@ -1,9 +1,9 @@
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerView {
     func logStandaloneBattleTrackerOpenedIfNeeded() {
         guard !isEmbeddedInGuidedMatch else { return }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_opened",
             message: "Battle tracker presented.",

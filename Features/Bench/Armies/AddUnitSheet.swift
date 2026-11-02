@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Add-unit form. Mirrors the `add` action.
 struct AddUnitSheet: View {

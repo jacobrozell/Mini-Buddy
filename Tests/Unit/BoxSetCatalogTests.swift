@@ -1,6 +1,6 @@
 import XCTest
-@testable import TabletomeData
-@testable import TabletomeDomain
+@testable import MiniBuddyData
+@testable import MiniBuddyDomain
 
 /// Phase 4: box-set definitions move from hardcoded Swift literals into
 /// JSON. These tests cover the decoding + the bridge back to the legacy

@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 @MainActor
 final class MultiAttackEvaluatorViewModel: ObservableObject {

@@ -1,7 +1,7 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// One per-model row beneath an expanded squad. Mirrors `memberRow` (`js/render/armies.js`).
 struct SquadMemberRow: View {

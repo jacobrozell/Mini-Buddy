@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Phase content for the Spearhead battle screen: header, abilities for this phase, and that phase's helpers.
 struct BattleNowPanel<Extras: View>: View {

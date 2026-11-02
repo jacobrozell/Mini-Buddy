@@ -1,6 +1,6 @@
 import Foundation
-import TabletomeData
-import TabletomeDomain
+import MiniBuddyData
+import MiniBuddyDomain
 
 /// Maps starter-box play catalogs into collection unit rows for a chosen faction.
 enum StarterBoxCollectionPrefillResolver {

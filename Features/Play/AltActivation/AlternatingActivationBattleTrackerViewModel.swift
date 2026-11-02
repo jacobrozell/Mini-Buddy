@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// StarCraft TMG and future alternating-activation battle tracker view model.
 @MainActor

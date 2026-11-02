@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct AppSearchView: View {
     @StateObject private var viewModel: AppSearchViewModel

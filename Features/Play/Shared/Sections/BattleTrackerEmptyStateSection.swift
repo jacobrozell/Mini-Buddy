@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerEmptyStateSection: View {
     let showsActivationBar: Bool
@@ -29,14 +29,14 @@ struct BattleTrackerEmptyStateSection: View {
         if usesGuidedBattleTracker {
             return String(
                 localized: """
-                Ability reminders for this army aren't in Tabletome yet. Use your box unit cards and the \
+                Ability reminders for this army aren't in Mini Buddy yet. Use your box unit cards and the \
                 official core rules for full detail. Turn tracking, phases, and victory points still work below.
                 """
             )
         }
         return String(
             localized: """
-            Ability reminders for this army aren't in Tabletome yet. Use the GW Spearhead PDF link on \
+            Ability reminders for this army aren't in Mini Buddy yet. Use the GW Spearhead PDF link on \
             the army picker for full rules. Turn tracking, phases, and victory points still work below.
             """
         )

@@ -20,7 +20,7 @@ struct BrandCrest: View {
         }
         .frame(width: size, height: size)
         .clipShape(RoundedRectangle(cornerRadius: size * 0.22, style: .continuous))
-        .accessibilityLabel(String(localized: "Tabletome crest"))
+        .accessibilityLabel(String(localized: "Mini Buddy crest"))
     }
 }
 

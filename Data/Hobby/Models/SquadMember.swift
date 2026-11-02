@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// A per-model override within a multi-model unit. Mirrors the web `{ state?, notes? }`
 /// member, with an explicit `index` because SwiftData relationships are unordered.

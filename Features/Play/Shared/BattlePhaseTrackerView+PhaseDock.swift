@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerView {
     var phaseDock: some View {

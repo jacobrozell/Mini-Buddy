@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension View {
     /// Register Play-tab deep links once on the `NavigationStack` root (`HomeView`, Rules tab).

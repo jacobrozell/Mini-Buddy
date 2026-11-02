@@ -2,7 +2,7 @@
 
 **Status:** Complete (2026-06-26)  
 **Last updated:** 2026-06-26  
-**Goal:** Make Tabletome feel like a table companion — not a generic tutorial app — while reducing first-session cognitive load.
+**Goal:** Make Mini Buddy feel like a table companion — not a generic tutorial app — while reducing first-session cognitive load.
 
 ## Problem
 
@@ -64,7 +64,7 @@ Remove `HomeWelcomeCard` section from `HomeView`. Fold dice callout into `HomeNe
 
 - Title: **What did you buy?** (`shippingbox.fill`)
 - Body: Pick what matches your box. You can change this anytime.
-- Caption: You roll physical dice — Tabletome tracks phases, score, and rules.
+- Caption: You roll physical dice — Mini Buddy tracks phases, score, and rules.
 
 ### 2.2 Hide “All games” until engaged
 
@@ -175,7 +175,7 @@ Accessibility hint on tab labels: *Available after your first guided match*
 | Battle tracker first visit | Coach shows one tip; See all tips expands |
 | Models/Lists tabs | “Later” badge until guide opened or setup complete |
 | Unit tests | `FirstSessionStoreTests` for new gates |
-| Build | `TabletomeCI` scheme |
+| Build | `MiniBuddyCI` scheme |
 
 ---
 

@@ -1,6 +1,6 @@
 import XCTest
-@testable import TabletomeData
-@testable import TabletomeDomain
+@testable import MiniBuddyData
+@testable import MiniBuddyDomain
 
 /// Installs box-set-backed featured armies before any test reads `GameSystemRegistry.bundled`.
 final class RegistryTestBootstrap: NSObject, XCTestObservation {

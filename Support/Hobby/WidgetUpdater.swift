@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 /// Widget extension lands in Phase 9. No-op until then.
 @MainActor

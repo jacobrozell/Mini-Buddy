@@ -1,8 +1,8 @@
 import Foundation
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum RosterError: Error, Equatable {
     case nameTaken

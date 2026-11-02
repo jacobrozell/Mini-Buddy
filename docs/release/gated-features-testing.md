@@ -82,7 +82,7 @@
 - `Tests/Unit/Muster/RosterStoreTests.swift`, `UnitCatalogLoaderTests.swift`, `UnitNameMatchTests.swift`
 - `Tests/Unit/Hobby/RosterPointsTests.swift`
 - `Tests/Unit/NewRosterPrefillResolverTests.swift`
-- `Tests/Unit/AppDeepLinkTests.swift` — `tabletome://muster` URLs
+- `Tests/Unit/AppDeepLinkTests.swift` — `minibuddy://muster` URLs
 
 ### Still needed
 
@@ -100,7 +100,7 @@
 - [ ] **Play from roster** opens Guided Match with prefilled armies
 - [ ] Link roster to Collection army
 - [ ] New list keyboard Done dismisses (see [release checklist](release_checklist.md))
-- [ ] Deep links: `tabletome://muster`, roster detail URLs
+- [ ] Deep links: `minibuddy://muster`, roster detail URLs
 - [ ] Onboarding tab tour includes Lists when full surface on
 
 **UI automation**
@@ -256,9 +256,9 @@ Sync shares live match + battle tracker state between two devices on the same lo
 Run:
 
 ```bash
-xcodebuild test -scheme TabletomeCI \
+xcodebuild test -scheme MiniBuddyCI \
   -destination 'platform=iOS Simulator,name=iPhone 17' \
-  -only-testing:TabletomeTests/MatchSyncCodecTests
+  -only-testing:MiniBuddyTests/MatchSyncCodecTests
 ```
 
 ### Still needed (manual QA — App Store sign-off)

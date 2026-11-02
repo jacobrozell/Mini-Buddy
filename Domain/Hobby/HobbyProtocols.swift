@@ -1,7 +1,7 @@
 import Foundation
 
 /// Pure abstractions the hobby domain operates over so engines stay free of SwiftData.
-/// SwiftData models in `TabletomeHobbyData` will conform to these once ported in Phase 4.
+/// SwiftData models in `MiniBuddyHobbyData` will conform to these once ported in Phase 4.
 
 public protocol SquadMemberLike: AnyObject {
     var index: Int { get }

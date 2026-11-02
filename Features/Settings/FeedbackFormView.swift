@@ -31,7 +31,7 @@ struct FeedbackFormView: View {
                     String(
                         localized: """
                         Tell me what to add or fix — paint swatches, basing products, armies, rules, new modes, \
-                        or anything that would make Tabletome better. Your email app opens with a draft ready to send.
+                        or anything that would make Mini Buddy better. Your email app opens with a draft ready to send.
                         """
                     )
                 )

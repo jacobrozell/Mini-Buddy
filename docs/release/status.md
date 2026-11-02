@@ -23,7 +23,7 @@ Gated until a later release (dogfood with `-enable_full_product_surface`):
 - Warhammer 40,000 11th Edition, Combat Patrol, StarCraft TMG
 - Lists (Muster), Rules Q&A, Players Hub (on in Debug only)
 
-**Not planned:** Full 10th Edition matched play — see [PRODUCT_SCOPE.md](../game-modes/PRODUCT_SCOPE.md). Combat Patrol is a later Tabletome release, not 1.0.
+**Not planned:** Full 10th Edition matched play — see [PRODUCT_SCOPE.md](../game-modes/PRODUCT_SCOPE.md). Combat Patrol is a later Mini Buddy release, not 1.0.
 
 **Work now:** the UI overhaul in [`ongoing/ui-overhaul/README.md`](../../ongoing/ui-overhaul/README.md). The next TestFlight is a new build after that tracker. Stay inside Spearhead. Do not ungate other modes. Do not grow paints. Agent entry: [`AGENTS.md`](../../AGENTS.md).
 

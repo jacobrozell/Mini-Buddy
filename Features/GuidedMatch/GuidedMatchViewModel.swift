@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 @MainActor
 final class GuidedMatchViewModel: ObservableObject {
@@ -78,7 +78,7 @@ final class GuidedMatchViewModel: ObservableObject {
             syncAutoCompletions()
         } catch let error as SpearheadCatalogRepositoryError {
             errorMessage = GameSystemPlayContext.context(for: gameSystemId).copy.catalogLoadFailureMessage
-            TabletomeAnalytics.logCatalogLoadFailed(
+            MiniBuddyAnalytics.logCatalogLoadFailed(
                 logger: logger,
                 layer: "guidedMatch",
                 gameSystemId: gameSystemId.rawValue,
@@ -416,7 +416,7 @@ final class GuidedMatchViewModel: ObservableObject {
                 message: "Failed to archive match.",
                 metadata: matchAnalyticsMetadata(
                     status: status == .completed ? "completed" : "abandoned",
-                    errorCode: TabletomeAnalytics.errorCode(for: error)
+                    errorCode: MiniBuddyAnalytics.errorCode(for: error)
                 )
             )
             saveFailureNotice = matchSaveFailureMessage(status: status)

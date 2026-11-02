@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 public struct CollectionMatchResult: Sendable {
     public enum Status: Sendable { case owned, partial, missing, unknown }

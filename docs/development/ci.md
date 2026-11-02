@@ -23,7 +23,7 @@ Fast gates on every push/PR:
 | Install XcodeGen | `brew install xcodegen` |
 | Firebase stub | `cp Resources/GoogleService-Info.plist.example Resources/GoogleService-Info.plist` |
 | Generate project | `xcodegen generate` |
-| Test | `xcodebuild test -scheme TabletomeCI -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' CODE_SIGNING_ALLOWED=NO` |
+| Test | `xcodebuild test -scheme MiniBuddyCI -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' CODE_SIGNING_ALLOWED=NO` |
 
 Analytics and Crashlytics stay **off** in CI (placeholder plist + Debug-equivalent flags).
 
@@ -38,7 +38,7 @@ cp Resources/GoogleService-Info.plist.example Resources/GoogleService-Info.plist
 xcodegen generate
 python3 Scripts/validate_content.py
 Scripts/check_architecture_debt.sh
-xcodebuild test -scheme TabletomeCI \
+xcodebuild test -scheme MiniBuddyCI \
   -destination 'platform=iOS Simulator,name=iPhone 16' \
   CODE_SIGNING_ALLOWED=NO
 ```

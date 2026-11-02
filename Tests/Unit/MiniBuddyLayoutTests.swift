@@ -1,8 +1,8 @@
 import SwiftUI
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
-final class TabletomeLayoutTests: XCTestCase {
+final class MiniBuddyLayoutTests: XCTestCase {
     func testContextFromSizeClasses() {
         assertContext(.compact, .regular, equals: .compact)
         assertContext(.compact, .compact, equals: .shortHeight)
@@ -14,12 +14,12 @@ final class TabletomeLayoutTests: XCTestCase {
     private func assertContext(
         _ horizontal: UserInterfaceSizeClass?,
         _ vertical: UserInterfaceSizeClass?,
-        equals expected: TabletomeLayoutContext,
+        equals expected: MiniBuddyLayoutContext,
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
         XCTAssertEqual(
-            TabletomeLayout.context(horizontalSizeClass: horizontal, verticalSizeClass: vertical),
+            MiniBuddyLayout.context(horizontalSizeClass: horizontal, verticalSizeClass: vertical),
             expected,
             file: file,
             line: line
@@ -28,19 +28,19 @@ final class TabletomeLayoutTests: XCTestCase {
 
     func testUsesSplitNavigationRequiresRegularRegular() {
         XCTAssertTrue(
-            TabletomeLayout.usesSplitNavigation(
+            MiniBuddyLayout.usesSplitNavigation(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .regular
             )
         )
         XCTAssertFalse(
-            TabletomeLayout.usesSplitNavigation(
+            MiniBuddyLayout.usesSplitNavigation(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .compact
             )
         )
         XCTAssertFalse(
-            TabletomeLayout.usesSplitNavigation(
+            MiniBuddyLayout.usesSplitNavigation(
                 horizontalSizeClass: .compact,
                 verticalSizeClass: .regular
             )
@@ -49,7 +49,7 @@ final class TabletomeLayoutTests: XCTestCase {
 
     func testUsesSplitNavigationDisabledAtAccessibilitySizes() {
         XCTAssertFalse(
-            TabletomeLayout.usesSplitNavigation(
+            MiniBuddyLayout.usesSplitNavigation(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .regular,
                 dynamicTypeSize: .accessibility1
@@ -58,28 +58,28 @@ final class TabletomeLayoutTests: XCTestCase {
     }
 
     func testPrefersCompactGuidedMatchChrome() {
-        XCTAssertTrue(TabletomeLayout.prefersCompactGuidedMatchChrome(.shortHeight, containerHeight: 400))
-        XCTAssertFalse(TabletomeLayout.prefersCompactGuidedMatchChrome(.regular, containerHeight: 800))
-        XCTAssertTrue(TabletomeLayout.prefersCompactGuidedMatchChrome(.compact, containerHeight: 667))
-        XCTAssertFalse(TabletomeLayout.prefersCompactGuidedMatchChrome(.compact, containerHeight: 852))
-        XCTAssertFalse(TabletomeLayout.prefersCompactGuidedMatchChrome(.compact, containerHeight: 0))
+        XCTAssertTrue(MiniBuddyLayout.prefersCompactGuidedMatchChrome(.shortHeight, containerHeight: 400))
+        XCTAssertFalse(MiniBuddyLayout.prefersCompactGuidedMatchChrome(.regular, containerHeight: 800))
+        XCTAssertTrue(MiniBuddyLayout.prefersCompactGuidedMatchChrome(.compact, containerHeight: 667))
+        XCTAssertFalse(MiniBuddyLayout.prefersCompactGuidedMatchChrome(.compact, containerHeight: 852))
+        XCTAssertFalse(MiniBuddyLayout.prefersCompactGuidedMatchChrome(.compact, containerHeight: 0))
     }
 
     func testUsesSideBySideLayout() {
         XCTAssertTrue(
-            TabletomeLayout.usesSideBySideLayout(
+            MiniBuddyLayout.usesSideBySideLayout(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .regular
             )
         )
         XCTAssertFalse(
-            TabletomeLayout.usesSideBySideLayout(
+            MiniBuddyLayout.usesSideBySideLayout(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .compact
             )
         )
         XCTAssertFalse(
-            TabletomeLayout.usesSideBySideLayout(
+            MiniBuddyLayout.usesSideBySideLayout(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .regular,
                 isAccessibilitySize: true
@@ -89,31 +89,31 @@ final class TabletomeLayoutTests: XCTestCase {
 
     func testUsesPairedPlayerColumnsInLandscape() {
         XCTAssertTrue(
-            TabletomeLayout.usesPairedPlayerColumns(
+            MiniBuddyLayout.usesPairedPlayerColumns(
                 horizontalSizeClass: .compact,
                 verticalSizeClass: .compact
             )
         )
         XCTAssertTrue(
-            TabletomeLayout.usesPairedPlayerColumns(
+            MiniBuddyLayout.usesPairedPlayerColumns(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .compact
             )
         )
         XCTAssertTrue(
-            TabletomeLayout.usesPairedPlayerColumns(
+            MiniBuddyLayout.usesPairedPlayerColumns(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .regular
             )
         )
         XCTAssertFalse(
-            TabletomeLayout.usesPairedPlayerColumns(
+            MiniBuddyLayout.usesPairedPlayerColumns(
                 horizontalSizeClass: .compact,
                 verticalSizeClass: .regular
             )
         )
         XCTAssertFalse(
-            TabletomeLayout.usesPairedPlayerColumns(
+            MiniBuddyLayout.usesPairedPlayerColumns(
                 horizontalSizeClass: .regular,
                 verticalSizeClass: .compact,
                 isAccessibilitySize: true
@@ -122,8 +122,8 @@ final class TabletomeLayoutTests: XCTestCase {
     }
 
     func testContextProperties() {
-        XCTAssertTrue(TabletomeLayoutContext.shortHeight.isShortHeight)
-        XCTAssertTrue(TabletomeLayoutContext.regular.usesSplitNavigation)
-        XCTAssertFalse(TabletomeLayoutContext.compact.usesSplitNavigation)
+        XCTAssertTrue(MiniBuddyLayoutContext.shortHeight.isShortHeight)
+        XCTAssertTrue(MiniBuddyLayoutContext.regular.usesSplitNavigation)
+        XCTAssertFalse(MiniBuddyLayoutContext.compact.usesSplitNavigation)
     }
 }

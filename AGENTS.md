@@ -1,4 +1,4 @@
-# Agent guide — Tabletome
+# Agent guide — Mini Buddy
 
 Start here for Cursor agents and automated contributors. Human onboarding: [`CONTRIBUTING.md`](CONTRIBUTING.md) + [`docs/development/setup.md`](docs/development/setup.md).
 
@@ -55,7 +55,7 @@ Dogfood other modes: `-enable_full_product_surface` in Run scheme.
 | **Spec-first** | User-visible behavior needs a spec in `specs/` with an updated Verification block |
 | **No secrets** | Never commit `GoogleService-Info.plist`, credentials, or signing files |
 | **No `.xcodeproj`** | Regenerate with `xcodegen generate` after `project.yml` changes |
-| **Domain purity** | `TabletomeDomain` must not import SwiftUI/UIKit |
+| **Domain purity** | `MiniBuddyDomain` must not import SwiftUI/UIKit |
 | **Release surface** | Gate unfinished UI in `Support/ReleaseSurface.swift` — hide, don't delete |
 | **PII in logs** | Never log army names, roster names, player names — see `AnalyticsMetadataKeys` |
 | **Git push** | Do not push unless the user explicitly asks |
@@ -67,12 +67,12 @@ Dogfood other modes: `-enable_full_product_surface` in Run scheme.
 
 ```bash
 xcodegen generate
-xcodebuild test -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+xcodebuild test -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 ```
 
-Use the dedicated **Tabletome** simulator (`Scripts/setup-tabletome-simulator.sh`). XcodeBuildMCP profile: `tabletome` — see [`.cursor/mcp.json`](.cursor/mcp.json).
+Use the dedicated **MiniBuddy** simulator (`Scripts/setup-minibuddy-simulator.sh`). XcodeBuildMCP profile: `minibuddy` — see [`.cursor/mcp.json`](.cursor/mcp.json).
 
 ---
 
@@ -114,7 +114,7 @@ Data/ (Repositories, SwiftData, JSON loaders)
 Domain/ (Engines, models, GameSystemId) — no SwiftUI
 ```
 
-- **App shell:** `App/TabletomeApp.swift`, `App/RootTabView.swift`, `App/AppDependencies.swift`
+- **App shell:** `App/MiniBuddyApp.swift`, `App/RootTabView.swift`, `App/AppDependencies.swift`
 - **Navigation:** `Support/Navigation/AppRouter.swift`, `AppTab.swift`
 - **Logging:** `Support/Logging/` → Firebase sinks in Release
 - **Data layer analytics:** use callbacks (`NearbyMatchSyncService.analyticsHandler`) — Data targets cannot import app logging types

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct ArmyGotchaCard: View {
     let gotcha: SpearheadGotcha

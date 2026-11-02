@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 struct ArmyDetailHeaderSection: View {
     let army: Army

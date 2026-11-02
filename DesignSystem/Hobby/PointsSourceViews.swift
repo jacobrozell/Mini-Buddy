@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Footnote and badges explaining where list points come from (GW catalog vs user override).
 struct PointsSourceViews {

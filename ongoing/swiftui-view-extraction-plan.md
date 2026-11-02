@@ -2,7 +2,7 @@
 
 **Status:** Incremental — phases 2–3 done; phases 4–7 happen when those files are touched. Cursor rule enforces the pattern.  
 **Last updated:** 2026-07-01  
-**Scope:** All Tabletome view files (~300 across Features/ and DesignSystem/)
+**Scope:** All Mini Buddy view files (~300 across Features/ and DesignSystem/)
 
 ---
 

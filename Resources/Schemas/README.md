@@ -1,6 +1,6 @@
 # Content schemas
 
-Versioned JSON Schemas that define the contract for Tabletome's bundled game
+Versioned JSON Schemas that define the contract for Mini Buddy's bundled game
 content. They make "add a new edition / box set" a **data** operation gated by
 a machine check — not a Swift edit. See
 [`specs/ArchitectureRefactorMasterPlan.md`](../../specs/ArchitectureRefactorMasterPlan.md)

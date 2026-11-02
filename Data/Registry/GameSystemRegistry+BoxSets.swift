@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GameSystemRegistry {
     /// Bundled registry with featured armies sourced from each system's `*-boxsets-v1.json`

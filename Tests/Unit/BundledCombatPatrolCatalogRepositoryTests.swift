@@ -1,6 +1,6 @@
 import XCTest
-@testable import TabletomeData
-@testable import TabletomeDomain
+@testable import MiniBuddyData
+@testable import MiniBuddyDomain
 
 final class BundledCombatPatrolCatalogRepositoryTests: XCTestCase {
     private var repository: BundledPlayCatalogRepository {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Maps chooser / onboarding rows to a distinct SF Symbol.
 enum BoxProductThumbnailStyle: Equatable {

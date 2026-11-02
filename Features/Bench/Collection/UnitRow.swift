@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 import SwiftData
 
 /// Read-only unit summary for list rows (army detail).

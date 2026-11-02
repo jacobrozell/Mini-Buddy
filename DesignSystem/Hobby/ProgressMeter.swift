@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Stacked progress meter. Renders `Pipeline.segments` as width-proportional colour bars.
 /// Mirrors the web `.meter` / `.army-bar` (`docs/ios-spec/10 §4`).

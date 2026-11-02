@@ -1,6 +1,6 @@
 import Foundation
 @preconcurrency import MultipeerConnectivity
-import TabletomeDomain
+import MiniBuddyDomain
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -19,7 +19,7 @@ public final class NearbyMatchSyncService: NSObject, ObservableObject, @unchecke
     @MainActor public var syncGameSystemId: String = "aos-spearhead"
     @MainActor public var analyticsHandler: ((String, [String: String]) -> Void)?
 
-    private static let serviceType = "tabletome-match"
+    private static let serviceType = "minibuddy-match"
     private let peerID: MCPeerID
     private var session: MCSession?
     private var advertiser: MCNearbyServiceAdvertiser?
@@ -361,10 +361,10 @@ public final class NearbyMatchSyncService: NSObject, ObservableObject, @unchecke
     private static func peerDisplayName() -> String {
         #if canImport(UIKit)
         let trimmed = UIDevice.current.name.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return "Tabletome" }
+        guard !trimmed.isEmpty else { return "Mini Buddy" }
         return String(trimmed.prefix(32))
         #else
-        return "Tabletome"
+        return "Mini Buddy"
         #endif
     }
 }

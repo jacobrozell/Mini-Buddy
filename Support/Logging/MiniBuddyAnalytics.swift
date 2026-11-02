@@ -1,8 +1,8 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Shared analytics helpers and a static logger bridge for layers that cannot take `AppLogger` via DI.
-enum TabletomeAnalytics {
+enum MiniBuddyAnalytics {
     nonisolated(unsafe) static var logger: (any AppLogger)?
 
     static func register(_ logger: any AppLogger) {

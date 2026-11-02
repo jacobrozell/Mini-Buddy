@@ -1,8 +1,8 @@
 import SwiftUI
 import SwiftData
 import TipKit
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// One army's units: native list with swipe actions and drill-down to unit detail.
 @MainActor

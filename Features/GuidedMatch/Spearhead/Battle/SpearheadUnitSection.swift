@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Section showing a list of units (yours or opponent's) with phase-aware ordering.
 struct SpearheadUnitSection: View {

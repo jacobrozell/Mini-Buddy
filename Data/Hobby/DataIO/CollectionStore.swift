@@ -1,7 +1,7 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Applies parsed drafts and restore payloads to the SwiftData context. Ports the relevant
 /// mutations from `js/core/store.js` (`setCollection`, `appendCollection`, `setPaints`,

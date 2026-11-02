@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct MatchSetupRowsSection: View {
     @ObservedObject var viewModel: GuidedMatchViewModel

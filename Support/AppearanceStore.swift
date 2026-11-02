@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 enum AppearanceStore {
     static let storageKey = AppearancePreferenceStorage.userDefaultsKey

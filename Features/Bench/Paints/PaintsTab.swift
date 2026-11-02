@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 struct PaintsTab<SectionPicker: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass

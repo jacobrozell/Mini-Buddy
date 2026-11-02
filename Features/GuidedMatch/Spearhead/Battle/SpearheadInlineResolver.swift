@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 /// Inline combat resolver — target picker plus the shared batch combat path used in the tab tracker.
 struct SpearheadInlineResolver: View {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GuidedMatchView {
     var setupIsComplete: Bool {
@@ -147,7 +147,7 @@ extension GuidedMatchView {
 
     var usesCompactHubStatusBar: Bool {
         hidesGuidedMatchHubChromeWhenEmbedded
-            || TabletomeLayout.prefersCompactGuidedMatchChrome(
+            || MiniBuddyLayout.prefersCompactGuidedMatchChrome(
                 layoutContext,
                 containerHeight: containerHeight
             )

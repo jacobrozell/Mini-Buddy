@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Spearhead-owned Guided Match hub surfaces (§15) — wraps shared shell sections.
 enum SpearheadGuidedMatchContent {

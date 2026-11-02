@@ -29,7 +29,7 @@ logger.info(
 )
 ```
 
-If DI is unavailable (router, static context), use `TabletomeAnalytics.logger` or helpers in `TabletomeAnalytics.swift`.
+If DI is unavailable (router, static context), use `MiniBuddyAnalytics.logger` or helpers in `MiniBuddyAnalytics.swift`.
 
 For **first-use adoption**, call `AnalyticsFeatureUsage.recordTabVisit` / `recordGuidedMatchStarted` instead of inventing a parallel flag.
 
@@ -55,7 +55,7 @@ Use existing keys when possible: `gameSystemId`, `gameSystemSection`, `activeTab
 
 ### 5. Data layer boundary
 
-`TabletomeData` / `TabletomeHobbyData` cannot import app logging. Use a callback:
+`MiniBuddyData` / `MiniBuddyHobbyData` cannot import app logging. Use a callback:
 
 ```swift
 service.analyticsHandler = { eventName, metadata in

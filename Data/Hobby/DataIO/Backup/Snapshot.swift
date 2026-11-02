@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Codable DTOs matching the web JSON backup shape EXACTLY (`exportSnapshot` in
 /// `js/core/store.js`) so backups round-trip between the web app and iOS. Field names mirror

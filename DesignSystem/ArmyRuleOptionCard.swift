@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 public struct ArmyRuleOptionCard: View {
     let option: ArmyRuleOption

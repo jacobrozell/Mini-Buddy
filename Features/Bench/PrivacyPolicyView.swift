@@ -17,7 +17,7 @@ struct PrivacyPolicyView: View {
                 paragraph(
                     String(
                         localized: """
-                        Tabletome is an offline-first iOS app for tabletop battle games — Age of Sigmar: Spearhead, \
+                        Mini Buddy is an offline-first iOS app for tabletop battle games — Age of Sigmar: Spearhead, \
                         Warhammer 40,000 11th Edition, and Combat Patrol (10th Edition rules) in v1.0. \
                         You do not need an account. This policy describes what the app stores on your device, \
                         when it uses the network, and what may be sent to diagnostics services in Release builds.
@@ -142,7 +142,7 @@ struct PrivacyPolicyView: View {
                         localized: """
                         **Nearby match sync (optional)** — when both players choose to sync a Guided Match, the app may use \
                         local Wi‑Fi or Bluetooth between nearby devices. Match state is exchanged peer-to-peer; it is not \
-                        uploaded to a Tabletome server. iOS may show a local network permission prompt the first time you host or join.
+                        uploaded to a Mini Buddy server. iOS may show a local network permission prompt the first time you host or join.
                         """
                     )
                 )
@@ -158,7 +158,7 @@ struct PrivacyPolicyView: View {
                 paragraph(
                     String(
                         localized: """
-                        Tabletome is not directed at children under 13 and does not knowingly collect personal information from children.
+                        Mini Buddy is not directed at children under 13 and does not knowingly collect personal information from children.
                         """
                     )
                 )

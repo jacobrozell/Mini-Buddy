@@ -78,7 +78,7 @@ SKIP_ANCHORS = re.compile(r"^(Battle-Traits|Regiment-Abilities|Enhancements|Wars
 
 def fetch(slug: str) -> str:
     url = f"https://wahapedia.ru/aos4/factions/{slug}/"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Tabletome import)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Mini Buddy import)"})
     with urllib.request.urlopen(req, timeout=90) as response:
         return response.read().decode("utf-8", "replace")
 

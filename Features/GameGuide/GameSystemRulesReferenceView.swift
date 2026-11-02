@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Offline rules browser scoped to a single game system (from the game guide).
 struct GameSystemRulesReferenceView: View {

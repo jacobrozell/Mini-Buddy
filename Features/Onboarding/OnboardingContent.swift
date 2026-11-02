@@ -110,7 +110,7 @@ enum OnboardingContent {
             OnboardingPage(
                 id: 0,
                 symbol: "book.closed.fill",
-                title: String(localized: "Tabletome"),
+                title: String(localized: "Mini Buddy"),
                 subtitle: String(localized: "Learn and play at the table"),
                 body: String(
                     localized: """
@@ -151,7 +151,7 @@ enum OnboardingContent {
                 body: String(
                     localized: """
                     Move miniatures, roll physical dice, score objectives — about 60–90 minutes, two players. \
-                    Tabletome walks you through setup and every battle round offline.
+                    Mini Buddy walks you through setup and every battle round offline.
                     """
                 )
             ),

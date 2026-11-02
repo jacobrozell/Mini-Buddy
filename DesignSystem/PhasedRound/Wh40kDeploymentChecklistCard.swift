@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct Wh40kDeploymentChecklistCard: View {
     let completedSteps: Set<String>

@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class MatchSyncCodecTests: XCTestCase {
     // MARK: - Paste code codec
@@ -16,7 +16,7 @@ final class MatchSyncCodecTests: XCTestCase {
         )
 
         let code = try XCTUnwrap(MatchSyncCodec.encode(snapshot))
-        XCTAssertTrue(code.hasPrefix("tabletome-match:"))
+        XCTAssertTrue(code.hasPrefix("minibuddy-match:"))
 
         let decoded = try XCTUnwrap(MatchSyncCodec.decode(code))
         XCTAssertEqual(decoded.schemaVersion, MatchSyncSchemaPolicy.version)
@@ -30,14 +30,14 @@ final class MatchSyncCodecTests: XCTestCase {
         XCTAssertEqual(MatchSyncCodec.decodePasteCode(""), .failure(.missingPrefix))
         XCTAssertNil(MatchSyncCodec.decode("not-a-match-code"))
         XCTAssertEqual(MatchSyncCodec.decodePasteCode("not-a-match-code"), .failure(.missingPrefix))
-        XCTAssertNil(MatchSyncCodec.decode("tabletome-match:not-valid-base64!!!"))
+        XCTAssertNil(MatchSyncCodec.decode("minibuddy-match:not-valid-base64!!!"))
         XCTAssertEqual(
-            MatchSyncCodec.decodePasteCode("tabletome-match:not-valid-base64!!!"),
+            MatchSyncCodec.decodePasteCode("minibuddy-match:not-valid-base64!!!"),
             .failure(.invalidBase64)
         )
-        XCTAssertNil(MatchSyncCodec.decode("tabletome-match:\(Data([0xFF, 0xFE]).base64EncodedString())"))
+        XCTAssertNil(MatchSyncCodec.decode("minibuddy-match:\(Data([0xFF, 0xFE]).base64EncodedString())"))
         if case .failure(.decodeFailed) = MatchSyncCodec.decodePasteCode(
-            "tabletome-match:\(Data([0xFF, 0xFE]).base64EncodedString())"
+            "minibuddy-match:\(Data([0xFF, 0xFE]).base64EncodedString())"
         ) {
             // expected
         } else {

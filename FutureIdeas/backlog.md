@@ -1,4 +1,4 @@
-# Tabletome — future ideas
+# Mini Buddy — future ideas
 
 Deep dives in sibling files. Index: [`README.md`](README.md).
 

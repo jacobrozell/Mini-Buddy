@@ -1,7 +1,7 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyData
+import MiniBuddyHobbyData
 
 @MainActor
 final class AppDependencies: ObservableObject {
@@ -21,7 +21,7 @@ final class AppDependencies: ObservableObject {
         playerProfileRepository: any PlayerProfileRepository = JSONPlayerProfileRepository()
     ) {
         self.logger = logger
-        TabletomeAnalytics.register(logger)
+        MiniBuddyAnalytics.register(logger)
         HobbyAppContainer.openFailureHandler = { operation, errorDescription in
             logger.error(
                 .persistence,

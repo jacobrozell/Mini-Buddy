@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct PlayerDetailView: View {
     @StateObject private var viewModel: PlayerDetailViewModel

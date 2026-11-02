@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Phase-first hand-holding — lists every ability the active player can use right now.
 struct BattlePhasePlaybookPanel: View {

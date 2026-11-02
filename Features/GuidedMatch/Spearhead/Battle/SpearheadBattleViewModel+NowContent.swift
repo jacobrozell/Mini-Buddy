@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension SpearheadBattleViewModel {
     /// Triggered abilities for the Now panel. Start-of-round abilities stay on the round-start moment.

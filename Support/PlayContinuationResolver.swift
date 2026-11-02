@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct PlayContinuation: Equatable, Sendable {
     enum Destination: Equatable, Sendable {

@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Constructs battle tracker view models keyed by `PlayEngineId`.
 enum BattleTrackerViewModelFactory {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Deployment-phase once-per-battle abilities for both Spearhead armies (setup step 5 + inline compact).
 struct SpearheadDeploymentAbilitiesSection: View {

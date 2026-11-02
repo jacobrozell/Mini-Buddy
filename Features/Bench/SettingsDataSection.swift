@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 import UniformTypeIdentifiers
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// Data import/export controls for Settings.
 @MainActor

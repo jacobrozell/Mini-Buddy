@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// Optional grid layout for paints.
 struct PaintGridView: View {

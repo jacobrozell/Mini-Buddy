@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct RuleSectionDetailView: View {
     let section: RuleSection
@@ -20,7 +20,7 @@ struct RuleSectionDetailView: View {
 
         \(section.content)
 
-        \(String(localized: "via Tabletome"))
+        \(String(localized: "via Mini Buddy"))
         """
     }
 

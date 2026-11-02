@@ -13,7 +13,7 @@ Reusable SwiftUI components, tokens, and layout helpers. Feature screens compose
 | `DesignTokens.swift` | Spacing, radii, typography scale |
 | `BrandColors.swift` | Brand palette + semantic colors |
 | `BrandCrest.swift` | App mark |
-| `TabletomeLayout.swift` | Phone vs pad layout helpers |
+| `MiniBuddyLayout.swift` | Phone vs pad layout helpers |
 | `ReadableContentWidth.swift` | Max readable width on iPad |
 | `AccessibilityLayout.swift` | Dynamic Type / touch target helpers |
 

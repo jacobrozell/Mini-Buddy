@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Shared setup-step building blocks for Guided Match (Spearhead steps + legacy detail).
 @MainActor

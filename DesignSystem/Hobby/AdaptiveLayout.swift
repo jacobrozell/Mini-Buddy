@@ -11,7 +11,7 @@ enum AdaptiveLayout {
         _ horizontal: UserInterfaceSizeClass?,
         _ vertical: UserInterfaceSizeClass? = nil
     ) -> Bool {
-        TabletomeLayout.usesSplitNavigation(
+        MiniBuddyLayout.usesSplitNavigation(
             horizontalSizeClass: horizontal,
             verticalSizeClass: vertical
         )

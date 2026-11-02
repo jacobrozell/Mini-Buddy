@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Compares Spearhead starter format with full Age of Sigmar for Rules tab context.
 struct SpearheadRulesComparisonCard: View {
@@ -27,7 +27,7 @@ struct SpearheadRulesComparisonCard: View {
                 Text(
                     String(
                         localized: """
-                        Tabletome ships Spearhead for starter-box play. Full matched play and other formats are planned separately.
+                        Mini Buddy ships Spearhead for starter-box play. Full matched play and other formats are planned separately.
                         """
                     )
                 )
@@ -53,7 +53,7 @@ struct SpearheadRulesComparisonCard: View {
         [
             String(localized: "Points lists, endless spells, and grand alliances"),
             String(localized: "Multiple battle sizes and tournament formats"),
-            String(localized: "Not in Tabletome yet — this app focuses on Spearhead")
+            String(localized: "Not in Mini Buddy yet — this app focuses on Spearhead")
         ]
     }
 

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 struct CSVImportScreen: View {
     @Binding var importDomain: SettingsDataSection.ImportDomain

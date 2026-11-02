@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// View model for the single-surface Spearhead battle interface.
 @MainActor

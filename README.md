@@ -1,4 +1,4 @@
-# Tabletome
+# Mini Buddy
 
 Offline-first iOS reference and rules companion for Warhammer tabletop games — guided matches, roll evaluation, rules browser, and miniature collection tracking. No account required; all rules data ships in the bundle.
 
@@ -22,7 +22,7 @@ Offline-first iOS reference and rules companion for Warhammer tabletop games —
 | **Match history** | Local match log |
 | **Getting Started** | GW-aligned walkthroughs per game system |
 | **Settings & legal** | GitHub Pages privacy/support/accessibility |
-| **Backup & links** | Local backup `tabletome-backup-*.json`; `tabletome://` deep links |
+| **Backup & links** | Local backup `minibuddy-backup-*.json`; `minibuddy://` deep links |
 | **Telemetry** | Firebase Analytics + Crashlytics (Release, allowlisted events) |
 
 Full inventory: [`docs/feature-inventory.md`](docs/feature-inventory.md)
@@ -38,17 +38,17 @@ brew install xcodegen   # once
 xcodegen generate
 
 xcodebuild build \
-  -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+  -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 
 xcodebuild test \
-  -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+  -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 ```
 
-Run `Scripts/setup-tabletome-simulator.sh` once to create the **Tabletome** simulator. Signing uses team `7JT2JB89AV`.
+Run `Scripts/setup-minibuddy-simulator.sh` once to create the **MiniBuddy** simulator. Signing uses team `7JT2JB89AV`.
 
 Full setup (Firebase plist, launch args): [`docs/development/setup.md`](docs/development/setup.md)
 
@@ -107,7 +107,7 @@ Gated features require `-enable_full_product_surface` — see [`docs/release/gat
 
 ## Agent tooling
 
-XcodeBuildMCP and iOS Simulator MCP are configured in [`.cursor/mcp.json`](.cursor/mcp.json). Agents pin the `tabletome` XcodeBuildMCP profile and `Tabletome` simulator so builds do not touch other projects.
+XcodeBuildMCP and iOS Simulator MCP are configured in [`.cursor/mcp.json`](.cursor/mcp.json). Agents pin the `minibuddy` XcodeBuildMCP profile and `MiniBuddy` simulator so builds do not touch other projects.
 
 ---
 
@@ -121,10 +121,10 @@ Bundled JSON under `Resources/Rules/` powers offline reference content. Validate
 
 Legal pages live in `docs/`. Enable **Settings → Pages → Deploy from branch `main` / `/docs`**.
 
-Published at `https://jacobrozell.github.io/TableTome/`
+Published at `https://jacobrozell.github.io/Mini-Buddy/`
 
 ---
 
 ## Support
 
-Bug reports and feature requests: [GitHub Issues](https://github.com/jacobrozell/TableTome/issues).
+Bug reports and feature requests: [GitHub Issues](https://github.com/jacobrozell/Mini-Buddy/issues).

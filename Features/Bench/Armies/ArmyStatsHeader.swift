@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Collection stats tiles + overall progress meter. Mirrors `renderArmyStats`.
 /// `units`/`armyCount` are the scoped set when filters are active; `scoped` adds the

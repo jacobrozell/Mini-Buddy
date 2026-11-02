@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Phase-specific guidance card with context and smart advance control.
 struct SpearheadPhasePlaybook: View {

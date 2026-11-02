@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 #if canImport(UIKit)
 import UIKit
 #endif

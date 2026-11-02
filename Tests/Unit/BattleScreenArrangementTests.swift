@@ -1,6 +1,6 @@
 import CoreGraphics
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
 final class BattleScreenArrangementTests: XCTestCase {
     func testShortHeightAlwaysTwoColumn() {

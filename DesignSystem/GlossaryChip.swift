@@ -1,13 +1,13 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GlossaryEntryLink {
     var inlineURL: URL {
-        URL(string: "tabletome://glossary/\(gameSystemId)/\(entryId)")!
+        URL(string: "minibuddy://glossary/\(gameSystemId)/\(entryId)")!
     }
 
     init?(inlineURL url: URL) {
-        guard url.scheme == "tabletome", url.host == "glossary" else { return nil }
+        guard url.scheme == "minibuddy", url.host == "glossary" else { return nil }
         let components = url.pathComponents.filter { $0 != "/" }
         guard components.count == 2 else { return nil }
         self.init(gameSystemId: components[0], entryId: components[1])

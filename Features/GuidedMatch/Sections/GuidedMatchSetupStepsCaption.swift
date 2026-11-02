@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum GuidedMatchSetupStepsCaption {
     static func text(gameSystemId: GameSystemId, stepCount: Int) -> String {

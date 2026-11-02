@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public enum RosterExport {
     public static func plainText(roster: Roster, overrides: [FactionPresetOverride]) -> String {
@@ -15,7 +15,7 @@ public enum RosterExport {
             lines.append("• \(entry.displayName) ×\(entry.qty) — \(entry.pointsTotal) pts")
         }
         lines.append("")
-        lines.append("Built with Tabletome (unofficial list)")
+        lines.append("Built with Mini Buddy (unofficial list)")
         return lines.joined(separator: "\n")
     }
 }

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Profile picker for Guided Match army selection — household profiles plus Guest.
 struct PlayerProfilePicker: View {

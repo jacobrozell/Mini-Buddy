@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerPhoneCompactTopChrome: View {
     let gameSystemId: GameSystemId

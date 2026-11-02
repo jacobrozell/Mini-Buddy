@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public actor JSONPlayerProfileRepository: PlayerProfileRepository {
     private let fileManager: FileManager

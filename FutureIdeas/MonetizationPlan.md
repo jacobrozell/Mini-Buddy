@@ -10,7 +10,7 @@
 
 ## Product thesis
 
-Tabletome is not selling rules PDFs (GW gives those away). It sells **at-table workflow** and, over time, **hobby continuity**:
+Mini Buddy is not selling rules PDFs (GW gives those away). It sells **at-table workflow** and, over time, **hobby continuity**:
 
 | Pillar | Value |
 |--------|-------|
@@ -29,7 +29,7 @@ Tabletome is not selling rules PDFs (GW gives those away). It sells **at-table w
 
 | Decision | Choice |
 |----------|--------|
-| Primary model | **Annual-first subscription** (“Tabletome Plus”), with optional monthly |
+| Primary model | **Annual-first subscription** (“Mini Buddy Plus”), with optional monthly |
 | Fallback SKU | **Lifetime** (~$79–99) for sub-averse whales |
 | App structure | **Same app** — one SKU, tiers via entitlements |
 | Two-app pivot | **Back pocket only** — split Play vs full OS if store positioning forces it |
@@ -64,7 +64,7 @@ See [Alternative: OG strategy](#alternative-og-strategy--portfolio-of-free-apps)
 
 **Goal:** Download → first full game in &lt;5 minutes, $0. Capture 11e / SC hype and word of mouth.
 
-### Tabletome Plus (~$3.99/mo or **$29.99/yr** default in paywall)
+### Mini Buddy Plus (~$3.99/mo or **$29.99/yr** default in paywall)
 
 - **All armies / rosters** in catalog (not just featured)
 - Two-phone sync
@@ -131,8 +131,8 @@ Split only if positioning or App Store discovery forces it — not because archi
 
 | App | SKU | Role |
 |-----|-----|------|
-| **Tabletome Play** | Free or low one-time | Table help, all systems, featured armies — rides 11e/SC search |
-| **Tabletome** | Sub | Collection, lists, full catalog, OS features |
+| **Mini Buddy Play** | Free or low one-time | Table help, all systems, featured armies — rides 11e/SC search |
+| **Mini Buddy** | Sub | Collection, lists, full catalog, OS features |
 
 Shared Domain/Data targets; two app targets in XcodeGen. **Default: one app** until data says otherwise.
 
@@ -142,7 +142,7 @@ Shared Domain/Data targets; two app targets in XcodeGen. **Default: one app** un
 
 **Original plan:** Ship several **focused, fully free** apps (one per game mode or edition). No StoreKit, no paywalls.
 
-**Status:** Still valid. This doc’s Plus tiers are the **“if Tabletome grows up”** path — not a rejection of OG.
+**Status:** Still valid. This doc’s Plus tiers are the **“if Mini Buddy grows up”** path — not a rejection of OG.
 
 ### What OG is good at
 
@@ -165,7 +165,7 @@ Shared Domain/Data targets; two app targets in XcodeGen. **Default: one app** un
 | BMC doesn’t fund Bench/Muster | Months of SwiftData + list-builder work; tips rarely cover it |
 | Each app feels complete at free | Hard to later say “subscribe in the other app” |
 
-OG optimizes a **portfolio of small tools**. Unified Tabletome optimizes **one platform**.
+OG optimizes a **portfolio of small tools**. Unified Mini Buddy optimizes **one platform**.
 
 ### OG portfolio shape (example)
 
@@ -182,16 +182,16 @@ Each app: one game system, full play for featured armies, rules reference, BMC i
 
 ```
 Phase 1 — OG energy
-  Ship focused free apps (or one Tabletome with everything free)
+  Ship focused free apps (or one Mini Buddy with everything free)
   BMC only; learn what people use
 
 Phase 2 — if traction
-  Consolidate into Tabletome (unified icon)
+  Consolidate into Mini Buddy (unified icon)
   Small apps become funnels (“Get the full hobby app”) or stay maintained as thin entry points
   Introduce Plus when Bench/Muster / full rosters justify it
 
 Phase 1.5 — lowest risk today
-  One Tabletome app, all Play free, BMC only
+  One Mini Buddy app, all Play free, BMC only
   Same as OG spiritually, one icon instead of five
 ```
 
@@ -204,7 +204,7 @@ Architecture already supports either shape: shared Domain/Data targets; `Release
 | Ship fast, playtest, stay sane, side project | **OG** — free apps + BMC |
 | Capture 11e/SC hype with minimal ops | **OG** or **unified free Play + BMC** |
 | Build a multi-year product business | **Preferred direction** — free Play, Plus for OS |
-| Unsure | **Unified free Tabletome + BMC now**; defer Plus until Bench/Muster exist |
+| Unsure | **Unified free Mini Buddy + BMC now**; defer Plus until Bench/Muster exist |
 
 ---
 
@@ -231,4 +231,4 @@ Architecture already supports either shape: shared Domain/Data targets; `Release
 | Date | Conclusion |
 |------|------------|
 | 2026-06-17 | Subscription-first hobby OS; gate capabilities + catalog breadth, not game systems; ride 11e/SC hype with free playable featured armies |
-| 2026-06-17 | Document OG alternative: portfolio of free apps + BMC; hybrid path (free + BMC now, Plus later); lowest-risk default = one free Tabletome + BMC |
+| 2026-06-17 | Document OG alternative: portfolio of free apps + BMC; hybrid path (free + BMC now, Plus later); lowest-risk default = one free Mini Buddy + BMC |

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerPadSetupColumns<Deployment: View, StartOfRound: View>: View {
     let spacing: CGFloat

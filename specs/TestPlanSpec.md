@@ -1,11 +1,11 @@
 # Test Plan Spec
 
-## CI Scheme: TabletomeCI
+## CI Scheme: MiniBuddyCI
 
 PR gate: unit tests only (~minutes).
 
 ```bash
-xcodebuild test -scheme TabletomeCI -destination 'platform=iOS Simulator,name=Tabletome'
+xcodebuild test -scheme MiniBuddyCI -destination 'platform=iOS Simulator,name=MiniBuddy'
 ```
 
 **Release context:** 1.0.0 TestFlight — CI validates the **default release surface**. Gated features have domain tests but need a separate sign-off pass before ungating: [docs/release/gated-features-testing.md](../docs/release/gated-features-testing.md).
@@ -21,7 +21,7 @@ xcodebuild test -scheme TabletomeCI -destination 'platform=iOS Simulator,name=Ta
 | Guide step ordering | Sorted by `order` |
 | New list prefill | Starter-box guidance + faction/battle-size hints from first session |
 | Deep links | `AppDeepLinkTests` — collection backlog, muster home/roster URLs |
-| Adaptive layout | `TabletomeLayoutTests` — pad idiom split nav, collapsed battle chrome |
+| Adaptive layout | `MiniBuddyLayoutTests` — pad idiom split nav, collapsed battle chrome |
 | Play continuation | `PlayContinuationResolverTests` — resume vs fresh-install paths |
 | Muster / hobby (gated UI) | `RosterStoreTests`, `BackupCodecTests`, etc. — run in CI regardless of release gate |
 | Nearby match sync | `MatchSyncCodecTests` — paste/wire codec, store round-trip, validation, broadcast flags; runtime logs in Console (`subsystem: com.jacobrozell.tabletome`, categories `MatchSync.Codec`, `MatchSync.Session`) |

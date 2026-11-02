@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// StarCraft TMG and future alternating-activation engines (Phase 5).
 struct AlternatingActivationTrackerView: View {

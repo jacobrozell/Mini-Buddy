@@ -9,7 +9,7 @@ enum BattleScreenArrangement: Equatable {
     static let wideMinimumHeight: CGFloat = 560
 
     static func resolve(
-        context: TabletomeLayoutContext,
+        context: MiniBuddyLayoutContext,
         containerSize: CGSize,
         needsLayoutAdaptation: Bool
     ) -> BattleScreenArrangement {

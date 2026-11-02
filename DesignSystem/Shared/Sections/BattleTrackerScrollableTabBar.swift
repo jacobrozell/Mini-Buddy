@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerScrollableTabBar: View {
     let gameSystemId: GameSystemId

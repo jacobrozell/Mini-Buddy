@@ -1,8 +1,8 @@
 import XCTest
 import SwiftData
-@testable import Tabletome
-@testable import TabletomeHobbyData
-@testable import TabletomeDomain
+@testable import MiniBuddy
+@testable import MiniBuddyHobbyData
+@testable import MiniBuddyDomain
 
 @MainActor
 final class RosterStoreTests: XCTestCase {

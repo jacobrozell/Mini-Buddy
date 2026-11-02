@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Maps first-session Play context into optional New army defaults.
 enum CollectionArmyPrefillResolver {

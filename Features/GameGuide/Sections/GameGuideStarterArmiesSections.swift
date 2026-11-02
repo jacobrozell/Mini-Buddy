@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct GameGuideWh40kStarterArmiesSection: View {
     let gameSystemId: String

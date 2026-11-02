@@ -58,7 +58,7 @@ if [[ ! -f "$FRAME_FILE" ]]; then
 fi
 
 mkdir -p "$FRAMED_DIR"
-WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/tabletome-frame.XXXXXX")"
+WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/minibuddy-frame.XXXXXX")"
 trap 'rm -rf "$WORK_DIR"' EXIT
 
 echo "→ Device: $FRAME_DEVICE ($FRAME_COLOR)"

@@ -1,5 +1,5 @@
 import Foundation
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 /// Lightweight in-memory conformers for the hobby protocols. SwiftData models will
 /// take their place in Phase 4 — these only exist so the pure engines can be tested

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct MatchupUnitSelectionSection: View {
     let armyId: String

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Inline empty state for rules section lists (Rules tab and game guide).
 struct RulesBrowseEmptyState: View {

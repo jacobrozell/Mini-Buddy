@@ -1,6 +1,6 @@
 import XCTest
-@testable import Tabletome
-import TabletomeDomain
+@testable import MiniBuddy
+import MiniBuddyDomain
 
 final class AnalyticsFeatureUsageStoreTests: XCTestCase {
     override func tearDown() {

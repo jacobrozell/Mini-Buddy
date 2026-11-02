@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Legacy entry point — forwards to the unit-based Combat Resolver.
 struct CombatRollEvaluatorView: View {

@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 struct RosterEntrySheet: View {
     @Environment(\.dismiss) private var dismiss

@@ -26,7 +26,7 @@ Feature code → AppDependencies.logger → DefaultAppLogger
 ```
 
 - **Bootstrap:** [`App/Bootstrap/`](../../App/Bootstrap/) — `AppDelegate`, `FirebaseBootstrap`, `AppBootstrapper`
-- **Static bridge:** `TabletomeAnalytics.logger` for code paths without dependency injection
+- **Static bridge:** `MiniBuddyAnalytics.logger` for code paths without dependency injection
 - **Data layer callbacks:** `NearbyMatchSyncService.analyticsHandler`, `HobbyAppContainer.openFailureHandler` (framework targets cannot import app logging types)
 
 ### Collection gates
@@ -158,10 +158,10 @@ Register before relying on breakdowns in Explorations. Allow 24–48h after regi
 ### Unit tests
 
 ```bash
-xcodebuild test -scheme Tabletome -destination 'platform=iOS Simulator,name=iPhone 16' \
-  -only-testing:TabletomeTests/FirebaseBootstrapTests \
-  -only-testing:TabletomeTests/FirebaseAnalyticsEventMappingTests \
-  -only-testing:TabletomeTests/AnalyticsFeatureUsageStoreTests
+xcodebuild test -scheme MiniBuddy -destination 'platform=iOS Simulator,name=iPhone 16' \
+  -only-testing:MiniBuddyTests/FirebaseBootstrapTests \
+  -only-testing:MiniBuddyTests/FirebaseAnalyticsEventMappingTests \
+  -only-testing:MiniBuddyTests/AnalyticsFeatureUsageStoreTests
 ```
 
 ---
@@ -176,7 +176,7 @@ xcodebuild test -scheme Tabletome -destination 'platform=iOS Simulator,name=iPho
 
 ## Adding a new event
 
-1. Log via `AppDependencies.logger.info(.category, eventName: "my_event", …)` or `TabletomeAnalytics` helpers
+1. Log via `AppDependencies.logger.info(.category, eventName: "my_event", …)` or `MiniBuddyAnalytics` helpers
 2. Add `my_event` to `FirebaseAnalyticsEventMapping.allowlistedLogEvents`
 3. Add any new parameter keys to `AnalyticsMetadataKeys` (and block PII keys)
 4. Register GA4 custom dimension if you need breakdowns in Console

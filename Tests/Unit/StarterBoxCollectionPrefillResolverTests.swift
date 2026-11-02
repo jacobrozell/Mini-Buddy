@@ -1,7 +1,7 @@
 import XCTest
-@testable import Tabletome
-@testable import TabletomeData
-@testable import TabletomeDomain
+@testable import MiniBuddy
+@testable import MiniBuddyData
+@testable import MiniBuddyDomain
 
 final class StarterBoxCollectionPrefillResolverTests: XCTestCase {
     private var repository: BundledPlayCatalogRepository {

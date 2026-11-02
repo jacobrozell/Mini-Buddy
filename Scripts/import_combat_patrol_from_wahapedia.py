@@ -63,7 +63,7 @@ def load_catalog() -> dict:
 
 def fetch_wahapedia(slug: str) -> str:
     url = f"https://wahapedia.ru/wh40k10ed_cp/factions/{slug}/"
-    request = urllib.request.Request(url, headers={"User-Agent": "Tabletome-import/1.0"})
+    request = urllib.request.Request(url, headers={"User-Agent": "MiniBuddy-import/1.0"})
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read().decode("utf-8", errors="replace")
 

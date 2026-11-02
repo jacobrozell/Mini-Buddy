@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// New-army form. Mirrors `createArmyFlow` (`js/render/armies.js`).
 struct AddArmySheet: View {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct SetupProgressSection: View {
     @ObservedObject var viewModel: GuidedMatchViewModel

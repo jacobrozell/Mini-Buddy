@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CombatPatrolDeploymentChecklistCard: View {
     let completedSteps: Set<String>

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct ShootingEligibleUnitsCard: View {
     let units: [SpearheadUnit]

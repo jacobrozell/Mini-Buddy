@@ -8,7 +8,7 @@
 
 ## North star
 
-Tabletome stays **one offline-first hobby OS** (Bench → Muster → Play). The Play pillar wins when a new player can run a **real game at the table** without hunting a PDF mid-turn.
+Mini Buddy stays **one offline-first hobby OS** (Bench → Muster → Play). The Play pillar wins when a new player can run a **real game at the table** without hunting a PDF mid-turn.
 
 That bar is **not the same** for every franchise. Some games are a guided-match clone away from shipping; others need a new play engine or should ship as **Rules-only** stubs until demand proves out.
 
@@ -18,7 +18,7 @@ This doc catalogs candidate franchises, groups them by **play engine archetype**
 
 ## What “support” means (tiered)
 
-| Tier | User promise | Tabletome surfaces |
+| Tier | User promise | Mini Buddy surfaces |
 |------|--------------|-------------------|
 | **A — Guided play** | Full setup → battle tracker → victory screen; pass-the-phone workflow | Game Guide, Guided Match, Battle Tracker, match history |
 | **B — Rules companion** | Getting started + offline reference + search; link official PDFs | Game Guide, Rules Reference, glossary |
@@ -216,7 +216,7 @@ Shared chrome stays in DesignSystem: `ArmyTrackerCard`, `MatchVictoryScreen`, se
 
 ## Content & licensing strategy
 
-| Publisher | Policy sketch | Tabletome approach |
+| Publisher | Policy sketch | Mini Buddy approach |
 |-----------|---------------|-------------------|
 | **Games Workshop** | Fan content / IP guidelines; no competitive points mirroring | Our words + glossary; link official PDFs; warscroll **summaries** not verbatim stat blocks where restricted |
 | **Atomic Mass (Star Wars)** | Disney IP; stricter | Same as SC TMG — summaries, link AMG app/PDF; **no card text** in v1 |
@@ -358,7 +358,7 @@ Onboarding: “What do you play?” multi-select → pin favorites to top. Persi
 
 ## Open questions (lock before promote to `specs/`)
 
-1. **Product name:** stay “Tabletome” for multi-IP, or sub-brand per pillar (“Tabletome Play”)?
+1. **Product name:** stay “Mini Buddy” for multi-IP, or sub-brand per pillar (“Mini Buddy Play”)?
 2. **Kill Team vs Shatterpoint first** after M0 — which community overlap is stronger for beta?
 3. **Blood Bowl:** drive tracker only, or invest in square grid UI (higher build cost)?
 4. **Home grouping:** flat list vs publisher sections — user test on 6+ systems.

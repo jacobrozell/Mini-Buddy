@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class MatchSetupStoreTests: XCTestCase {
     private let stateKey = "guided_match_state_aos_spearhead"

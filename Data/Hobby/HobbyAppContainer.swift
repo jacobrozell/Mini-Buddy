@@ -15,7 +15,7 @@ public enum HobbyAppContainer {
         Roster.self, RosterEntry.self,
     ])
 
-    /// True when the app is launched as the host for `TabletomeTests`.
+    /// True when the app is launched as the host for `MiniBuddyTests`.
     public static var isRunningUnitTests: Bool {
         ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
     }
@@ -93,7 +93,7 @@ public enum HobbyAppContainer {
     @MainActor
     public static func uiTestPersistentContainer() -> ModelContainer {
         let directory = FileManager.default.temporaryDirectory
-            .appending(path: "TabletomeHobbyUITest-Persistent", directoryHint: .isDirectory)
+            .appending(path: "MiniBuddyHobbyUITest-Persistent", directoryHint: .isDirectory)
         try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         let storeURL = directory.appending(path: "store.sqlite")
         let config = ModelConfiguration(schema: schema, url: storeURL)
@@ -108,7 +108,7 @@ public enum HobbyAppContainer {
 
     public static func resetUITestPersistentStore() {
         let directory = FileManager.default.temporaryDirectory
-            .appending(path: "TabletomeHobbyUITest-Persistent", directoryHint: .isDirectory)
+            .appending(path: "MiniBuddyHobbyUITest-Persistent", directoryHint: .isDirectory)
         try? FileManager.default.removeItem(at: directory)
     }
 
@@ -146,7 +146,7 @@ public enum HobbyConfig {
         return cfg
     }
 
-    /// Links Tabletome's app tour to hobby-specific first-run prompts (e.g. Muster intro).
+    /// Links Mini Buddy's app tour to hobby-specific first-run prompts (e.g. Muster intro).
     @MainActor
     public static func markAppTourCompleted(_ context: ModelContext) {
         let cfg = current(context)

@@ -1,6 +1,6 @@
 import XCTest
-import TabletomeDomain
-@testable import Tabletome
+import MiniBuddyDomain
+@testable import MiniBuddy
 
 final class BattleActionCopyTests: XCTestCase {
     func testDeploymentNextAndBeginRound() {

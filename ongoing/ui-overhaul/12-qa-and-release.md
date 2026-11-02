@@ -128,4 +128,4 @@ Update, each with a fresh **Verification** block (date, commit, code paths):
 - [ ] `docs/development/testing.md`: new identifiers table rows (battle screen ids).
 - [ ] `docs/feature-inventory.md`, `docs/release/status.md`, `README.md`: 1.0 = Spearhead.
 - [ ] `ongoing/README.md`: move "1.0 UI overhaul" to Finished.
-- [ ] `../DaRules/docs/projects/tabletome.md` (workspace project status, if present in the workspace): note the overhaul status.
+- [ ] `../DaRules/docs/projects/mini-buddy.md` (workspace project status, if present in the workspace): note the overhaul status.

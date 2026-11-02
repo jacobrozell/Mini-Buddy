@@ -6,7 +6,7 @@
 **Bundle:** `Resources/Rules/spearhead-catalog-v1.json` + `Resources/Rules/Spearhead/armies/`  
 **Local GW PDFs:** `FutureIdeas/aos-downloads/` (67 files after dedup, ~820 MB — not shipped in app)
 
-Tabletome copy is summarized in our own words. **Always defer to official GW Spearhead PDFs** for disputes.
+Mini Buddy copy is summarized in our own words. **Always defer to official GW Spearhead PDFs** for disputes.
 
 ---
 

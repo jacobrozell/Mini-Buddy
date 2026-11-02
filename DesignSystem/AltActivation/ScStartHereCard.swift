@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Recommended paths for StarCraft TMG on the game guide screen.
 struct ScStartHereCard: View {

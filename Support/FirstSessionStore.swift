@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension Notification.Name {
     static let firstSessionStoreDidChange = Notification.Name("firstSessionStoreDidChange")

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
 final class AppLinksTests: XCTestCase {
     func testPagesURLsUseGitHubPagesHost() {
@@ -11,6 +11,6 @@ final class AppLinksTests: XCTestCase {
 
     func testSourceRepositoryURL() {
         XCTAssertEqual(AppLinks.sourceRepository.host, "github.com")
-        XCTAssertTrue(AppLinks.sourceRepository.path.contains("TableTome"))
+        XCTAssertTrue(AppLinks.sourceRepository.path.contains("Mini-Buddy"))
     }
 }

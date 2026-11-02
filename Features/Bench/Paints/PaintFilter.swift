@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// HobbyPaint-tab filtering and search. Mirrors the predicates in `PaintListView`.
 @MainActor

@@ -1,7 +1,7 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
-/// Root navigation and cross-tab coordination for Tabletome.
+/// Root navigation and cross-tab coordination for Mini Buddy.
 @Observable
 @MainActor
 final class AppRouter {
@@ -46,13 +46,13 @@ final class AppRouter {
         let previous = activeGameSystemId
         activeGameSystemId = id
         guard previous != id else { return }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .ui,
             eventName: "game_system_changed",
             message: "Active game system changed.",
             metadata: [
                 "gameSystemId": id,
-                "gameSystemSection": TabletomeAnalytics.gameSystemSection(for: id),
+                "gameSystemSection": MiniBuddyAnalytics.gameSystemSection(for: id),
                 "previousTab": previous
             ]
         )
@@ -74,11 +74,11 @@ final class AppRouter {
 
     func openGameGuide(gameSystemId: String) {
         setActiveGameSystem(gameSystemId)
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .ui,
             eventName: "game_guide_opened",
             message: "Game guide opened.",
-            metadata: TabletomeAnalytics.gameSystemMetadata(gameSystemId).merging(["source": "router"]) { _, new in new }
+            metadata: MiniBuddyAnalytics.gameSystemMetadata(gameSystemId).merging(["source": "router"]) { _, new in new }
         )
         AnalyticsFeatureUsage.recordGameGuideOpened(gameSystemId: gameSystemId)
         selectedTab = .learn

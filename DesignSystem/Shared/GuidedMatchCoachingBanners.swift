@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Shown once after tapping Use Starter Matchup — confirms armies loaded and names the next setup step.
 struct StarterMatchupHandoffBanner: View {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// Read-only paint row for list layout.
 struct PaintRow: View {

@@ -1,7 +1,7 @@
 # Unified App Plan — Prep → Muster → Play
 
 **Status:** Future work (non-authoritative until promoted to `specs/`)  
-**Canonical repo:** **Tabletome** (`/Users/jrozell/Desktop/personal/Tabletome`)  
+**Canonical repo:** **Mini Buddy** (`/Users/jrozell/Desktop/personal/MiniBuddy`)  
 **Port source:** MiniMuster iOS (`WarhammerTracker/ios/`) — **frozen**; no new feature work there  
 **Related:** [CatalogKeyAudit.md](CatalogKeyAudit.md) · [MiniMusterPortFreeze.md](MiniMusterPortFreeze.md)
 
@@ -17,7 +17,7 @@ One offline-first app for the full tabletop loop:
 
 StarCraft TMG lives under **Play** (and Muster later if lists ship). Warhammer hobby lives under **Bench** and **Muster**.
 
-Neither Tabletome nor MiniMuster is released — merge as architecture work, not user migration.
+Neither Mini Buddy nor MiniMuster is released — merge as architecture work, not user migration.
 
 ---
 
@@ -25,12 +25,12 @@ Neither Tabletome nor MiniMuster is released — merge as architecture work, not
 
 | Decision | Choice |
 |----------|--------|
-| Canonical repo | **Tabletome** |
-| Display name (for now) | **Tabletome** — rename before TestFlight if desired |
+| Canonical repo | **Mini Buddy** |
+| Display name (for now) | **Mini Buddy** — rename before TestFlight if desired |
 | Bundle ID (for now) | `com.jacobrozell.tabletome` |
 | MiniMuster | Read-only port source; see freeze note |
 | Min iOS | 17 today → **18** before SwiftData port (Phase 4) |
-| Module strategy | Extend Tabletome’s XcodeGen targets (Domain / Data / Hobby) |
+| Module strategy | Extend Mini Buddy’s XcodeGen targets (Domain / Data / Hobby) |
 
 ---
 
@@ -50,9 +50,9 @@ Cross-pillar links use stable IDs only (`gameSystemId`, `catalogUnitKey`, `armyI
 ```
 Features/Bench, Features/Muster, Features/Play
     ↓ protocols
-TabletomeDomain
+MiniBuddyDomain
     ↓
-TabletomeData (reference JSON) + TabletomeHobbyData (SwiftData)
+MiniBuddyData (reference JSON) + MiniBuddyHobbyData (SwiftData)
 DesignSystem + Support
 ```
 
@@ -66,7 +66,7 @@ DesignSystem + Support
 |-----|----------|
 | **Bench** | Collection + Paints |
 | **Muster** | Roster builder + collection match |
-| **Play** | Game picker → guided match (Tabletome today) |
+| **Play** | Game picker → guided match (Mini Buddy today) |
 | **Rules** | Search / reference |
 
 Settings: gear on Bench or Play nav bar (MiniMuster pattern).
@@ -77,11 +77,11 @@ Settings: gear on Bench or Play nav bar (MiniMuster pattern).
 
 | Target | Contents |
 |--------|----------|
-| `Tabletome` | App shell, Features |
-| `TabletomeDomain` | Models, use cases, protocols, shared identity |
-| `TabletomeData` | Bundled JSON repositories |
-| `TabletomeHobbyData` | SwiftData models, CSV/backup I/O (port from MiniMuster) |
-| `TabletomeTests` | Unit tests |
+| `MiniBuddy` | App shell, Features |
+| `MiniBuddyDomain` | Models, use cases, protocols, shared identity |
+| `MiniBuddyData` | Bundled JSON repositories |
+| `MiniBuddyHobbyData` | SwiftData models, CSV/backup I/O (port from MiniMuster) |
+| `MiniBuddyTests` | Unit tests |
 
 Optional later: split `Features/Bench`, `Features/Muster`, `Features/Play` into frameworks if compile times or import enforcement require it.
 
@@ -91,7 +91,7 @@ Optional later: split `Features/Bench`, `Features/Muster`, `Features/Play` into 
 
 ### Phase 0 — Foundation ✅ (decisions locked)
 
-- [x] Canonical repo: Tabletome
+- [x] Canonical repo: Mini Buddy
 - [x] Pillars defined: Bench / Muster / Play
 - [x] Catalog key audit started → [CatalogKeyAudit.md](CatalogKeyAudit.md)
 - [x] MiniMuster frozen → [MiniMusterPortFreeze.md](MiniMusterPortFreeze.md)
@@ -100,7 +100,7 @@ Optional later: split `Features/Bench`, `Features/Muster`, `Features/Play` into 
 
 ### Phase 1 — Repo scaffold (in progress)
 
-- [x] `TabletomeHobbyData` target + `Data/Hobby/` stub
+- [x] `MiniBuddyHobbyData` target + `Data/Hobby/` stub
 - [ ] Bump `deploymentTarget` to iOS 18.0
 - [ ] `SWIFT_STRICT_CONCURRENCY: complete` on all targets
 - [ ] CI green with new target
@@ -125,7 +125,7 @@ Merge tokens; single `BrandCrest`, `EmptyStateView`, chip components; one access
 
 Port SwiftData models (`Army`, `Unit`, `Paint`, `Roster`, …), `AppContainer`, DataIO (CSV, JSON backup), `RosterStore`, widget snapshot writer.
 
-**Exit:** MiniMuster DataIO tests pass in Tabletome.
+**Exit:** MiniMuster DataIO tests pass in Mini Buddy.
 
 ### Phase 5 — Bench pillar
 
@@ -145,7 +145,7 @@ Phased plan: [PlayEngineArchitectureRefactor.md](PlayEngineArchitectureRefactor.
 
 ### Phase 7 — Play pillar consolidation
 
-Reorganize existing Tabletome guided match under `Features/Play/` **after Phase 6b**; optional SwiftData `PlaySession` (migrate from UserDefaults).
+Reorganize existing Mini Buddy guided match under `Features/Play/` **after Phase 6b**; optional SwiftData `PlaySession` (migrate from UserDefaults).
 
 ### Phase 8 — Cross-pillar glue
 

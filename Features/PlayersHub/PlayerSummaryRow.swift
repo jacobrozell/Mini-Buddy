@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Shared player identity row — Players Hub list, Guided Match army slots, pickers.
 struct PlayerSummaryRow: View {

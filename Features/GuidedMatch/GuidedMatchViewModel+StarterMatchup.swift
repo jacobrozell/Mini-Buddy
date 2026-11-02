@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GuidedMatchViewModel {
     func applyStarterMatchup(boxSet: BoxSet? = nil, household: HouseholdPlayersState? = nil) {

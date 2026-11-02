@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 /// Guarantees simulated dice rolls and the combat engine always agree.
 final class CombatSimulatorTrustTests: XCTestCase {

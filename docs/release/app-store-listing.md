@@ -1,4 +1,4 @@
-# App Store & TestFlight listing copy — Tabletome
+# App Store & TestFlight listing copy — Mini Buddy
 
 Authoritative copy for **App Store Connect** and **TestFlight**. Scoped to **v1.0.0**
 shipped features only (see [`feature-inventory.md`](../feature-inventory.md) and [`status.md`](status.md)).
@@ -11,7 +11,7 @@ Update this file when listing copy changes; keep URLs in sync with `Support/AppL
 
 | Field | Value |
 |--------|--------|
-| **App name** | Tabletome |
+| **App name** | Mini Buddy: Wargame Companion |
 | **Bundle ID** | `com.jacobrozell.tabletome` |
 | **Version** | 1.0.0 (build 11) |
 | **Min iOS** | 18.0 |
@@ -20,9 +20,9 @@ Update this file when listing copy changes; keep URLs in sync with `Support/AppL
 | **Secondary category** | Games → Strategy |
 | **Binary category** | `LSApplicationCategoryType = public.app-category.reference` (`project.yml`) — matches Connect Primary (build 11). |
 | **Price** | Free (recommended for v1.0) |
-| **Privacy URL** | https://jacobrozell.github.io/TableTome/privacy.html |
-| **Support URL** | https://jacobrozell.github.io/TableTome/support.html |
-| **Accessibility URL** | https://jacobrozell.github.io/TableTome/accessibility.html |
+| **Privacy URL** | https://jacobrozell.github.io/Mini-Buddy/privacy.html |
+| **Support URL** | https://jacobrozell.github.io/Mini-Buddy/support.html |
+| **Accessibility URL** | https://jacobrozell.github.io/Mini-Buddy/accessibility.html |
 
 Before submit: confirm GitHub Pages is live for the URLs above.
 
@@ -95,7 +95,7 @@ Offline companion for Age of Sigmar Spearhead. Guided setup, phase tracker, rule
 ## Description
 
 ```
-Tabletome is an offline companion for Age of Sigmar Spearhead — built for the table, not the bookshelf. Open your starter box, follow step-by-step setup, look up rules mid-game, and track every turn without an account or internet connection.
+Mini Buddy is an offline companion for Age of Sigmar Spearhead — built for the table, not the bookshelf. Open your starter box, follow step-by-step setup, look up rules mid-game, and track every turn without an account or internet connection.
 
 NOT SURE WHERE TO START
 • Getting Started walks a first Spearhead game
@@ -127,7 +127,7 @@ HOW TO START
 4. Track miniatures and paints in Models between games
 
 NOT AFFILIATED
-Tabletome is an unofficial fan-made companion. Not affiliated with, endorsed by, or sponsored by Games Workshop Limited. Warhammer, Age of Sigmar, Warhammer 40,000, Spearhead, Combat Patrol, and all associated names are trademarks of Games Workshop Limited. Rules content is original explanation written for learning and play — not reproduced from official publications.
+Mini Buddy is an unofficial fan-made companion. Not affiliated with, endorsed by, or sponsored by Games Workshop Limited. Warhammer, Age of Sigmar, Warhammer 40,000, Spearhead, Combat Patrol, and all associated names are trademarks of Games Workshop Limited. Rules content is original explanation written for learning and play — not reproduced from official publications.
 ```
 
 ### Shorter description variant
@@ -146,7 +146,7 @@ Unofficial fan app — not affiliated with Games Workshop.
 
 ## Keywords (100 characters total)
 
-Comma-separated, no spaces after commas. Use single tokens where possible — Apple auto-combines keyword-field words (and the app name) into phrases, so splitting "combat patrol" → `combat,patrol` saves a character and still matches the phrase. Don't repeat the app name ("Tabletome") or stopwords ("of", "the").
+Comma-separated, no spaces after commas. Use single tokens where possible — Apple auto-combines keyword-field words (and the app name) into phrases, so splitting "combat patrol" → `combat,patrol` saves a character and still matches the phrase. Don't repeat the app name ("Mini Buddy") or stopwords ("of", "the").
 
 ```
 warhammer,aos,sigmar,spearhead,wargame,miniatures,painting,tabletop,rules,tracker
@@ -177,7 +177,7 @@ Align answers with [`privacy.html`](../privacy.html) (updated 2026-06-29).
 
 | Question | Answer |
 |----------|--------|
-| **Developer-operated servers** | No — game data stays on device; no Tabletome account or cloud sync |
+| **Developer-operated servers** | No — game data stays on device; no Mini Buddy account or cloud sync |
 | **Third-party SDKs** | Google Firebase (Analytics + Crashlytics) in **Release / TestFlight builds only** |
 | **Data linked to user identity** | None (anonymous Firebase installation identifiers only) |
 | **Data used to track** | None — no ads, no ATT, no cross-app tracking |
@@ -192,7 +192,7 @@ Align answers with [`privacy.html`](../privacy.html) (updated 2026-06-29).
 
 Do **not** select **Data Not Collected** if Firebase ships in the Release archive.
 
-All game state, collection data, and preferences are stored locally on device. Optional nearby match sync exchanges state directly between two devices on the local network — not uploaded to Tabletome.
+All game state, collection data, and preferences are stored locally on device. Optional nearby match sync exchanges state directly between two devices on the local network — not uploaded to Mini Buddy.
 
 **Local network:** The app requests local network access only when you host or join nearby match sync. Declare in Review Notes; no nutrition-label category required if no data reaches the developer.
 
@@ -226,7 +226,7 @@ Not required — no login, no server, no paywall.
 ### Notes for reviewer
 
 ```
-Tabletome is an offline fan companion for Age of Sigmar Spearhead, plus a model collection and paint shelf.
+Mini Buddy is an offline fan companion for Age of Sigmar Spearhead, plus a model collection and paint shelf.
 
 No login or network is required for core features. To test:
 1. Launch the app — complete or skip onboarding.
@@ -289,7 +289,7 @@ Same narrative order; capture split views for Guided Match, battle tracker, and 
 
 | Field | Suggestion |
 |--------|------------|
-| **Name** | Tabletome |
+| **Name** | Mini Buddy: Wargame Companion |
 | **Bundle ID** | `com.jacobrozell.tabletome` |
 | **SKU** | `tabletome` or `com.jacobrozell.tabletome` |
 | **Primary language** | English (U.S.) |
@@ -310,7 +310,7 @@ Same narrative order; capture split views for Guided Match, battle tracker, and 
 ## TestFlight — Beta App Description
 
 ```
-Tabletome is an offline companion for Age of Sigmar Spearhead, plus a model collection and paint shelf.
+Mini Buddy is an offline companion for Age of Sigmar Spearhead, plus a model collection and paint shelf.
 
 In this build:
 • Guided Match with starter armies and a battle phase tracker
@@ -327,7 +327,7 @@ Please report crashes, VoiceOver issues, and any rules wording that feels wrong.
 See also [`testflight-1.0.0-build-11.md`](testflight-1.0.0-build-11.md).
 
 ```
-Thanks for testing Tabletome 1.0.0!
+Thanks for testing Mini Buddy 1.0.0!
 
 Please try:
 1. First launch — Spearhead only. 40k, Combat Patrol, and StarCraft should not appear.
@@ -352,7 +352,7 @@ Send feedback via TestFlight → Send Beta Feedback. Include device model and iO
 - [ ] Complete [`release_checklist.md`](release_checklist.md) manual QA
 - [ ] `CURRENT_PROJECT_VERSION` bumped in `project.yml`; archive uploaded
 - [ ] GitHub Pages live: privacy, support, accessibility URLs
-- [ ] `TabletomeTests` green
+- [ ] `MiniBuddyTests` green
 
 ### Store copy
 
@@ -373,7 +373,7 @@ Send feedback via TestFlight → Send Beta Feedback. Include device model and iO
 
 - [ ] **No external tip links in-app** — App Review treats tips for free digital apps as IAP (Guideline 3.1.1); Buy Me a Coffee / Ko-fi in Settings will be rejected (see Dart Buddy `storekit-tip-jar-plan.md`). GitHub README is fine; App Store metadata must not link out for tips.
 - [ ] StoreKit consumable “support development” tips — post-1.0 only, if you want in-app gratitude money
-- [ ] Update `workspace/projects/tabletome.md` when submitted to App Review
+- [ ] Update `workspace/projects/mini-buddy.md` when submitted to App Review
 
 ---
 

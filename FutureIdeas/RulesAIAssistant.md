@@ -28,7 +28,7 @@ Use **Apple's on-device Core AI** (Foundation Models / Apple Intelligence) so an
 | Layer | Role |
 |-------|------|
 | **Retrieval** | Match user question to bundled content: `ruleSections`, `SpearheadRulesGlossary`, warscroll abilities, phase guides, format FAQ (`CombatPatrolVsSpearheadFAQ.md` when shipped) |
-| **Grounding** | Pass only retrieved snippets into the model prompt — answer from Tabletome content, not open-ended GW lore |
+| **Grounding** | Pass only retrieved snippets into the model prompt — answer from Mini Buddy content, not open-ended GW lore |
 | **UI** | Chat or single-shot Q&A sheet; cite rule section IDs where possible (same IDs as Roll Evaluator) |
 | **Release** | Gate behind `ReleaseSurface.showsRulesAssistant` until quality and licensing review pass |
 
@@ -42,7 +42,7 @@ Use **Apple's on-device Core AI** (Foundation Models / Apple Intelligence) so an
 
 ## Constraints
 
-- **Licensing:** Do not send full GW PDF text to the model. Ground on Tabletome-authored summaries and structured catalog metadata already in the app.
+- **Licensing:** Do not send full GW PDF text to the model. Ground on MiniBuddy-authored summaries and structured catalog metadata already in the app.
 - **Accuracy:** Show confidence cues — link to source section; prefer "check the Spearhead rules PDF" over guessing on edge cases.
 - **Availability:** Core AI requires supported OS/hardware; degrade gracefully to search-only or hidden feature flag.
 - **Scope:** Spearhead / bundled `aos-spearhead` first; other `gameSystems` later.

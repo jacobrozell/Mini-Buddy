@@ -1,7 +1,7 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyData
+import MiniBuddyHobbyData
 
 extension GuidedMatchView {
     func configureMatchSyncAnalytics() {

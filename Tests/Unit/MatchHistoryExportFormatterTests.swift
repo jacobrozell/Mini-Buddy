@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class MatchHistoryExportFormatterTests: XCTestCase {
     func testTextIncludesMatchupAndLogLines() {
@@ -45,7 +45,7 @@ final class MatchHistoryExportFormatterTests: XCTestCase {
 
         let text = MatchHistoryExportFormatter.text(record: record, events: events)
 
-        XCTAssertTrue(text.contains("Tabletome Match Summary"))
+        XCTAssertTrue(text.contains("Mini Buddy Match Summary"))
         XCTAssertTrue(text.contains("Alice"))
         XCTAssertTrue(text.contains("Bob"))
         XCTAssertTrue(text.contains("14 – 8"))

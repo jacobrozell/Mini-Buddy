@@ -1,4 +1,4 @@
-# Reviewer-Readiness Handoff — Tabletome
+# Reviewer-Readiness Handoff — Mini Buddy
 
 > **Stale on scope (28 Oct 2026).** 1.0 is Spearhead play, collection, and paints. 40k does not ship. Start at [`AGENTS.md`](../AGENTS.md) and [`docs/release/status.md`](../docs/release/status.md). The checklist below is a June 2026 snapshot.
 
@@ -34,7 +34,7 @@ Prior pass (build 5): IP disclaimer, Play-tab navigation fix, chooser uses `Butt
 - Every navigation entry point to a game guide works (Home All games, onboarding, new-player chooser, box-identification helper).
 - No crashes across Play, Rules, Collection, Guided Match + Battle, combat resolver (Spearhead + 40k 11e).
 - Disclaimer + listing + GitHub Pages language consistent; legal links load.
-- `TabletomeTests` green.
+- `MiniBuddyTests` green.
 
 ## Key references
 

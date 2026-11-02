@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Capability-routed "Start here" card for game guides — replaces per-system entry views.
 struct GameGuideStartHereCard: View {

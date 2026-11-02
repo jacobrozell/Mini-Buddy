@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerViewModel {
     /// Scopes acted-unit tracking to the current round, active player, and phase so the

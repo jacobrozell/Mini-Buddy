@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// Bench pillar — MiniMuster Collection + Paints merged into one tab.
 struct BenchTab: View {

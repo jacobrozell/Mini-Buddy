@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Helps beginners who do not know which game mode matches their box.
 struct BoxIdentificationSheet: View {
@@ -303,7 +303,7 @@ private struct SpearheadBoxCheckContent: View {
             .buttonStyle(.ttTertiary)
             .padding(.horizontal, DesignTokens.Spacing.md)
             .accessibilityIdentifier("boxHelper.browseArmies")
-            Text(String(localized: "Different box? Tabletome currently supports Spearhead only."))
+            Text(String(localized: "Different box? Mini Buddy currently supports Spearhead only."))
                 .font(TTFont.footnote)
                 .foregroundStyle(TTColor.inkTertiary)
                 .padding(.horizontal, DesignTokens.Spacing.md)

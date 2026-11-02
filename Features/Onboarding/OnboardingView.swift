@@ -74,7 +74,7 @@ struct OnboardingView: View {
                 .frame(width: heroDiameter, height: heroDiameter)
             BrandCrest(size: heroDiameter * 0.72)
         }
-        .accessibilityLabel(String(localized: "Tabletome"))
+        .accessibilityLabel(String(localized: "Mini Buddy"))
     }
 
     private func headerText(alignment: TextAlignment) -> some View {

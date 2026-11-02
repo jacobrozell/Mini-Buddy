@@ -5,7 +5,7 @@
 
 ## Done in code
 
-- Size-class layout core (`compact` / `shortHeight` / `regular`) replaces idiom-based `TabletomeLayoutContext`.
+- Size-class layout core (`compact` / `shortHeight` / `regular`) replaces idiom-based `MiniBuddyLayoutContext`.
 - Sidebar-adaptable tabs + Guided Match split at regular/regular only.
 - Spearhead battle `BattleScreenArrangement` (stacked / twoColumn / wide).
 - Duo window background (`ttWindowBackground`), `UIRequiresFullScreen: NO`.

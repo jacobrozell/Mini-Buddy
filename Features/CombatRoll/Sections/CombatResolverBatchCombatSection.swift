@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CombatResolverBatchCombatSection: View {
     @ObservedObject var batchViewModel: BatchCombatEvaluatorViewModel

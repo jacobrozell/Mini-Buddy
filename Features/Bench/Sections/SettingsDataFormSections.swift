@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 struct SettingsDataFormSections: View {
     @Environment(\.modelContext) private var context

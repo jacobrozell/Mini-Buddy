@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct VictoryPointsPerTurnBreakdownSection: View {
     @Binding var showsPerTurnDetails: Bool

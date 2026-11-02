@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct MultiAttackEvaluatorView: View {
     @ObservedObject var viewModel: MultiAttackEvaluatorViewModel

@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 /// Picker row label for a pipeline stage with colour dot.
 struct PipelineStagePickerRow: View {

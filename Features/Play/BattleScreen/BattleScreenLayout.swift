@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Five-slot battle frame: scoreboard, phase rail, now panel, action bar, and an iPad side panel.
 struct BattleScreenLayout<Scoreboard: View, PhaseRail: View, Content: View, ActionBar: View, SidePanel: View>: View {
-    let layoutContext: TabletomeLayoutContext
+    let layoutContext: MiniBuddyLayoutContext
     var dynamicTypeSize: DynamicTypeSize
     @ViewBuilder var scoreboard: (BattleScreenArrangement) -> Scoreboard
     @ViewBuilder var phaseRail: (BattleScreenArrangement) -> PhaseRail

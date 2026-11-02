@@ -16,10 +16,10 @@ Domain (Models, UseCases, Engines) — no SwiftUI
 
 | Target | Contents |
 |--------|----------|
-| Tabletome | App, Features, DesignSystem, Support |
-| TabletomeDomain | Domain |
-| TabletomeData | Data (+ TabletomeHobbyData for SwiftData hobby layer) |
-| TabletomeTests | Tests/Unit |
+| Mini Buddy | App, Features, DesignSystem, Support |
+| MiniBuddyDomain | Domain |
+| MiniBuddyData | Data (+ MiniBuddyHobbyData for SwiftData hobby layer) |
+| MiniBuddyTests | Tests/Unit |
 
 ## Dependency Rules
 
@@ -39,7 +39,7 @@ Domain (Models, UseCases, Engines) — no SwiftUI
 
 ## DI
 
-`AppDependencies` created in `TabletomeApp`, injected via SwiftUI `environmentObject` and `AppRouter` environment.
+`AppDependencies` created in `MiniBuddyApp`, injected via SwiftUI `environmentObject` and `AppRouter` environment.
 
 Logger: `AppDependencies.logger` → `DefaultAppLogger` with Console + Firebase sinks (Release).
 
@@ -62,4 +62,4 @@ Logger: `AppDependencies.logger` → `DefaultAppLogger` with Console + Firebase 
 | Target release | 1.0.0 TestFlight |
 | Last verified | 2026-06-29 |
 | Commit | (Firebase analytics + doc hub) |
-| Code paths | `App/TabletomeApp.swift`, `App/AppDependencies.swift`, `App/RootTabView.swift`, `Support/Navigation/AppRouter.swift` |
+| Code paths | `App/MiniBuddyApp.swift`, `App/AppDependencies.swift`, `App/RootTabView.swift`, `Support/Navigation/AppRouter.swift` |

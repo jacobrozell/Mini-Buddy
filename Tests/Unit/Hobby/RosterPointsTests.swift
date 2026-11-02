@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeHobbyData
+@testable import MiniBuddyHobbyData
 
 final class RosterPointsTests: XCTestCase {
     private func makeRoster(
@@ -73,6 +73,6 @@ final class RosterExportTests: XCTestCase {
         XCTAssertTrue(text.contains("Ultramarines — Incursion (1000 pts)"))
         XCTAssertTrue(text.contains("Total: 80 pts"))
         XCTAssertTrue(text.contains("• Captain ×1 — 80 pts"))
-        XCTAssertTrue(text.contains("Built with Tabletome"))
+        XCTAssertTrue(text.contains("Built with Mini Buddy"))
     }
 }

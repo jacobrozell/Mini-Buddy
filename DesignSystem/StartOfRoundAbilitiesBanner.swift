@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct StartOfRoundAbilitiesBanner: View {
     let abilities: [TriggeredAbility]

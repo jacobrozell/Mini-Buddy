@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Sub-picker for the collapsed “I bought a Warhammer 40,000 box” chooser row.
 struct Wh40kBoxPickerSheet: View {

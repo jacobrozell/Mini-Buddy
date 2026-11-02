@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Single-surface battle interface for Spearhead — replaces tab-based tracker.
 /// See `ongoing/guided-match-ui-redesign.md` for design rationale.
@@ -66,8 +66,8 @@ struct SpearheadBattleView: View {
         )
     }
 
-    var layoutContext: TabletomeLayoutContext {
-        TabletomeLayout.context(
+    var layoutContext: MiniBuddyLayoutContext {
+        MiniBuddyLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         )
@@ -679,7 +679,7 @@ extension SpearheadBattleView {
         Task {
             await onVictoryPresented?(victoryPlayerOneVP, victoryPlayerTwoVP)
         }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_victory_presented",
             message: "Victory screen presented.",
@@ -688,7 +688,7 @@ extension SpearheadBattleView {
                 "playerOneVP": String(victoryPlayerOneVP),
                 "playerTwoVP": String(victoryPlayerTwoVP),
                 "battleRound": String(viewModel.trackerState.battleRound),
-                "durationSeconds": TabletomeAnalytics.durationSeconds(
+                "durationSeconds": MiniBuddyAnalytics.durationSeconds(
                     since: MatchSessionStore.startedAt(gameSystemId: viewModel.gameSystemId)
                 ) ?? "0"
             ]

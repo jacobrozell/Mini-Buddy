@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Swatch colour controls for paint inventory — match a known pot colour or pick a custom one.
 struct PaintColorSection: View {

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://tabletome.app/schemas/game-systems-manifest-v1.schema.json",
-  "title": "Tabletome Game Systems Manifest v1",
+  "$id": "https://minibuddy.app/schemas/game-systems-manifest-v1.schema.json",
+  "title": "Mini Buddy Game Systems Manifest v1",
   "description": "Runtime wiring for every bundled game system. Adding a same-engine system/edition should be a row here plus catalog/boxset JSON — never a Swift switch.",
   "type": "object",
   "required": ["schemaVersion", "systems"],

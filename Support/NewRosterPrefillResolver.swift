@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Maps first-session Play context into optional New list defaults and starter-box guidance.
 enum NewRosterPrefillResolver {

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Turn Tabletome feedback email text into draft catalog JSON rows.
+"""Turn Mini Buddy feedback email text into draft catalog JSON rows.
 
 Paste the email body (from Settings → Suggest something) on stdin or pass a file path.
 Outputs JSON objects you can merge into:

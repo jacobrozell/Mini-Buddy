@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct HomeView: View {
     @StateObject private var viewModel: HomeViewModel

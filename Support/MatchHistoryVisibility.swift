@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Gates Match History toolbar links until the user has at least one saved match.
 enum MatchHistoryVisibility: Sendable {

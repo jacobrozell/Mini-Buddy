@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Armies CSV import & export. Ports `js/import/muster-armies.js` and the army half of
 /// `exportArmiesCSV` (`js/import/index.js`).

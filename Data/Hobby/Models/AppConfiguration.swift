@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Single-row settings entity. Replaces the web `settings` object (`js/core/constants.js`,
 /// `js/core/store.js`). Access via `HobbyConfig.current(_:)`, which creates it if absent.

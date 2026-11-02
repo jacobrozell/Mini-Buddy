@@ -4,6 +4,7 @@ import Foundation
 public enum PhotoFileStore {
     public static var directory: URL {
         let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        // Pre-rename folder name; changing it orphans saved photos.
         return base.appending(path: "Tabletome/Photos", directoryHint: .isDirectory)
     }
 

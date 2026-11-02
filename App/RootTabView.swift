@@ -1,7 +1,7 @@
 import SwiftData
 import SwiftUI
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 struct RootTabView: View {
     @Environment(\.modelContext) private var modelContext

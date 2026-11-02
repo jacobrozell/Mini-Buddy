@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// One army plus its filtered+sorted visible units.
 struct VisibleArmy: Identifiable {

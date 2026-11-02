@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 /// Explicit undo stack matching the web's scope (`js/core/store.js`): unit delete, army
 /// delete, unit state change, and batch state change (bulk advance). Name/qty/source/notes

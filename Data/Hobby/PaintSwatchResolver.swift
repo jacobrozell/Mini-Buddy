@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Combines catalog lookup with type-based fallbacks for paint inventory swatches.
 public enum PaintSwatchResolver {

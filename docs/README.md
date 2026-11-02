@@ -77,4 +77,4 @@ Hub for humans and agents. Repo entry point: [`README.md`](../README.md) · Agen
 
 ## Hosted (GitHub Pages)
 
-Legal and support HTML in this folder (`privacy.html`, `support.html`, `accessibility.html`). Published at `https://jacobrozell.github.io/TableTome/`.
+Legal and support HTML in this folder (`privacy.html`, `support.html`, `accessibility.html`). Published at `https://jacobrozell.github.io/Mini-Buddy/`.

@@ -56,7 +56,7 @@ Update `GameSystemRegistry` / box set loaders so home row, guided match, and tra
 | Game guide | `Features/GameGuide/GameSystemDetailView.swift`, Getting Started if applicable |
 | Guided match | `Features/GuidedMatch/` — may need system-specific setup cards in `DesignSystem/` |
 | Battle tracker | `BattleTrackerViewModelFactory.swift` — pick ViewModel subclass |
-| Analytics section | `TabletomeAnalytics.gameSystemSection(for:)` |
+| Analytics section | `MiniBuddyAnalytics.gameSystemSection(for:)` |
 
 ### 6. Spec + docs
 
@@ -84,7 +84,7 @@ Decide: ship in 1.0 defaults or gate behind `-enable_full_product_surface`:
 
 ## Analytics
 
-On first guided match start, `AnalyticsFeatureUsage.recordGuidedMatchStarted` records `gameSystemSection`. Add a section mapping in `TabletomeAnalytics.gameSystemSection(for:)` if new bucket needed.
+On first guided match start, `AnalyticsFeatureUsage.recordGuidedMatchStarted` records `gameSystemSection`. Add a section mapping in `MiniBuddyAnalytics.gameSystemSection(for:)` if new bucket needed.
 
 ---
 

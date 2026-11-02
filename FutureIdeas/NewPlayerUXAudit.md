@@ -1,6 +1,6 @@
 # New Player UX Audit
 
-Fresh-install simulator walkthrough (June 2026) from the perspective of someone with **no wargaming background**. Goal: every question answerable inside Tabletome — no Google, no rulebook hunt.
+Fresh-install simulator walkthrough (June 2026) from the perspective of someone with **no wargaming background**. Goal: every question answerable inside Mini Buddy — no Google, no rulebook hunt.
 
 **Status:** Findings below are tracked for implementation. Check off items in [Implementation checklist](#implementation-checklist) as they ship.  
 **Next phase:** [NewPlayerFirstLaunchPlan.md](NewPlayerFirstLaunchPlan.md) — continuation state, 3-screen onboarding, unified starter paths.

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct SingleGameHomeView: View {
     @EnvironmentObject private var dependencies: AppDependencies

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerScoringReminderSection: View {
     let notice: ScoringReminderNotice?

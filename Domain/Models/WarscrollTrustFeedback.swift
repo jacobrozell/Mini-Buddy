@@ -8,7 +8,7 @@ public enum WarscrollTrustFeedback: Sendable {
         matchHealthOverride: Int?
     ) -> String {
         var lines = [
-            "Tabletome warscroll report",
+            "Mini Buddy warscroll report",
             "Army: \(army.name) (\(army.id))",
             "Unit: \(unit.name) (\(unit.id))",
             "Source: Spearhead warscroll in app",

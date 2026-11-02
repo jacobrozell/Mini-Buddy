@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Catalog suggestion row for add-paint autocomplete.
 struct PaintCatalogSuggestionRow: View {

@@ -8,7 +8,7 @@ Back to [index](README.md). Global chrome: navigation bars, tab bar, backgrounds
 
 **Goal:** Navigation titles use the serif display face, the tab bar is tinted copper, and every window has the canvas background.
 **Depends on:** DS-01, DS-02
-**Files:** new `DesignSystem/Theme/TTAppearance.swift`; edit `App/TabletomeApp.swift`
+**Files:** new `DesignSystem/Theme/TTAppearance.swift`; edit `App/MiniBuddyApp.swift`
 
 ### Steps
 
@@ -70,7 +70,7 @@ Back to [index](README.md). Global chrome: navigation bars, tab bar, backgrounds
        }
    }
    ```
-2. In `TabletomeApp`, add `init() { TTAppearance.apply() }`. `TabletomeApp` already has stored properties with initial values, so an explicit `init()` is allowed. Keep `@StateObject`/`@State` initializers as they are.
+2. In `MiniBuddyApp`, add `init() { TTAppearance.apply() }`. `MiniBuddyApp` already has stored properties with initial values, so an explicit `init()` is allowed. Keep `@StateObject`/`@State` initializers as they are.
 3. In the `WindowGroup`, add `.tint(TTColor.brandFill)` and `.background(TTColor.canvas.ignoresSafeArea())` on `RootTabView()`.
 4. **iOS 26 check:** on iOS 26 the system glass bars ignore `backgroundColor`, which is intended. Only fonts and tint apply there.
 
@@ -172,7 +172,7 @@ Also update the existing `floatingCardListStyle()` (in `SurfaceCard.swift`) to c
 
 ### Background
 
-`BannerCenter` (`Support/Hobby/Banner.swift`) is an `@Observable` app-wide object injected in `TabletomeApp` (`.environment(hobbyBanner)`). It holds one `message: String?`, auto-clears after `duration`, renders as a **top** `safeAreaInset` (which pushes content down), and already posts a VoiceOver announcement. Models uses it via `banner.show("…")`. We extend it so it becomes the single transient-feedback API.
+`BannerCenter` (`Support/Hobby/Banner.swift`) is an `@Observable` app-wide object injected in `MiniBuddyApp` (`.environment(hobbyBanner)`). It holds one `message: String?`, auto-clears after `duration`, renders as a **top** `safeAreaInset` (which pushes content down), and already posts a VoiceOver announcement. Models uses it via `banner.show("…")`. We extend it so it becomes the single transient-feedback API.
 
 ### Steps
 
@@ -210,10 +210,10 @@ Also update the existing `floatingCardListStyle()` (in `SurfaceCard.swift`) to c
 
 ### Steps
 
-1. **Launch screen.** `project.yml` uses `GENERATE_INFOPLIST_FILE: YES` with `INFOPLIST_KEY_*` build settings, and a `UILaunchScreen` *dictionary* can't be expressed that way. Use XcodeGen's `info:` block on the `Tabletome` target, which writes a small Info.plist that Xcode merges with the generated keys:
+1. **Launch screen.** `project.yml` uses `GENERATE_INFOPLIST_FILE: YES` with `INFOPLIST_KEY_*` build settings, and a `UILaunchScreen` *dictionary* can't be expressed that way. Use XcodeGen's `info:` block on the `MiniBuddy` target, which writes a small Info.plist that Xcode merges with the generated keys:
    ```yaml
    targets:
-     Tabletome:
+     Mini Buddy:
        info:
          path: Resources/Info.plist
          properties:

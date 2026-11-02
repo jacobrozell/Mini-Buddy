@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct PreBattleLoadoutReviewSection: View {
     @ObservedObject var viewModel: GuidedMatchViewModel

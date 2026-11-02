@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// SF Symbols for hobby collection games (`SupportedGames`).
 enum HobbyGameSymbol {

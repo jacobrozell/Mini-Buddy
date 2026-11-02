@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 /// Custom URL scheme for widget and external deep links.
 enum AppDeepLink {
@@ -10,7 +10,7 @@ enum AppDeepLink {
         case musterRoster(UUID)
     }
 
-    static let scheme = "tabletome"
+    static let scheme = "minibuddy"
 
     static var collectionBacklogURL: URL {
         URL(string: "\(scheme)://collection/backlog")!

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Sticky activation prompt for StarCraft TMG alternating activations.
 struct ScActivationBar: View {

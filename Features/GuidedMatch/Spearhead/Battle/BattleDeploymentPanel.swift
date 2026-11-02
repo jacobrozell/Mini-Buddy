@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleDeploymentPanel: View {
     @ObservedObject var viewModel: SpearheadBattleViewModel

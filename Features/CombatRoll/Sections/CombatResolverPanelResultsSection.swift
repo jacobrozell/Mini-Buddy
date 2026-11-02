@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CombatResolverPanelResultsSection: View {
     @ObservedObject var viewModel: UnitMatchupEvaluatorViewModel

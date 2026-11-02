@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct PlayHeroCard: View {
     @Environment(AppRouter.self) private var router

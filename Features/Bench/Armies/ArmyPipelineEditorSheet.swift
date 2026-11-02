@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Per-army pipeline editor. Mirrors `openArmyPipelineSettings` (`settings-panel.js`).
 struct ArmyPipelineEditorSheet: View {

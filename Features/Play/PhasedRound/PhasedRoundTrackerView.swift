@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Spearhead, 40k, and Combat Patrol — shared phased-round battle tracker (Phase 5).
 struct PhasedRoundTrackerView: View {

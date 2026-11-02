@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Step-by-step guide for players upgrading from 10th Edition to 11th.
 struct EditionMigrationView: View {

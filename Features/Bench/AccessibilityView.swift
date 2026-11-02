@@ -17,7 +17,7 @@ struct AccessibilityView: View {
                 paragraph(
                     String(
                         localized: """
-                        Tabletome targets WCAG 2.1 AA engineering practices on core v1.0 flows: \
+                        Mini Buddy targets WCAG 2.1 AA engineering practices on core v1.0 flows: \
                         Play (guides and Guided Match), Rules reference, Models (Collection), and Settings.
                         """
                     )
@@ -64,7 +64,7 @@ struct AccessibilityView: View {
                 bullet(
                     String(
                         localized: """
-                        Tabletome does not include video content; Captions and Audio Descriptions do not apply.
+                        Mini Buddy does not include video content; Captions and Audio Descriptions do not apply.
                         """
                     )
                 )

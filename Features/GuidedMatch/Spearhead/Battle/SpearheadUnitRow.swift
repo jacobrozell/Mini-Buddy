@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Expandable unit row showing wounds, stats, weapons, and inline combat resolver.
 struct SpearheadUnitRow: View {

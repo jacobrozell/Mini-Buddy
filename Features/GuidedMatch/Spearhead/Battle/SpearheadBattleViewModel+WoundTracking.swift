@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension SpearheadBattleViewModel {
     func isActivePlayerArmy(_ armyId: String) -> Bool {

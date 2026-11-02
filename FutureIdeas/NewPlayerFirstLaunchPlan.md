@@ -1,7 +1,7 @@
 # New Player First Launch Plan
 
 **Status:** Largely implemented via [NewPlayerTwentyRoundPlan.md](NewPlayerTwentyRoundPlan.md) (rounds 1–20, June 2026)  
-**Audience:** Someone who has **never played a wargame** — every question answerable inside Tabletome, no Google, no rulebook hunt.  
+**Audience:** Someone who has **never played a wargame** — every question answerable inside Mini Buddy, no Google, no rulebook hunt.  
 **Related:** [NewPlayerUXAudit.md](NewPlayerUXAudit.md) (June 2026 audit + shipped checklist) · [UnifiedAppPlan.md](UnifiedAppPlan.md)
 
 ## Goal
@@ -28,7 +28,7 @@ flowchart TD
 ```
 
 **Default landing:** Play tab selected under the onboarding cover (correct).  
-**Physical loop:** User moves models and rolls dice at the table; Tabletome tracks phases, score, and rules.
+**Physical loop:** User moves models and rolls dice at the table; Mini Buddy tracks phases, score, and rules.
 
 ---
 
@@ -158,7 +158,7 @@ Persist `onboardingChoice` (game system id or `undecided`). Adapt Play tab:
 
 Merge redundant pages:
 
-1. **What Tabletome is** — one paragraph + “you roll real dice” + optional wargame-in-one-sentence
+1. **What Mini Buddy is** — one paragraph + “you roll real dice” + optional wargame-in-one-sentence
 2. **Pick your box** — merge current pages 2 + 6 (chooser UI, not duplicate preview + buttons)
 3. **About the tabs** — expandable / “Show me the tabs” instead of mandatory pages 3–5
 

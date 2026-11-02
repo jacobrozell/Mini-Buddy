@@ -1,6 +1,6 @@
 import PhotosUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 import SwiftUI
 import SwiftData
 #if canImport(UIKit)

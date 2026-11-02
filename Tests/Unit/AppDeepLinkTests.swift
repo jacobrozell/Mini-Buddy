@@ -1,5 +1,5 @@
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
 final class AppDeepLinkTests: XCTestCase {
     func testCollectionBacklogURL() {
@@ -8,7 +8,7 @@ final class AppDeepLinkTests: XCTestCase {
     }
 
     func testMusterHomeURL() {
-        let url = URL(string: "tabletome://muster")!
+        let url = URL(string: "minibuddy://muster")!
         XCTAssertEqual(AppDeepLink.destination(from: url), .musterHome)
     }
 

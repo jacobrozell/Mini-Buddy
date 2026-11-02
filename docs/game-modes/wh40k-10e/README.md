@@ -1,7 +1,7 @@
 # Warhammer 40,000 — 10th Edition (full matched play)
 
 **Game system id:** None — `wh40k-10e` is a legacy persisted id only  
-**Status:** **Not planned** for Tabletome
+**Status:** **Not planned** for Mini Buddy
 
 ## What we ship instead
 

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Compact glossary definition — presented as a bottom sheet from chips and inline terms.
 struct GlossaryEntrySheetView: View {

@@ -996,7 +996,7 @@
           "body": "Legends rules move to the Warhammer 40,000 app and are not in the launch core bundle. Crusade rules are not in new codexes \u2014 the Dominatus narrative deck in Armageddon replaces that lane for now. Full army construction detail and some keyword definitions live in the app and Munitorum Field Manual alongside faction packs.",
           "tips": [
             "Link out to official downloads for points and detachment metadata.",
-            "Tabletome summarizes core play \u2014 not a replacement for GW datacards."
+            "Mini Buddy summarizes core play \u2014 not a replacement for GW datacards."
           ],
           "relatedRuleSectionId": "11e-overview"
         }
@@ -1113,7 +1113,7 @@
           "title": "Scoring & Missions",
           "category": "core",
           "order": 10,
-          "content": "Matched play uses the Chapter Approved mission deck. Each player may have different primary objectives from the matchup. Typical caps per player: up to 45 VP from primaries and up to 45 VP from secondaries over the game, with a maximum of 15 VP from primaries and 15 VP from secondaries in any single battle round. Draw two secondary cards in your Command phase each turn and keep unscored cards \u2014 there is no hand size limit. Battle Ready awards 10 VP if your army is fully painted. Fixed secondaries (pick two, score up to 20 VP each) remain an option. Twist cards are optional. Full mission text is on physical or digital cards \u2014 Tabletome summarizes the system only.",
+          "content": "Matched play uses the Chapter Approved mission deck. Each player may have different primary objectives from the matchup. Typical caps per player: up to 45 VP from primaries and up to 45 VP from secondaries over the game, with a maximum of 15 VP from primaries and 15 VP from secondaries in any single battle round. Draw two secondary cards in your Command phase each turn and keep unscored cards \u2014 there is no hand size limit. Battle Ready awards 10 VP if your army is fully painted. Fixed secondaries (pick two, score up to 20 VP each) remain an option. Twist cards are optional. Full mission text is on physical or digital cards \u2014 Mini Buddy summarizes the system only.",
           "relatedSectionIds": [
             "11e-detachments",
             "11e-terrain-objectives"

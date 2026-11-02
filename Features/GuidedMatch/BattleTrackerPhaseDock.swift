@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerPhaseDock: View {
     let mainPhases: [BattleTurnPhase]

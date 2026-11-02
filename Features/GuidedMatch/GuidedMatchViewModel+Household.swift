@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GuidedMatchViewModel {
     func applyHouseholdDefaultsIfNeeded(_ household: HouseholdPlayersState) {

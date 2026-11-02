@@ -18,26 +18,26 @@
 ## First-time setup
 
 ```bash
-cd Tabletome
+cd Mini Buddy
 
 # 1. Generate Xcode project (never commit .xcodeproj)
 xcodegen generate
 
 # 2. Create dedicated simulator (recommended)
-Scripts/setup-tabletome-simulator.sh
+Scripts/setup-minibuddy-simulator.sh
 
 # 3. Build
-xcodebuild build -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+xcodebuild build -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 
 # 4. Unit tests
-xcodebuild test -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+xcodebuild test -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 ```
 
-Open `Tabletome.xcodeproj` in Xcode after `xcodegen generate`.
+Open `MiniBuddy.xcodeproj` in Xcode after `xcodegen generate`.
 
 ---
 
@@ -121,7 +121,7 @@ Scripts: `Scripts/capture-marketing-screenshots.sh`, `Scripts/capture-ipad-marke
 
 ## Agent / MCP tooling
 
-[`.cursor/mcp.json`](../../.cursor/mcp.json) configures XcodeBuildMCP with the **tabletome** profile and Tabletome simulator so builds do not clash with other personal projects.
+[`.cursor/mcp.json`](../../.cursor/mcp.json) configures XcodeBuildMCP with the **minibuddy** profile and MiniBuddy simulator so builds do not clash with other personal projects.
 
 Read [`AGENTS.md`](../../AGENTS.md) before automated changes.
 
@@ -149,7 +149,7 @@ Scripts/check_architecture_debt.sh
 Push to GitHub account **jacobrozell** using the personal SSH alias:
 
 ```bash
-git push git@github.com-personal:jacobrozell/TableTome.git <branch>
+git push git@github.com-personal:jacobrozell/Mini-Buddy.git <branch>
 ```
 
 Do not commit `.xcodeproj`, secrets, or `xcuserdata/`.
@@ -161,7 +161,7 @@ Do not commit `.xcodeproj`, secrets, or `xcuserdata/`.
 | Problem | Fix |
 |---------|-----|
 | Missing types after pull | `xcodegen generate` |
-| Simulator not found | Run `Scripts/setup-tabletome-simulator.sh` or use `iPhone 16` |
+| Simulator not found | Run `Scripts/setup-minibuddy-simulator.sh` or use `iPhone 16` |
 | Signing errors | Confirm `DEVELOPMENT_TEAM: 7JT2JB89AV` in `project.yml` |
 | No analytics in Debug | Add `-firebase_analytics_debug` + real plist |
 | Gated tab missing | Add `-enable_full_product_surface` |

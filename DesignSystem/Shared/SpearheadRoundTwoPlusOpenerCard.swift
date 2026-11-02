@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Round 2+ table-side reminder — priority roll picks first turn; underdog refreshes battle tactics (not first turn).
 struct SpearheadRoundTwoPlusOpenerCard: View {

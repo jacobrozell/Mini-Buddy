@@ -12,7 +12,7 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 
 | Task | Code | Spec |
 |------|------|------|
-| App launch, DI, deep links | `App/TabletomeApp.swift`, `App/AppDependencies.swift` | `ArchitectureSpec.md` |
+| App launch, DI, deep links | `App/MiniBuddyApp.swift`, `App/AppDependencies.swift` | `ArchitectureSpec.md` |
 | Tab bar, onboarding gate | `App/RootTabView.swift` | `ReleaseSurfaceSpec.md` |
 | Tab routing, game system context | `Support/Navigation/AppRouter.swift`, `AppTab.swift` | `ArchitectureSpec.md` |
 | Play tab destinations | `Support/Navigation/PlayNavigationDestinations.swift` | — |
@@ -163,7 +163,7 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 | Log API | `Support/Logging/AppLogger.swift`, `DefaultAppLogger.swift` | `firebase-analytics.md` |
 | GA4 allowlist | `FirebaseAnalyticsEventMapping.swift` | `firebase-analytics.md` |
 | User properties / segmentation | `AnalyticsUserContext.swift`, `AnalyticsFeatureUsageStore.swift` | `firebase-analytics.md` |
-| Shared helpers | `TabletomeAnalytics.swift` | `playbooks/add-analytics-event.md` |
+| Shared helpers | `MiniBuddyAnalytics.swift` | `playbooks/add-analytics-event.md` |
 | Feature `*+Analytics.swift` | Next to ViewModels | `playbooks/add-analytics-event.md` |
 | Bootstrap | `App/Bootstrap/` | `firebase-analytics.md` |
 
@@ -175,7 +175,7 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 |------|------|------|
 | Tokens, colors | `DesignSystem/DesignTokens.swift`, `BrandColors.swift` | `DesignSystemSpec.md` |
 | Shared battle / guide chrome | `DesignSystem/Shared/` | `DesignSystemSpec.md` |
-| Layout helpers | `DesignSystem/TabletomeLayout.swift`, `ReadableContentWidth.swift`, `BattleScreenArrangement.swift`, `GuidedMatchLayoutSync.swift`, `TTWindowBackground.swift` | `AdaptiveLayoutSpec.md` |
+| Layout helpers | `DesignSystem/MiniBuddyLayout.swift`, `ReadableContentWidth.swift`, `BattleScreenArrangement.swift`, `GuidedMatchLayoutSync.swift`, `TTWindowBackground.swift` | `AdaptiveLayoutSpec.md` |
 | Hobby form components | `DesignSystem/Hobby/` | `DesignSystemSpec.md` |
 
 ---
@@ -186,7 +186,7 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 |------|------|------|
 | Unit tests | `Tests/Unit/` | `TestPlanSpec.md` |
 | UI tests | `Tests/UI/` (if present) | `TestPlanSpec.md` |
-| Layout tests | `TabletomeLayoutTests`, `BattleScreenArrangementTests`, `GuidedMatchLayoutSyncTests` | `AdaptiveLayoutSpec.md` |
+| Layout tests | `MiniBuddyLayoutTests`, `BattleScreenArrangementTests`, `GuidedMatchLayoutSyncTests` | `AdaptiveLayoutSpec.md` |
 | Firebase tests | `Firebase*Tests.swift`, `AnalyticsFeatureUsageStoreTests.swift` | `firebase-analytics.md` |
 
 ---
@@ -195,9 +195,9 @@ Task-oriented lookup: **where to change code** and which spec governs behavior.
 
 | Target | Path |
 |--------|------|
-| `Tabletome` | App, Features, DesignSystem, Support |
-| `TabletomeDomain` | `Domain/` |
-| `TabletomeData` | `Data/` (+ `TabletomeHobbyData` for SwiftData hobby layer) |
-| `TabletomeTests` | `Tests/Unit/` |
+| `MiniBuddy` | App, Features, DesignSystem, Support |
+| `MiniBuddyDomain` | `Domain/` |
+| `MiniBuddyData` | `Data/` (+ `MiniBuddyHobbyData` for SwiftData hobby layer) |
+| `MiniBuddyTests` | `Tests/Unit/` |
 
 See [`ArchitectureSpec.md`](../../specs/ArchitectureSpec.md) for dependency rules.

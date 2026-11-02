@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 struct UnitCatalogBrowser: View {
     @Environment(\.dismiss) private var dismiss

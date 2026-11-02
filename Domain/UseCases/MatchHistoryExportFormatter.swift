@@ -3,7 +3,7 @@ import Foundation
 public enum MatchHistoryExportFormatter: Sendable {
     public static func text(record: MatchRecord, events: [MatchLogEvent]) -> String {
         var lines: [String] = [
-            "Tabletome Match Summary",
+            "Mini Buddy Match Summary",
             "=======================",
             "\(record.gameSystemName) · \(formattedDate(record.endedAt))",
             "\(record.players.playerOneName) (\(record.players.playerOneArmyLabel))",

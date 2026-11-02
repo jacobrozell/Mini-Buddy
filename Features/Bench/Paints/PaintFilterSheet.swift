@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 struct PaintFilterSheet: View {
     @Environment(\.dismiss) private var dismiss

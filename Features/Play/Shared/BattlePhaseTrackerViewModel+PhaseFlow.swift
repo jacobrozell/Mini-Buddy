@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerViewModel {
     func setPhase(_ phase: BattleTurnPhase) {

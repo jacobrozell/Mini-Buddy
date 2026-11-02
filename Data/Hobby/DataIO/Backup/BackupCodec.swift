@@ -1,7 +1,7 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Encodes the current store to a web-compatible JSON backup, and restores a sanitized
 /// backup into the context. Ports `exportSnapshot` / `importSnapshot` (`js/core/store.js`).

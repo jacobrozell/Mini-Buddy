@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 public struct MatchVictoryPresentation: Equatable {
     public let gameSystemId: String

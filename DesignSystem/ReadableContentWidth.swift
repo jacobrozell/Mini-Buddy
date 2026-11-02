@@ -11,7 +11,7 @@ private struct ReadableContentWidthModifier: ViewModifier {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     func body(content: Content) -> some View {
-        let layoutContext = TabletomeLayout.context(
+        let layoutContext = MiniBuddyLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         )

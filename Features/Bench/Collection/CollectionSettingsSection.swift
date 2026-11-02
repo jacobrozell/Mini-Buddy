@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 struct CollectionSettingsSection: View {
     @Environment(\.modelContext) private var context

@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// UserDefaults backing for the active game system — shared by `AppRouter` and DI defaults.
 enum ActiveGameContextPersistence: Sendable {

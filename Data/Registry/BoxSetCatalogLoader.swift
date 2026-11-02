@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Loads `Resources/Rules/<bundleName>.json` into a `BoxSetCatalog`.
 /// Mirrors `GameSystemsManifestLoader`'s bundle-resolution strategy.

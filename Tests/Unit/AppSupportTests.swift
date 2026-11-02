@@ -1,5 +1,5 @@
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
 final class AppSupportTests: XCTestCase {
     func testFeedbackEmailIsConfigured() {
@@ -14,7 +14,7 @@ final class AppSupportTests: XCTestCase {
             details: "Should be darker"
         )
         let subject = AppSupport.mailSubject(for: draft)
-        XCTAssertTrue(subject.contains("[Tabletome]"))
+        XCTAssertTrue(subject.contains("[Mini Buddy]"))
         XCTAssertTrue(subject.contains("Paint"))
         XCTAssertTrue(subject.contains("Macragge Blue"))
     }
@@ -27,7 +27,7 @@ final class AppSupportTests: XCTestCase {
             details: ""
         )
 
-        XCTAssertEqual(AppSupport.mailSubject(for: draft), "[Tabletome] Improvement — Add paint filters")
+        XCTAssertEqual(AppSupport.mailSubject(for: draft), "[Mini Buddy] Improvement — Add paint filters")
     }
 
     func testMailBodyIncludesSummaryAndDiagnostics() {
@@ -40,7 +40,7 @@ final class AppSupportTests: XCTestCase {
         let body = AppSupport.mailBody(for: draft)
         XCTAssertTrue(body.contains("Summary: Add to catalog"))
         XCTAssertTrue(body.contains("Basing material"))
-        XCTAssertTrue(body.contains("App: Tabletome"))
+        XCTAssertTrue(body.contains("App: Mini Buddy"))
     }
 
     func testMailtoURLUsesConfiguredRecipient() throws {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Compares Combat Patrol (10th Edition format) with 11th Edition full 40k for Rules tab context.
 struct CombatPatrolRulesComparisonCard: View {
@@ -27,7 +27,7 @@ struct CombatPatrolRulesComparisonCard: View {
                 Text(
                     String(
                         localized: """
-                        Tabletome does not include full 10th Edition matched play (points lists). \
+                        Mini Buddy does not include full 10th Edition matched play (points lists). \
                         Combat Patrol is the only 10th Edition mode in the app.
                         """
                     )

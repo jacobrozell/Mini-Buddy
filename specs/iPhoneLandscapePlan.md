@@ -45,17 +45,17 @@ Related specs: [AccessibilitySpec.md](AccessibilitySpec.md), [DesignSystemSpec.m
 ### What exists today
 
 - **Orientation policy:** iPhone portrait + landscape; iPad portrait + landscape (`project.yml`).
-- **`TabletomeLayoutContext`:** Idiom-aware layout contexts (`phonePortrait`, `phoneLandscape`, `padPortrait`, `padLandscape`) in `DesignSystem/TabletomeLayout.swift`.
+- **`MiniBuddyLayoutContext`:** Idiom-aware layout contexts (`phonePortrait`, `phoneLandscape`, `padPortrait`, `padLandscape`) in `DesignSystem/MiniBuddyLayout.swift`.
 - **Already adapted:** Battle Tracker phone/iPad landscape layouts, Guided Match `NavigationSplitView` on iPad, Combat Resolver side-by-side on iPad, Onboarding `widePageLayout` on compact height, `AdaptiveLayout.usesSplitNavigation` gated by pad idiom, embedded battle tab bar hide via `TabBarChrome`, compact one-line `GuidedMatchStatusBar` in phone landscape battle.
 
 ### Critical architectural gap
 
-`TabletomeLayout.isPadLandscape` uses **size class only**. On **iPhone landscape**, that condition is also true — so if portrait lock is removed without refactoring, iPhones would immediately get iPad-oriented 3-column battle tracker layouts in a ~390×393pt viewport. That is the highest-risk change in the entire project.
+`MiniBuddyLayout.isPadLandscape` uses **size class only**. On **iPhone landscape**, that condition is also true — so if portrait lock is removed without refactoring, iPhones would immediately get iPad-oriented 3-column battle tracker layouts in a ~390×393pt viewport. That is the highest-risk change in the entire project.
 
 **Decision required in Phase 0:** Replace or augment `isPadLandscape` with idiom-aware logic per `.cursor/rules/ios-agent.mdc`:
 
 ```swift
-enum TabletomeLayoutContext {
+enum MiniBuddyLayoutContext {
     case phonePortrait
     case phoneLandscape      // primary new design target
     case padPortrait
@@ -82,8 +82,8 @@ Before touching individual views, define four layout contexts and what each impl
 
 | Primitive | Purpose |
 |-----------|---------|
-| `TabletomeLayoutContext` | Single source of truth from idiom + size classes |
-| `TabletomeLayoutReader` | Replace/adjust current `isPadLandscape` bool API |
+| `MiniBuddyLayoutContext` | Single source of truth from idiom + size classes |
+| `MiniBuddyLayoutReader` | Replace/adjust current `isPadLandscape` bool API |
 | `compactHeight` | `verticalSizeClass == .compact` — shared by phone landscape and iPad landscape |
 | `readableContentWidth()` | Extend: apply on phone landscape for **reading** screens only |
 | `dynamicTypeAdaptive()` | Environment-driven padding/column collapse at `isAccessibilitySize` |
@@ -424,7 +424,7 @@ List — low risk; inline title; onboarding replay inherits onboarding landscape
 
 1. Update `project.yml` iPhone orientations to include landscape left/right
 2. Run `xcodegen generate`
-3. Implement `TabletomeLayoutContext` + idiom-aware helpers
+3. Implement `MiniBuddyLayoutContext` + idiom-aware helpers
 4. Refactor `isPadLandscape` call sites to use new context
 5. Add unit tests: phone landscape ≠ pad landscape
 6. Update `AccessibilitySpec.md` orientations section
@@ -510,7 +510,7 @@ Device matrix (iPhone SE, 16, 16 Pro Max, iPad 10th gen, iPad Pro 11"); unit + U
 
 ## 10. Recommended First PR
 
-1. Phase 0: `TabletomeLayoutContext` + idiom gate (orientations still locked)
+1. Phase 0: `MiniBuddyLayoutContext` + idiom gate (orientations still locked)
 2. Fix `RuleSectionDetailView` readable width
 3. Gate `MatchStepDetailView` and `CombatResolverPanel` side-by-side on idiom
 4. Enable iPhone landscape in `project.yml`

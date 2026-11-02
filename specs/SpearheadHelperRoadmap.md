@@ -1,6 +1,6 @@
 # Spearhead Helper Roadmap
 
-Tabletome should be the best at-the-table helper for Age of Sigmar Spearhead — not a rules replacement, but the thing you reach for when you forget what happens next.
+Mini Buddy should be the best at-the-table helper for Age of Sigmar Spearhead — not a rules replacement, but the thing you reach for when you forget what happens next.
 
 ## Product principles
 

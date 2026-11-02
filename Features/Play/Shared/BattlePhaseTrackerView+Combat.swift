@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 extension BattlePhaseTrackerView {
     @ViewBuilder

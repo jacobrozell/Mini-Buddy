@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 /// Phase 2: the system-named boolean flags on `PlayCapabilities` are replaced
 /// by closed enums. These tests pin the enum mapping against the live bundled

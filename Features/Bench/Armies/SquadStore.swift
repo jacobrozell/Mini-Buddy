@@ -1,8 +1,8 @@
 import Foundation
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Per-model squad tracking mutations. Ports `enableSquadMembers`, `disableSquadMembers`,
 /// `updateMember`, and the member-advance logic (`js/core/store.js`, `render/armies.js`).

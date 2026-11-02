@@ -1,10 +1,10 @@
-# Tabletome 1.0 UI overhaul: master plan
+# Mini Buddy 1.0 UI overhaul: master plan
 
 **Status:** In progress (design system, shell, onboarding, Play home, and game guide landed; Guided Match in progress)
 **Created:** 2026-10-28
 **Owner:** Jacob (product) · implementing agents (execution)
 **Release target:** 1.0.0 App Store (Spearhead-only battle tracker)
-**Goal:** Make Tabletome look and feel like a polished, production iOS app, the kind people screenshot for a subreddit. The beginner-friendly behavior stays. What goes is the "stock Settings-app plus walls of tutorial text" look.
+**Goal:** Make Mini Buddy look and feel like a polished, production iOS app, the kind people screenshot for a subreddit. The beginner-friendly behavior stays. What goes is the "stock Settings-app plus walls of tutorial text" look.
 
 This folder is the **single source of truth** for the overhaul. It is written so that a less capable agent can execute it **one work package (WP) at a time** without needing to re-derive decisions. If a step is ambiguous, the agent must stop and ask rather than invent new design.
 
@@ -114,15 +114,15 @@ Cloud agents often have no Xcode. In that case:
 ## 4. Verification commands (run for every WP)
 
 ```bash
-cd TableTome
+cd Mini Buddy
 xcodegen generate
 python3 Scripts/validate_content.py
 Scripts/check_architecture_debt.sh
-xcodebuild build -scheme TabletomeCI -destination 'platform=iOS Simulator,name=Tabletome' -quiet
-xcodebuild test  -scheme TabletomeCI -destination 'platform=iOS Simulator,name=Tabletome' -quiet
+xcodebuild build -scheme MiniBuddyCI -destination 'platform=iOS Simulator,name=MiniBuddy' -quiet
+xcodebuild test  -scheme MiniBuddyCI -destination 'platform=iOS Simulator,name=MiniBuddy' -quiet
 ```
 
-If the `Tabletome` simulator does not exist, run `Scripts/setup-tabletome-simulator.sh` once.
+If the `MiniBuddy` simulator does not exist, run `Scripts/setup-minibuddy-simulator.sh` once.
 
 > **Known baseline failures (measured 2026-10-28 on `claude/wizardly-carson-bk82xi`, before any WP):**
 > - `Scripts/check_architecture_debt.sh` fails: `switch_gameSystemId` is **23 / 21**.

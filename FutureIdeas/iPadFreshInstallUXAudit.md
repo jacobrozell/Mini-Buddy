@@ -1,7 +1,7 @@
 # iPad Fresh-Install UX Audit
 
 **Date:** 2026-06-18  
-**Device:** TableTome iPad simulator (iOS 26.5), erased install  
+**Device:** MiniBuddy iPad simulator (iOS 26.5), erased install  
 **Persona:** Total beginner — no wargaming vocabulary, no rulebooks, would Google if stuck  
 **Status:** Complete — code fixes merged, iPad re-test passed 2026-06-18
 

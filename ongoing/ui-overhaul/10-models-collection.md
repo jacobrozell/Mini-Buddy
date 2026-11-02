@@ -96,7 +96,7 @@ Back to [index](README.md). The Models tab is optional for battles, but it ships
 2. **Add army:** faction search field + suggestions list with crest tiles. Starter-box prefill (`StarterBoxCollectionPrefillResolver`) shows as a highlighted `TTNotice(tone: .brand)` "Add your Spearhead box contents?" with a one-tap action, if that flow exists in the sheet.
 3. **Filter sheet:** sections with `TTSegmentedControl` / chip toggles instead of long `Picker`s where options ≤ 6. Footer `.ttPrimary` "Show {n} Armies".
 4. **Intro sheet** (`CollectionIntroSheet`): 1 page in the onboarding style (ON-01): illustration (`ProgressRing` sample at 62%), serif title "Your Models", 2-line body, `.ttPrimary` "Get Started", `.ttTertiary` "Load Sample Collection".
-5. **Hobby settings:** `ttGroupedList()`; stage editor rows show color swatches (20 pt circles) + name; About section: replace the in-joke tagline ("For the Emperor · For the Great Horned Rat · Sigmar Watches") with "Made for the tabletome community" or remove it (it references GW lore phrases: keep the product free of GW-flavored marketing copy, D6).
+5. **Hobby settings:** `ttGroupedList()`; stage editor rows show color swatches (20 pt circles) + name; About section: replace the in-joke tagline ("For the Emperor · For the Great Horned Rat · Sigmar Watches") with "Made for the minibuddy community" or remove it (it references GW lore phrases: keep the product free of GW-flavored marketing copy, D6).
 
 ### Acceptance
 - [ ] Import/export (`DataActions`, `ImportResultsSheet`) still works: run `Tests/Unit/Hobby` tests.

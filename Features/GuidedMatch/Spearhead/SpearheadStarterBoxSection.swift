@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 enum SpearheadStarterBoxStorage {
     static let selectedBoxIdKey = "spearhead.selectedStarterBoxId"

@@ -9,9 +9,9 @@ DesignSystem/Theme/        ← tokens: TTColor, TTFont, TTMotion, TTHaptics, TTI
 DesignSystem/Components/   ← new reusable views: TTBadge, TTRow, TTCounter, …
 ```
 
-XcodeGen picks up new folders automatically if `project.yml` lists `DesignSystem` as a source path (it does: the `Tabletome` target sources include `DesignSystem`). Run `xcodegen generate` after adding files anyway.
+XcodeGen picks up new folders automatically if `project.yml` lists `DesignSystem` as a source path (it does: the `MiniBuddy` target sources include `DesignSystem`). Run `xcodegen generate` after adding files anyway.
 
-Naming: every new public token or component is prefixed **`TT`** (Tabletome) so it is easy to grep and never collides with SwiftUI names.
+Naming: every new public token or component is prefixed **`TT`** (Mini Buddy) so it is easy to grep and never collides with SwiftUI names.
 
 ---
 
@@ -705,7 +705,7 @@ Apply in every WP that touches strings.
 | "Azure scores 2" (with player name) | "Player one +2 VP" |
 | "Pass to Gold" | "Hand off the device to the other player when you are done" |
 | One sentence, then an ⓘ for more | Three-sentence explanations inline |
-| "You roll real dice. We keep score." | "Tabletome tracks phases, score, and rules." |
+| "You roll real dice. We keep score." | "Mini Buddy tracks phases, score, and rules." |
 | Name the physical thing: "your realm battlefield pack" | Abstract: "the content from your set" |
 
 - **Player names:** default names are "Player 1" / "Player 2" (existing). Under every name, show the army (`army.name`) in secondary ink. Color names ("Azure"/"Gold") are **never** shown as text; they're visual only.

@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Add/edit paint form. Mirrors `paintForm` (`js/render/paints.js`).
 struct AddEditPaintSheet: View {

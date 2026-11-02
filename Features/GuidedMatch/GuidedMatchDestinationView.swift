@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct GuidedMatchDestinationView: View {
     let gameSystemId: GameSystemId
@@ -39,7 +39,7 @@ private struct GuidedMatchDestinationContent: View {
     }
 
     private var hidesOuterNavigationBar: Bool {
-        TabletomeLayout.usesSplitNavigation(
+        MiniBuddyLayout.usesSplitNavigation(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass,
             dynamicTypeSize: dynamicTypeSize

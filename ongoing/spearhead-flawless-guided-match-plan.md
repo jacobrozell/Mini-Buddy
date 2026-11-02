@@ -21,7 +21,7 @@
 
 ### What “flawless” means for a new Spearhead player
 
-After one evening with Tabletome, Jacob should be able to say:
+After one evening with Mini Buddy, Jacob should be able to say:
 
 1. **I knew what to tap next** at every moment — no scrolling hunt, no “where do I go?”
 2. **I never had to Google** a term that came up on screen — tap-to-define or plain rewrite.
@@ -719,7 +719,7 @@ Real-table session notes, checked against Spearhead rules + current codebase.
 
 ### 19.4 “Must have at least one regiment” — what is a regiment?
 
-📖 **Not in Tabletome** — that string is GW list-builder language. In Spearhead, **regiment ability** = pick **one of two army-wide pre-battle rules** on your army sheet (not a group of models).
+📖 **Not in Mini Buddy** — that string is GW list-builder language. In Spearhead, **regiment ability** = pick **one of two army-wide pre-battle rules** on your army sheet (not a group of models).
 
 | Status | Where today | Gap |
 |--------|-------------|-----|
@@ -876,7 +876,7 @@ Screenshot from session not in repo — treat as **open**.
 - [ ] Manual playtest script passed on iPhone + iPad
 - [ ] `check-firebase-parity` N/A; unit tests green; CI green
 - [ ] This doc’s P0 items moved to **Finished** in [`ongoing/README.md`](README.md)
-- [ ] [`workspace/projects/tabletome.md`](../../workspace/projects/tabletome.md) updated: Spearhead GM v1 shipped
+- [ ] [`workspace/projects/mini-buddy.md`](../../workspace/projects/mini-buddy.md) updated: Spearhead GM v1 shipped
 
 ---
 

@@ -1,4 +1,4 @@
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Which blocks the Spearhead Now panel renders for a phase. Header, instruction, and the show-all control are always present.
 enum BattleNowBlock: String, Equatable {

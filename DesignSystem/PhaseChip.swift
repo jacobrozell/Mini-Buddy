@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct PhaseChip: View {
     enum Style { case primary, secondary }
@@ -103,7 +103,7 @@ struct PhaseChipRow: View {
 
     private var usesPhaseGrid: Bool {
         guard !dynamicTypeSize.needsLayoutAdaptation else { return false }
-        return TabletomeLayout.context(
+        return MiniBuddyLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         ) == .regular

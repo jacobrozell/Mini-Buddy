@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public enum RosterPoints {
     public static func total(_ entries: [RosterEntry]) -> Int {

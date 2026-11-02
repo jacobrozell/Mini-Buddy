@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct GuidedMatchLink: Hashable {
     let gameSystemId: GameSystemId

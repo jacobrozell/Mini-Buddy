@@ -1,8 +1,8 @@
 import XCTest
 import SwiftData
-@testable import Tabletome
-@testable import TabletomeHobbyData
-@testable import TabletomeDomain
+@testable import MiniBuddy
+@testable import MiniBuddyHobbyData
+@testable import MiniBuddyDomain
 
 @MainActor
 final class DataActionsImportExportTests: XCTestCase {
@@ -182,7 +182,7 @@ final class DataActionsImportExportTests: XCTestCase {
         try context.save()
 
         let exported = DataActions.backupJSON(ctx: context)
-        XCTAssertTrue(exported.filename.hasPrefix("tabletome-backup-"))
+        XCTAssertTrue(exported.filename.hasPrefix("minibuddy-backup-"))
         XCTAssertTrue(exported.text.contains("Ultramarines"))
         XCTAssertTrue(exported.text.contains("Intercessors (5)"))
 

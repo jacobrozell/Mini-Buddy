@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum BattleTrackerChromeStorage {
     static let topCollapsedKey = "battleTracker.topChromeCollapsed"

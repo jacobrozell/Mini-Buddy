@@ -1,7 +1,7 @@
 import XCTest
 import SwiftData
-@testable import TabletomeHobbyData
-@testable import TabletomeDomain
+@testable import MiniBuddyHobbyData
+@testable import MiniBuddyDomain
 
 @MainActor
 final class CollectionMatcherTests: XCTestCase {

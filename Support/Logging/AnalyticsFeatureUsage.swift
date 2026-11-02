@@ -1,11 +1,11 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Records feature adoption and refreshes Firebase user properties for segmentation.
 @MainActor
 enum AnalyticsFeatureUsage {
     static func recordTabVisit(_ tab: AppTab) {
-        guard let logger = TabletomeAnalytics.logger else {
+        guard let logger = MiniBuddyAnalytics.logger else {
             _ = AnalyticsFeatureUsageStore.recordTabVisit(tab)
             syncUserProperties()
             return
@@ -22,11 +22,11 @@ enum AnalyticsFeatureUsage {
 
     static func recordGuidedMatchStarted(gameSystemId: String) {
         let isFirst = AnalyticsFeatureUsageStore.recordGuidedMatchStarted(gameSystemId: gameSystemId)
-        if isFirst, let logger = TabletomeAnalytics.logger {
+        if isFirst, let logger = MiniBuddyAnalytics.logger {
             logFirstUseIfNeeded(
                 feature: .guidedMatch,
                 logger: logger,
-                metadata: TabletomeAnalytics.gameSystemMetadata(gameSystemId)
+                metadata: MiniBuddyAnalytics.gameSystemMetadata(gameSystemId)
             )
         }
         syncUserProperties(activeGameSystemId: gameSystemId)
@@ -35,11 +35,11 @@ enum AnalyticsFeatureUsage {
     static func recordGameGuideOpened(gameSystemId: String) {
         let isFirst = AnalyticsFeatureUsageStore.recordFeature(.gameGuide)
         AnalyticsFeatureUsageStore.recordGameGuideOpened(gameSystemId: gameSystemId)
-        if isFirst, let logger = TabletomeAnalytics.logger {
+        if isFirst, let logger = MiniBuddyAnalytics.logger {
             logFirstUseIfNeeded(
                 feature: .gameGuide,
                 logger: logger,
-                metadata: TabletomeAnalytics.gameSystemMetadata(gameSystemId)
+                metadata: MiniBuddyAnalytics.gameSystemMetadata(gameSystemId)
             )
         }
         syncUserProperties(activeGameSystemId: gameSystemId)

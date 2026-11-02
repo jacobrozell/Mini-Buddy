@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// A JPEG checkpoint attached to a unit. Bytes live on disk; this row stores metadata only.
 @Model

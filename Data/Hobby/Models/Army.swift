@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// A named list grouping unit entries. Mirrors the web `Army` typedef
 /// (`js/core/constants.js`). We store only crest/colour *overrides* and resolve the

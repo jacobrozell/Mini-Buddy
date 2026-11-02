@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum MovementAction: String, CaseIterable, Identifiable {
     case normal

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 struct RosterPointsBar: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize

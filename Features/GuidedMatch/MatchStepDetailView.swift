@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum MatchStepPresentation {
     case detail
@@ -19,7 +19,7 @@ struct MatchStepDetailView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     private var usesSideBySideColumns: Bool {
-        TabletomeLayout.usesPairedPlayerColumns(
+        MiniBuddyLayout.usesPairedPlayerColumns(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass,
             isAccessibilitySize: dynamicTypeSize.needsLayoutAdaptation

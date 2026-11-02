@@ -1,6 +1,6 @@
 # Marketing Screenshots
 
-Professional App Store and marketing assets for **Tabletome**.
+Professional App Store and marketing assets for **Mini Buddy**.
 
 ## Quick start
 

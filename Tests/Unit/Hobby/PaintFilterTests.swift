@@ -1,6 +1,6 @@
 import XCTest
-@testable import Tabletome
-@testable import TabletomeHobbyData
+@testable import MiniBuddy
+@testable import MiniBuddyHobbyData
 
 @MainActor
 final class PaintFilterTests: XCTestCase {

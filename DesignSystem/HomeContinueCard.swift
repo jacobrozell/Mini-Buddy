@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Shown on Play when the user should continue onboarding or resume an in-progress Guided Match.
 struct HomeContinueCard: View {

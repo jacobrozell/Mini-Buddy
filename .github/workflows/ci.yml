@@ -41,7 +41,7 @@ jobs:
         run: Scripts/check_architecture_debt.sh
 
   # Build + unit tests. Requires a macOS runner with Xcode 16 + xcodegen.
-  # Mirrors the TabletomeCI scheme in project.yml.
+  # Mirrors the MiniBuddyCI scheme in project.yml.
   build-test:
     name: Build & test (Xcode)
     runs-on: macos-15
@@ -61,12 +61,12 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild test \
-            -project Tabletome.xcodeproj \
-            -scheme TabletomeCI \
+            -project MiniBuddy.xcodeproj \
+            -scheme MiniBuddyCI \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             CODE_SIGNING_ALLOWED=NO | xcbeautify || \
           xcodebuild test \
-            -project Tabletome.xcodeproj \
-            -scheme TabletomeCI \
+            -project MiniBuddy.xcodeproj \
+            -scheme MiniBuddyCI \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             CODE_SIGNING_ALLOWED=NO

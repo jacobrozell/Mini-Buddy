@@ -90,7 +90,7 @@ RELATED
    - Unit test `TTRichTextParserTests` (parser as a pure function `TTRichTextParser.blocks(from:) -> [TTRichTextBlock]`, defined in DesignSystem with no SwiftUI in the parser type, so it's testable).
 2. Detail layout: eyebrow category (`categoryRowLabel`), title `TTFont.title`, `TTRichText(section.content)` inside `.readableContentWidth()`, `TTSectionHeader("Terms in This Rule")` + `GlossaryChipsRow`, `TTSectionHeader("Related")` + `ReferenceLinksGroup` (restyled rows).
 3. Text selection: `.textSelection(.enabled)` on paragraphs (players quote rules to each other).
-4. Toolbar: `ShareLink` with plain text "{title}\n\n{content}\n\nvia Tabletome". Id `rules.share.{id}`.
+4. Toolbar: `ShareLink` with plain text "{title}\n\n{content}\n\nvia Mini Buddy". Id `rules.share.{id}`.
 5. Keep `rules.sectionContent.{id}` on the rich-text container.
 
 ### Acceptance

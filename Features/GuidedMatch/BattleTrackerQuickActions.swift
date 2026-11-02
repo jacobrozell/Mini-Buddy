@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum BattleTrackerQuickActionTarget: Equatable, Sendable {
     case sectionTab(BattleTrackerSectionTab)

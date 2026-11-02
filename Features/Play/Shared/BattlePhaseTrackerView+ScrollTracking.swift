@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerView {
     private var usesAccessibilityLayout: Bool {

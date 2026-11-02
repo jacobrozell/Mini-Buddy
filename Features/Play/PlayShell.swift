@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Engine-agnostic entry for in-battle play — routes to the tracker view for the active `PlayEngineId`.
 struct PlayShell: View {

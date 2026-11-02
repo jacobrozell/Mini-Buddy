@@ -73,7 +73,7 @@ public enum MatchSyncApplyError: Equatable, Sendable {
         case let .incompatibleSchema(received, expected):
             String(
                 localized: """
-                This match code needs a different version of Tabletome (format \(received), expected \(expected)). \
+                This match code needs a different version of Mini Buddy (format \(received), expected \(expected)). \
                 Update both devices and try again.
                 """
             )
@@ -99,7 +99,7 @@ extension MatchSyncApplyError {
 }
 
 public enum MatchSyncCodec {
-    private static let prefix = "tabletome-match:"
+    private static let prefix = "minibuddy-match:"
 
     public static func encode(_ snapshot: MatchSyncSnapshot) -> String? {
         switch encodePasteCode(snapshot) {

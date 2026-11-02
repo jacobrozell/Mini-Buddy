@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Plain value drafts produced by parsing/import, before insertion into SwiftData.
 public struct MemberDraft: Sendable, Equatable {

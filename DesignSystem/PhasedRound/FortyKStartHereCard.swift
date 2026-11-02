@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Recommended paths for new and returning 40k players on the game guide screen.
 struct FortyKStartHereCard: View {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Horizontal checklist of named setup steps for Guided Match.
 struct GuidedMatchSetupProgressList: View {

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct GameGuideSpearheadTableReferenceSection: View {
     let gameSystemId: String

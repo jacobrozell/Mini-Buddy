@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Routes Spearhead setup step ids to dedicated step views (§15 module).
 struct SpearheadMatchStepRouter: View {

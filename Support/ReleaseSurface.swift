@@ -1,6 +1,6 @@
 import Foundation
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 // MARK: - Release surface (1.0.0 = Spearhead / AoS only)
 //

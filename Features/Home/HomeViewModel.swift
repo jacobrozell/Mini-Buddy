@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 @MainActor
 final class HomeViewModel: ObservableObject {
@@ -26,7 +26,7 @@ final class HomeViewModel: ObservableObject {
             gameSystems = all.filter { ReleaseSurface.isPlayHomeGameSystemVisible($0) }
         } catch let error as RulesRepositoryError {
             errorMessage = String(localized: "Could not load game guides. Check bundled data and try again.")
-            TabletomeAnalytics.logRulesLoadFailed(
+            MiniBuddyAnalytics.logRulesLoadFailed(
                 logger: logger,
                 layer: "home",
                 error: error

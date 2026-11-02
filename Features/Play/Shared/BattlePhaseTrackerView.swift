@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 struct BattlePhaseTrackerView: View {
     @StateObject var viewModel: BattlePhaseTrackerViewModel
@@ -203,8 +203,8 @@ struct BattlePhaseTrackerView: View {
         }
     }
 
-    var layoutContext: TabletomeLayoutContext {
-        TabletomeLayout.context(
+    var layoutContext: MiniBuddyLayoutContext {
+        MiniBuddyLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         )
@@ -283,7 +283,7 @@ private struct BattleTrackerScreenChrome: ViewModifier {
 }
 
 struct BattleTrackerContentWidth: ViewModifier {
-    let layoutContext: TabletomeLayoutContext
+    let layoutContext: MiniBuddyLayoutContext
 
     func body(content: Content) -> some View {
         content

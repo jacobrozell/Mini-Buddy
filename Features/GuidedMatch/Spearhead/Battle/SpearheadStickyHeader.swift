@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Always-visible header showing round, phase, active player, and VP totals.
 struct SpearheadStickyHeader: View {

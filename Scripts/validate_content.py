@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tabletome content linter.
+"""Mini Buddy content linter.
 
 Validates bundled game content (manifest, catalogs, box sets) against the
 versioned JSON Schemas in Resources/Schemas AND against cross-reference
@@ -246,7 +246,7 @@ def _validate_box_set_payload(rel: str, data: dict, index) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate Tabletome bundled content.")
+    parser = argparse.ArgumentParser(description="Validate Mini Buddy bundled content.")
     parser.add_argument("--quiet", action="store_true", help="only print on failure")
     args = parser.parse_args()
 

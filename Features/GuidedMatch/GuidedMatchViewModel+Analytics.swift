@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension GuidedMatchViewModel {
     func logMatchStartedIfNeeded() {
@@ -22,7 +22,7 @@ extension GuidedMatchViewModel {
         playerTwoVP: Int? = nil,
         errorCode: String? = nil
     ) -> [String: String] {
-        var metadata = TabletomeAnalytics.gameSystemMetadata(gameSystemId)
+        var metadata = MiniBuddyAnalytics.gameSystemMetadata(gameSystemId)
         let progress = setupProgress
         metadata["completedSteps"] = String(progress.completed)
         metadata["totalSteps"] = String(progress.total)
@@ -31,7 +31,7 @@ extension GuidedMatchViewModel {
             metadata["status"] = status
         }
         if let rematch {
-            metadata["rematch"] = TabletomeAnalytics.boolString(rematch)
+            metadata["rematch"] = MiniBuddyAnalytics.boolString(rematch)
         }
         if let playerOneVP {
             metadata["playerOneVP"] = String(playerOneVP)
@@ -39,7 +39,7 @@ extension GuidedMatchViewModel {
         if let playerTwoVP {
             metadata["playerTwoVP"] = String(playerTwoVP)
         }
-        if let duration = TabletomeAnalytics.durationSeconds(
+        if let duration = MiniBuddyAnalytics.durationSeconds(
             since: MatchSessionStore.startedAt(gameSystemId: gameSystemId)
         ) {
             metadata["durationSeconds"] = duration

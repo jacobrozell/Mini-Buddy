@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Helps complete beginners pick the right game mode from the Play tab.
 struct HomeNewPlayerChooserCard: View {
@@ -24,7 +24,7 @@ struct HomeNewPlayerChooserCard: View {
             .fixedSize(horizontal: false, vertical: true)
 
             Label(
-                String(localized: "You roll physical dice — Tabletome tracks phases, score, and rules."),
+                String(localized: "You roll physical dice — Mini Buddy tracks phases, score, and rules."),
                 systemImage: "dice.fill"
             )
             .font(.caption)

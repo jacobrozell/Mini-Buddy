@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CallForReinforcementsCard: View {
     let playerOneName: String

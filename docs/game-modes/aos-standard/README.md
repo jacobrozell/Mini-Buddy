@@ -3,7 +3,7 @@
 **Game system id:** None — not registered in `GameSystemId`  
 **Status:** **Planned** (not supported today)
 
-Tabletome ships **Spearhead** for AoS today. **Full AoS** (battletomes, matched play) is on the [product roadmap](../PRODUCT_SCOPE.md). See [../aos-spearhead/](../aos-spearhead/) for the supported mode.
+Mini Buddy ships **Spearhead** for AoS today. **Full AoS** (battletomes, matched play) is on the [product roadmap](../PRODUCT_SCOPE.md). See [../aos-spearhead/](../aos-spearhead/) for the supported mode.
 
 ## Mode docs
 

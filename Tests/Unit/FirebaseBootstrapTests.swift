@@ -1,5 +1,5 @@
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
 final class FirebaseBootstrapTests: XCTestCase {
     func testAnalyticsCollectionRequiresFeatureFlag() {

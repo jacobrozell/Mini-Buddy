@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Combat Patrol mission rules and scoring — curated from bundled rule sections.
 struct CombatPatrolMissionsReferenceView: View {

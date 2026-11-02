@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Muster tab with adaptive split view (iPad) and navigation stack (iPhone).
 struct MusterTab: View {

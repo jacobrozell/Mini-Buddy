@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class DiceRollerEngineTests: XCTestCase {
   func testRollD6WithinBounds() {

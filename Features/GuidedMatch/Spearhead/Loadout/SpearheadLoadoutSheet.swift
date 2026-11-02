@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Combined loadout sheet for regiment ability + enhancement selection with confirm.
 struct SpearheadLoadoutSheet: View {

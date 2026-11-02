@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 struct UnitMatchupEvaluatorView: View {
     @StateObject private var viewModel: UnitMatchupEvaluatorViewModel

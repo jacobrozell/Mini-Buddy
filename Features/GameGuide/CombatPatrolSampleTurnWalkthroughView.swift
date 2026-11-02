@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Command-first tour of a Combat Patrol turn — mirrors 10th Edition phase order.
 struct CombatPatrolSampleTurnWalkthroughView: View {
@@ -121,7 +121,7 @@ struct CombatPatrolSampleTurnWalkthroughView: View {
                 String(
                     localized: """
                     Combat Patrol uses 10th Edition rules — not 11th Edition. A battle lasts five rounds; players alternate \
-                    Command, Move, Shoot, Charge, and Fight. You roll dice at the table; Tabletome tracks phases and score.
+                    Command, Move, Shoot, Charge, and Fight. You roll dice at the table; Mini Buddy tracks phases and score.
                     """
                 )
             )

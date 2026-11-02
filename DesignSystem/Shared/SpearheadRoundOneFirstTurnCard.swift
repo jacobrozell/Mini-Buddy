@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Always-visible round 1 control — correct who goes first without End of Turn or consuming a turn.
 struct SpearheadRoundOneFirstTurnCard: View {

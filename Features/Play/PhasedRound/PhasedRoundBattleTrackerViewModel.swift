@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Spearhead, 40k, and Combat Patrol — phased-round battle tracker view model.
 @MainActor

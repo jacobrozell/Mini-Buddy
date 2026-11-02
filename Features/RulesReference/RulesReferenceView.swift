@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 private struct RulesCategoryFilter: Identifiable, Hashable {
     let category: RuleSectionCategory?

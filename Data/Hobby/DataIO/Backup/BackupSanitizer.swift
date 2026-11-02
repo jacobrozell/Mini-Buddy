@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Sanitized restore payload: drafts + settings + a human preview.
 public struct SanitizedBackup: Sendable {

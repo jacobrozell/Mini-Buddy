@@ -34,7 +34,7 @@ custom_rules:
     name: "No device idiom in layout"
     regex: 'userInterfaceIdiom|UIScreen\.main'
     excluded: "Support/Diagnostics/"
-    message: "Choose layouts from size classes or container size (TabletomeLayout). Device idiom breaks iPhone Duo and resizable iPad windows."
+    message: "Choose layouts from size classes or container size (MiniBuddyLayout). Device idiom breaks iPhone Duo and resizable iPad windows."
     severity: error
 
 excluded:

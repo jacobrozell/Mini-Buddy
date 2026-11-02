@@ -1,6 +1,6 @@
 import Foundation
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Loads the bundled sample collection through the real import pipeline. Ports
 /// `js/data/demo.js` (the web fetches the CSVs; we read them from the app bundle).

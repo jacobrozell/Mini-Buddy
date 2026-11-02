@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension BattlePhaseTrackerView {
     var victoryScreen: some View {
@@ -40,7 +40,7 @@ extension BattlePhaseTrackerView {
         Task {
             await onVictoryPresented?(victoryPlayerOneVP, victoryPlayerTwoVP)
         }
-        TabletomeAnalytics.logger?.info(
+        MiniBuddyAnalytics.logger?.info(
             .guidedMatch,
             eventName: "battle_tracker_victory_presented",
             message: "Victory screen presented.",
@@ -49,7 +49,7 @@ extension BattlePhaseTrackerView {
                 "playerOneVP": String(victoryPlayerOneVP),
                 "playerTwoVP": String(victoryPlayerTwoVP),
                 "battleRound": String(viewModel.trackerState.battleRound),
-                "durationSeconds": TabletomeAnalytics.durationSeconds(
+                "durationSeconds": MiniBuddyAnalytics.durationSeconds(
                     since: MatchSessionStore.startedAt(gameSystemId: viewModel.gameSystemId)
                 ) ?? "0"
             ]

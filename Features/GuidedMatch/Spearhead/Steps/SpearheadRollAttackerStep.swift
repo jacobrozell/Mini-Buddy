@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct SpearheadRollAttackerStep: View {
     @ObservedObject var viewModel: GuidedMatchViewModel

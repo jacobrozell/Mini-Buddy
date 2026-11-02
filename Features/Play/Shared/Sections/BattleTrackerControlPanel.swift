@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerControlPanel: View {
     @ObservedObject var viewModel: BattlePhaseTrackerViewModel

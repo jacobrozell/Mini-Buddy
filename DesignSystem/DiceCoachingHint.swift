@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct DiceCoachingHint: View {
     let hint: DiceRollCoach.Hint

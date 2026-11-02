@@ -1,9 +1,9 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 @main
-struct TabletomeApp: App {
+struct MiniBuddyApp: App {
     init() { TTAppearance.apply() }
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate

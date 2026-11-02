@@ -1,7 +1,7 @@
 import XCTest
-@testable import Tabletome
-@testable import TabletomeData
-@testable import TabletomeDomain
+@testable import MiniBuddy
+@testable import MiniBuddyData
+@testable import MiniBuddyDomain
 
 @MainActor
 final class AppSearchViewModelTests: XCTestCase {

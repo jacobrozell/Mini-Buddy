@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Compact round controls for iPad turn layout when the phase playbook uses full width.
 struct BattleTrackerRoundBar: View {

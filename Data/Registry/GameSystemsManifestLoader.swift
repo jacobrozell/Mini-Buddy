@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public struct GameSystemsManifest: Codable, Sendable, Equatable {
     public let schemaVersion: Int

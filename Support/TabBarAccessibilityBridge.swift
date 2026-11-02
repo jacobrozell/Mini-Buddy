@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Applies stable accessibility identifiers and visibility to the root `UITabBarController`.
 struct TabBarAccessibilityBridge: UIViewControllerRepresentable {
@@ -84,7 +84,7 @@ struct AdaptiveTabStyle: ViewModifier {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     func body(content: Content) -> some View {
-        if TabletomeLayout.usesSplitNavigation(
+        if MiniBuddyLayout.usesSplitNavigation(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         ) {

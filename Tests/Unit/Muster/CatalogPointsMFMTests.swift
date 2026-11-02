@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 /// Spot-check bundled points against GW Munitorum Field Manual (June 2025 vintage).
 final class CatalogPointsMFMTests: XCTestCase {

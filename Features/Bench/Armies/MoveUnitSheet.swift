@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Move-unit destination picker. Mirrors the `move` action.
 struct MoveUnitSheet: View {

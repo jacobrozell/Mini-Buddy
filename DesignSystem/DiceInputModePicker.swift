@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension DiceInputMode: Identifiable {
     public var id: String { rawValue }

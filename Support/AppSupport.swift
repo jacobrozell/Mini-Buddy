@@ -43,9 +43,9 @@ enum AppSupport {
     static func mailSubject(for draft: FeedbackDraft) -> String {
         let item = draft.specificItem.trimmingCharacters(in: .whitespacesAndNewlines)
         if item.isEmpty {
-            return "[Tabletome] \(draft.category.subjectTag) — \(draft.trimmedSummary)"
+            return "[Mini Buddy] \(draft.category.subjectTag) — \(draft.trimmedSummary)"
         }
-        return "[Tabletome] \(draft.category.subjectTag) — \(item)"
+        return "[Mini Buddy] \(draft.category.subjectTag) — \(item)"
     }
 
     static func mailBody(for draft: FeedbackDraft) -> String {
@@ -72,12 +72,12 @@ enum AppSupport {
         #if canImport(UIKit)
         let device = UIDevice.current
         return """
-        App: Tabletome \(installedVersion) (\(installedBuild))
+        App: Mini Buddy \(installedVersion) (\(installedBuild))
         Device: \(device.model)
         iOS: \(device.systemVersion)
         """
         #else
-        return "App: Tabletome \(installedVersion) (\(installedBuild))"
+        return "App: Mini Buddy \(installedVersion) (\(installedBuild))"
         #endif
     }
 

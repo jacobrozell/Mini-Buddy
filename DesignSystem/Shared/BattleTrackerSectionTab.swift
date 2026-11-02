@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum BattleTrackerSectionTab: String, CaseIterable, Identifiable {
     case setup
@@ -120,8 +120,8 @@ struct BattleTrackerSectionTabBar: View {
         BattleTrackerSectionTab.visibleTabs(gameSystemId: gameSystemId)
     }
 
-    private var layoutContext: TabletomeLayoutContext {
-        TabletomeLayout.context(
+    private var layoutContext: MiniBuddyLayoutContext {
+        MiniBuddyLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         )

@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Routes cold-launch screenshot automation to the correct tab and deep link.
 enum MarketingSnapshotBootstrap {

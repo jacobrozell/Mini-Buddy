@@ -34,7 +34,7 @@ struct Wh40k11eWhatYouNeedCard: View {
                 String(
                     localized: """
                     The box also includes the Dominatus narrative campaign deck and datasheet cards — use them at \
-                    the table; Tabletome tracks phases and score.
+                    the table; Mini Buddy tracks phases and score.
                     """
                 )
             )

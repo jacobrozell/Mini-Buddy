@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Phase tour of an 11th Edition turn — charge-after-roll, pile-in batching, Command scoring.
 struct Wh40k11eSampleTurnWalkthroughView: View {
@@ -132,7 +132,7 @@ struct Wh40k11eSampleTurnWalkthroughView: View {
                 String(
                     localized: """
                     Players alternate turns each battle round — Command, Move, Shoot, Charge, and Fight. \
-                    Tabletome tracks phases and score; you roll dice and move models at the table. Tap Key terms below any step for definitions.
+                    Mini Buddy tracks phases and score; you roll dice and move models at the table. Tap Key terms below any step for definitions.
                     """
                 )
             )

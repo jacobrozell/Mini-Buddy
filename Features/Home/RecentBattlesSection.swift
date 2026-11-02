@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct RecentBattlesSection: View {
     let records: [MatchRecord]

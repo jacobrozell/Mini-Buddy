@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum OnboardingCompletion: Sendable, Equatable {
     case exploreApp

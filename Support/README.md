@@ -1,6 +1,6 @@
 # Support
 
-Shared app infrastructure — not user-facing features. Imported by the main `Tabletome` target.
+Shared app infrastructure — not user-facing features. Imported by the main `MiniBuddy` target.
 
 **Last updated:** 2026-06-29
 
@@ -29,12 +29,12 @@ Shared app infrastructure — not user-facing features. Imported by the main `Ta
 | `Logging/AnalyticsMetadataKeys.swift` | PII blocklist + parameter keys |
 | `Logging/AnalyticsUserContext.swift` | Firebase user properties |
 | `Logging/AnalyticsFeatureUsageStore.swift` | Lifetime adoption flags (UserDefaults) |
-| `Logging/TabletomeAnalytics.swift` | Static logger bridge + `gameSystemSection` helpers |
+| `Logging/MiniBuddyAnalytics.swift` | Static logger bridge + `gameSystemSection` helpers |
 
 **When to use which logger:**
 
 - Injected path: `AppDependencies.logger` (preferred in ViewModels)
-- No DI: `TabletomeAnalytics.logger` (router, early bootstrap)
+- No DI: `MiniBuddyAnalytics.logger` (router, early bootstrap)
 - Data layer: **callbacks** — see `NearbyMatchSyncService.analyticsHandler`
 
 Doc: [`docs/release/firebase-analytics.md`](../docs/release/firebase-analytics.md)

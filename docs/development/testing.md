@@ -8,8 +8,8 @@
 
 | Scheme | Use |
 |--------|-----|
-| **TabletomeCI** | CI and local unit tests (preferred) |
-| **Tabletome** | Day-to-day run in Xcode |
+| **MiniBuddyCI** | CI and local unit tests (preferred) |
+| **Mini Buddy** | Day-to-day run in Xcode |
 
 Both are defined in `project.yml`. Regenerate after changes: `xcodegen generate`.
 
@@ -20,26 +20,26 @@ Both are defined in `project.yml`. Regenerate after changes: `xcodegen generate`
 ### All unit tests
 
 ```bash
-xcodebuild test -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
+xcodebuild test -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
   -quiet
 ```
 
 ### Single test class
 
 ```bash
-xcodebuild test -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
-  -only-testing:TabletomeTests/GuidedMatchViewModelTests
+xcodebuild test -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
+  -only-testing:MiniBuddyTests/GuidedMatchViewModelTests
 ```
 
 ### Multiple targeted suites (Firebase example)
 
 ```bash
-xcodebuild test -scheme TabletomeCI \
-  -destination 'platform=iOS Simulator,name=Tabletome' \
-  -only-testing:TabletomeTests/FirebaseBootstrapTests \
-  -only-testing:TabletomeTests/AnalyticsFeatureUsageStoreTests
+xcodebuild test -scheme MiniBuddyCI \
+  -destination 'platform=iOS Simulator,name=MiniBuddy' \
+  -only-testing:MiniBuddyTests/FirebaseBootstrapTests \
+  -only-testing:MiniBuddyTests/AnalyticsFeatureUsageStoreTests
 ```
 
 CI uses `iPhone 16` on macOS — see [`ci.md`](ci.md).
@@ -107,7 +107,7 @@ None of those modes ship in 1.0. Paints already ship. Do not ungate as part of S
 |------|---------|
 | Content lint | `python3 Scripts/validate_content.py` |
 | Architecture ratchet | `Scripts/check_architecture_debt.sh` |
-| Build + unit tests | `xcodebuild test -scheme TabletomeCI` |
+| Build + unit tests | `xcodebuild test -scheme MiniBuddyCI` |
 
 Details: [`ci.md`](ci.md) · Spec matrix: [`TestPlanSpec.md`](../../specs/TestPlanSpec.md).
 

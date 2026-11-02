@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 public struct RuleSectionRow: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize

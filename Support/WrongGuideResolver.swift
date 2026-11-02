@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct WrongGuideAlert: Equatable, Sendable {
     let title: String

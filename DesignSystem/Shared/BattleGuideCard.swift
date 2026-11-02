@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleGuideCard: View {
     let step: BattleFlowGuideStep

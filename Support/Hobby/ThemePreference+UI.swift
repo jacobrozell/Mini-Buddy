@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 extension ThemePreference {
     /// SwiftUI colour-scheme override. `system` → nil (follow the device).

@@ -1,6 +1,6 @@
 import XCTest
-@testable import Tabletome
-@testable import TabletomeDomain
+@testable import MiniBuddy
+@testable import MiniBuddyDomain
 
 final class PlayContinuationResolverTests: XCTestCase {
     private let gameSystemId = GameSystemId.aosSpearhead.rawValue

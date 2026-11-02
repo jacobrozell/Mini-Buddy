@@ -1,6 +1,6 @@
 # Unified App — MiniMuster Port Log
 
-**Status:** Living document. Tracks what has been ported from MiniMuster into Tabletome
+**Status:** Living document. Tracks what has been ported from MiniMuster into Mini Buddy
 as the Unified App Plan rolls out. Pair with [`UnifiedAppPlan.md`](UnifiedAppPlan.md).
 
 ## Phases 1 & 2
@@ -10,9 +10,9 @@ as the Unified App Plan rolls out. Pair with [`UnifiedAppPlan.md`](UnifiedAppPla
 | Item | Status | Notes |
 |------|--------|-------|
 | Deployment target → iOS 18 | ✅ | `project.yml` |
-| `TabletomeHobbyData` framework target | ✅ | Anchored by `Data/Hobby/HobbyDataModule.swift`; depends on `TabletomeDomain` |
-| `SWIFT_STRICT_CONCURRENCY: complete` on all targets | ⚠️ partial | Set on `TabletomeHobbyData` only; existing targets unchanged to keep CI green. Follow-up PR promotes Domain → `targeted` → `complete`. |
-| Folder skeleton `Features/Bench`, `Features/Muster`, `Features/Play` | ✅ Bench + Muster | Play stays in-place (existing Tabletome guided match is the Play pillar per the plan). Phase 7 reorganizes. |
+| `MiniBuddyHobbyData` framework target | ✅ | Anchored by `Data/Hobby/HobbyDataModule.swift`; depends on `MiniBuddyDomain` |
+| `SWIFT_STRICT_CONCURRENCY: complete` on all targets | ⚠️ partial | Set on `MiniBuddyHobbyData` only; existing targets unchanged to keep CI green. Follow-up PR promotes Domain → `targeted` → `complete`. |
+| Folder skeleton `Features/Bench`, `Features/Muster`, `Features/Play` | ✅ Bench + Muster | Play stays in-place (existing Mini Buddy guided match is the Play pillar per the plan). Phase 7 reorganizes. |
 | CI green with new target | ✅ | 330 unit tests passing after main merge |
 
 ### Phase 2 — Domain kernel
@@ -26,7 +26,7 @@ Ported into `Domain/Hobby/` from `MiniMuster/Domain/`:
 | `FactionDefs.swift` | `Domain/Factions/FactionDefs.swift` | Verbatim |
 | `FactionResolver.swift` | `Domain/Factions/FactionResolver.swift` | Verbatim minus the `extension Army` convenience (re-add in Phase 4 once SwiftData `Army` conforms to `ArmyLike`) |
 | `Tags.swift` | `Domain/Tags.swift` | Verbatim |
-| `Limits.swift` | `Domain/Limits.swift` | Renamed namespace `Limits` → `HobbyLimits`; `capped` → `hobbyCapped` to avoid Tabletome collisions |
+| `Limits.swift` | `Domain/Limits.swift` | Renamed namespace `Limits` → `HobbyLimits`; `capped` → `hobbyCapped` to avoid Mini Buddy collisions |
 | `ModelCount.swift` | `Domain/ModelCount.swift` | Verbatim |
 | `Pipeline.swift` | `Domain/Pipeline.swift` + `Models/PipelineStage.swift` | Engine operates over `UnitLike` / `ArmyLike`; `PipelineStage`, `ProgressSegment`, `NormalizedState` are value structs (SwiftData stage model will map to/from these in Phase 4) |
 | `Members.swift` | `Domain/Members.swift` | Engine operates over `UnitLike` |
@@ -64,7 +64,7 @@ In **Debug** builds, Bench and Muster tabs are visible automatically while the M
 | `RosterPoints`, `BattleSize`, `CatalogUnit` | Phase 2 follow-up | Needs CatalogKeyAudit decisions on key shape first. |
 | Strict-concurrency promotion on existing targets | Phase 1 follow-up | Risk of breaking existing build; rolling out gradually keeps each PR reviewable. |
 | Wiring `BenchTab` / `MusterTab` into `RootTabView` | ✅ Phase 5 scaffold | Gated by `ReleaseSurface.showsBenchTab` / `showsMusterTab` (`-enable_full_product_surface`). |
-| SwiftData models (`Army`, `Unit`, `Paint`, `Roster`, …) → `TabletomeHobbyData` | Phase 4 | Largest single chunk; deserves its own PR with migration tests. SwiftData `Army`/`Unit` conform to `ArmyLike`/`UnitLike` so today's engines snap into place. |
+| SwiftData models (`Army`, `Unit`, `Paint`, `Roster`, …) → `MiniBuddyHobbyData` | Phase 4 | Largest single chunk; deserves its own PR with migration tests. SwiftData `Army`/`Unit` conform to `ArmyLike`/`UnitLike` so today's engines snap into place. |
 | `AppContainer`, DataIO (CSV/JSON backup), widget snapshot | Phase 4 | Same as above. |
 
 ---

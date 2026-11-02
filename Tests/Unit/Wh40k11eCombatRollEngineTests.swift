@@ -1,5 +1,5 @@
 import XCTest
-@testable import TabletomeDomain
+@testable import MiniBuddyDomain
 
 final class Wh40k11eCombatRollEngineTests: XCTestCase {
     func testRouterUsesDedicated11eEngineNotCombatPatrol() {

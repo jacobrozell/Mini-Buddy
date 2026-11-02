@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeHobbyData
+import MiniBuddyDomain
+import MiniBuddyHobbyData
 
 /// State picker tinted to the current stage colour. Mirrors `.state-sel`.
 struct StateMenu: View {

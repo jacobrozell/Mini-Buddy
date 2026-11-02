@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 private struct BattleTrackerPlayEngineIdKey: EnvironmentKey {
     static let defaultValue: PlayEngineId = .phasedRound

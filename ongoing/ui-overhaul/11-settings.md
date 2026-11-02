@@ -12,7 +12,7 @@ Back to [index](README.md).
 ┌──────────────────────────────────┐
 │ Settings                         │
 │ ┌──────────────────────────────┐ │
-│ │ [crest] Tabletome            │ │ ← app card: name serif, version, "Offline companion"
+│ │ [crest] Mini Buddy            │ │ ← app card: name serif, version, "Offline companion"
 │ │         Version 1.0 (8)      │ │
 │ └──────────────────────────────┘ │
 │ PLAY                             │
@@ -26,7 +26,7 @@ Back to [index](README.md).
 │ SUPPORT                          │
 │ [?] Help & support            ↗  │
 │ [✉] Send feedback             ↗  │
-│ [★] Rate Tabletome            ↗  │
+│ [★] Rate Mini Buddy            ↗  │
 │ LEGAL                            │
 │ [🔒] Privacy policy           ↗  │
 │ [♿] Accessibility             › │
@@ -41,12 +41,12 @@ Back to [index](README.md).
 
 ### Steps
 1. `List` → `.ttGroupedList()` with `TTSectionHeader`s and `.textCase(nil)`.
-2. **App card** (first section, `listHeroCardRow()`): `BrandCrest(size: 56)`, "Tabletome" `TTFont.title`, "Version \(Bundle.main.appVersion)" `TTFont.footnote` inkSecondary (`appVersion` already formats "1.0.0 (8)", see `Support/Hobby/Bundle+AppVersion.swift`), tagline "Offline Spearhead companion" (use `ReleaseSurface.singleVisibleGameSystemId() != nil` to choose this string; the multi-game string stays for full surface).
+2. **App card** (first section, `listHeroCardRow()`): `BrandCrest(size: 56)`, "Mini Buddy" `TTFont.title`, "Version \(Bundle.main.appVersion)" `TTFont.footnote` inkSecondary (`appVersion` already formats "1.0.0 (8)", see `Support/Hobby/Bundle+AppVersion.swift`), tagline "Offline Spearhead companion" (use `ReleaseSurface.singleVisibleGameSystemId() != nil` to choose this string; the multi-game string stays for full surface).
 3. **Remove "New here?"** guide links in single-game mode (Play home is the guide). Keep for full surface, restyled as `TTRow`s.
 4. **Play section:** Dice input as a `TTRow` with `.value("Real dice" | "In-app")` that pushes a small picker screen, or an inline `Picker(.menu)`. Keep the `@AppStorage("diceInputMode")` binding and existing identifiers in the Dice Roller section. "Replay Battle Tracker Tips" and "View App Tour" rows (keep ids).
 5. **Appearance:** `TTSegmentedControl` over `ThemePreference` cases (System / Light / Dark) bound to the existing `themePreference` binding. Keep the existing identifier on the control.
 6. **Models section:** "Collection & Data" row (keep ids). Only if `ReleaseSurface.showsBenchTab`.
-7. **Support:** links from `AppLinks` (`support`, `sourceRepository` + "/issues" for feedback). For "Rate Tabletome" there is no App Store URL yet, so use `@Environment(\.requestReview)` from StoreKit (id `settings.rate`), and hide the row until the app is live on the App Store if the owner prefers. External links show `accessory: .external` (`arrow.up.right`).
+7. **Support:** links from `AppLinks` (`support`, `sourceRepository` + "/issues" for feedback). For "Rate Mini Buddy" there is no App Store URL yet, so use `@Environment(\.requestReview)` from StoreKit (id `settings.rate`), and hide the row until the app is live on the App Store if the owner prefers. External links show `accessory: .external` (`arrow.up.right`).
 8. **Legal:** Privacy policy, Accessibility statement, and a new "Acknowledgements & Trademarks" page (ST-02).
 9. **Footer:** a 2-line short disclaimer ("Unofficial fan-made companion. Not affiliated with Games Workshop.") + "More" `.ttTertiary` → the trademarks page. The full paragraph moves to ST-02.
 10. **Debug section** (`#if DEBUG` only): "Design System Gallery" (DS-08), "Use legacy battle tracker" toggle (BT-01 flag), "Reset onboarding".

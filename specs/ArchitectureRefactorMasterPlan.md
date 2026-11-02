@@ -1,7 +1,7 @@
-# Tabletome — Architecture Refactor Master Plan
+# Mini Buddy — Architecture Refactor Master Plan
 
 **Status:** Phases 0–8 substantially complete; Phase 9 naming bridge landed; `switch gameSystemId` / raw-id literal drawdown remains for future editions.
-**Author intent:** A whole-app, senior-level refactor blueprint to make Tabletome scale cleanly as new GW editions, box sets, and franchises ship — without `switch gameSystemId` sprawl, god objects, or per-system view explosions.
+**Author intent:** A whole-app, senior-level refactor blueprint to make Mini Buddy scale cleanly as new GW editions, box sets, and franchises ship — without `switch gameSystemId` sprawl, god objects, or per-system view explosions.
 **Scope relationship:** This **absorbs and extends** the in-flight [PlayEngineArchitectureSpec.md](../specs/PlayEngineArchitectureSpec.md) (P1–P3 landed, P4–P5 remain) and the [MultiFranchiseExpansionPlan.md](MultiFranchiseExpansionPlan.md). Where they overlap, this doc is the superset; the play-engine spec stays the authoritative reference for the registry/engine internals.
 
 > **How to read this:** Sections 1–3 are diagnosis and target architecture (read once). Section 4 is the **component teardown** — the "what's wrong / what it should be" per subsystem. Section 5 is the **phased roadmap** — the order of operations with exit gates. Section 6 is the **acid test**: step-by-step cookbooks for adding a new edition / box set / franchise, which is the real measure of whether the refactor worked. Sections 7–9 are cross-cutting concerns, risks, and the definition of done.
@@ -16,12 +16,12 @@ This is not a greenfield app — it's a mature, well-layered codebase (4 game sy
 
 | Strength | Evidence |
 |----------|----------|
-| Layered modules with enforced dependency direction | `TabletomeDomain` (Foundation-only) ← `TabletomeData` ← app target; `TabletomeHobbyData` isolates SwiftData |
+| Layered modules with enforced dependency direction | `MiniBuddyDomain` (Foundation-only) ← `MiniBuddyData` ← app target; `MiniBuddyHobbyData` isolates SwiftData |
 | A registry exists and is the seed of the solution | `Domain/Registry/` — `GameSystemRegistry`, `GameSystemDescriptor`, `PlayCapabilities`, `PlayEngineConfig`, `GameSystemCopy` |
 | Data-driven copy & featured armies | `GameSystemRulesLabels` is now a thin facade over `registry.copy(for:)`; `FeaturedArmiesConfig` is data |
 | Protocol-based data access | `PlayCatalogRepository`, `MatchHistoryRepository`, `RulesRepository`, `SpearheadCatalogRepository` |
 | Strong unit-test culture | 72 test files including registry, engine, and catalog-completeness audits |
-| Swift 6 / strict concurrency already targeted | `SWIFT_VERSION: 6.0`; `TabletomeHobbyData` runs `SWIFT_STRICT_CONCURRENCY: complete` |
+| Swift 6 / strict concurrency already targeted | `SWIFT_VERSION: 6.0`; `MiniBuddyHobbyData` runs `SWIFT_STRICT_CONCURRENCY: complete` |
 
 ### 1.2 The debt that blocks scaling (measured)
 
@@ -67,7 +67,7 @@ This is not a greenfield app — it's a mature, well-layered codebase (4 game sy
                                 │  load + validate at launch
                                 ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│ TabletomeDomain (Foundation-only, Sendable)                            │
+│ MiniBuddyDomain (Foundation-only, Sendable)                            │
 │  Registry:  GameSystemRegistry → GameSystemDescriptor                  │
 │  Engine:    any PlayEngine (phasedRound | alternatingActivation | …)   │
 │  Caps:      PlayCapabilities (grouped: setup/round/combat/scoring/ui)  │
@@ -77,7 +77,7 @@ This is not a greenfield app — it's a mature, well-layered codebase (4 game sy
         ┌───────────────────────┼───────────────────────┐
         ▼                       ▼                       ▼
 ┌────────────────┐   ┌────────────────────┐   ┌────────────────────────┐
-│ TabletomeData  │   │ TabletomeHobbyData │   │ (future) Engine packs  │
+│ MiniBuddyData  │   │ MiniBuddyHobbyData │   │ (future) Engine packs  │
 │ catalog/rules/ │   │ SwiftData: Bench/  │   │ as SPM modules if app  │
 │ match repos    │   │ Muster persistence │   │ target grows too large │
 └───────┬────────┘   └─────────┬──────────┘   └───────────┬────────────┘
@@ -102,7 +102,7 @@ Twelve components. Each: **current state → problem → target → concrete wor
 - **Current:** `GameSystemRegistry` built from `GameSystemId.allCases.map(\.bundledDescriptor)`; descriptors are hand-coded Swift in `GameSystemId+Bundled.swift` (one giant `switch self`).
 - **Problem:** Descriptors are *code*, not *data*. Adding a system edits a Swift `switch`. The registry is `static let .bundled` — a hidden global, instantiated in `BattleRules`, `GameSystemRulesLabels`, etc. (testability + multiple-source-of-truth risk).
 - **Target:**
-  - Descriptors load from `game-systems-manifest-v1.json` (sidecar), merged with `rules-v1.json` availability, via `GameSystemsManifestLoader` in `TabletomeData`. `GameSystemId+Bundled.swift` becomes a *fallback*/seed for tests only, or is deleted once the manifest is authoritative.
+  - Descriptors load from `game-systems-manifest-v1.json` (sidecar), merged with `rules-v1.json` availability, via `GameSystemsManifestLoader` in `MiniBuddyData`. `GameSystemId+Bundled.swift` becomes a *fallback*/seed for tests only, or is deleted once the manifest is authoritative.
   - `GameSystemRegistry` is injected (it already is in `AppDependencies`) — remove every `GameSystemRegistry.bundled` static reference inside Domain types (`BattleRules`, `GameSystemRulesLabels`) so there is one instance per process, owned by `AppDependencies`.
   - `GameSystemId` stays a `CaseIterable` enum **only while** the set is bundled-and-known; the manifest approach is compatible because ids remain a closed set per release. (Do **not** prematurely convert to an open `RawRepresentable struct` — keep compile-time exhaustiveness until a true plugin/remote-content story exists. Revisit in Phase 9.)
 - **Work:** manifest JSON + loader + schema; delete static registry references; registry validation test (every manifest id resolves a catalog bundle, engine, copy).
@@ -152,7 +152,7 @@ This is the component the existing specs under-specify and the one that most dir
 - **Target — a content plane with a contract:**
   1. **Versioned JSON Schemas** (`Resources/Schemas/catalog-v1.schema.json`, `boxset-v1.schema.json`, `game-systems-manifest-v1.schema.json`). Every content file declares `schemaVersion`.
   2. **A first-class `BoxSet` content type** (data, not code): `<system>-boxsets-v1.json` lists box sets with their featured matchups, starter rosters, mission defaults, and badge copy — replacing the hardcoded `FeaturedArmiesConfig` in Swift. A box set release = add one JSON object.
-  3. **A validation CLI** (`Scripts/validate_content.py` or a tiny SwiftPM executable `tabletome-content-lint`) run in **pre-commit** and **CI**: schema-validate, cross-reference (every `armyId` resolves, every `factionId` exists, every `missionId` exists, points totals within battle-size bounds, no orphaned units). This converts today's Swift audit tests into a fast, content-author-facing gate.
+  3. **A validation CLI** (`Scripts/validate_content.py` or a tiny SwiftPM executable `minibuddy-content-lint`) run in **pre-commit** and **CI**: schema-validate, cross-reference (every `armyId` resolves, every `factionId` exists, every `missionId` exists, points totals within battle-size bounds, no orphaned units). This converts today's Swift audit tests into a fast, content-author-facing gate.
   4. **Importer normalization:** the `Scripts/*.py` family emits schema-valid v1 JSON and is documented as the only sanctioned authoring path. One importer interface, per-publisher adapters.
   5. **Catalog rename** (Component K) so the content type names (`PlayCatalog`, `PlayArmy`) match the multi-system reality.
 - **Work:** author schemas from existing JSON shapes (reverse-engineer the current files); build `BoxSet` model + loader; port `FeaturedArmiesConfig` data to `*-boxsets-v1.json`; write the validator; wire pre-commit (`Scripts/pre-commit` already exists) + CI. **Outcome:** adding the next 40k/AoS box set is a reviewed JSON PR with a green content-lint check — no Swift.
@@ -195,7 +195,7 @@ This is the component the existing specs under-specify and the one that most dir
 
 ### Component I — Persistence (Hobby / SwiftData) & match state
 
-- **Current:** `TabletomeHobbyData` wraps SwiftData (`Army`, `Roster`, `RosterEntry`, `ArmyUnit`, `SquadMember`, `HobbyPaint`, `ModelPhoto`, …) with backup/CSV/photo IO; `MatchHistory` persists via `JSONMatchHistoryRepository`; live match state via `MatchSessionStore`/`MatchSyncSnapshot`. `SWIFT_STRICT_CONCURRENCY: complete` here.
+- **Current:** `MiniBuddyHobbyData` wraps SwiftData (`Army`, `Roster`, `RosterEntry`, `ArmyUnit`, `SquadMember`, `HobbyPaint`, `ModelPhoto`, …) with backup/CSV/photo IO; `MatchHistory` persists via `JSONMatchHistoryRepository`; live match state via `MatchSessionStore`/`MatchSyncSnapshot`. `SWIFT_STRICT_CONCURRENCY: complete` here.
 - **Problem:** Two persistence stacks (SwiftData for Hobby, JSON for match history/catalogs). No declared schema-migration policy for SwiftData as models evolve per edition. `MatchSyncSnapshot` versioning vs new engines is "partially there" (per spec).
 - **Target:**
   - Document and enforce a **SwiftData schema-migration policy** (versioned `SchemaMigrationPlan`) so new-edition fields (e.g. per-edition unit attributes) don't risk user-data loss. Add a migration test harness.
@@ -219,9 +219,9 @@ This is the component the existing specs under-specify and the one that most dir
 
 ### Component L — Concurrency & module boundaries (Swift 6 hardening)
 
-- **Current:** `SWIFT_VERSION: 6.0`; `TabletomeData` = `SWIFT_STRICT_CONCURRENCY: minimal`, `TabletomeHobbyData` = `complete`, Domain unspecified (defaults). View models are `@MainActor` `ObservableObject`.
-- **Problem:** Mixed strictness hides data-race risk in `TabletomeData`; the registry/engines must be provably `Sendable` before they're shared across actors (sync, background catalog loads).
-- **Target:** raise `TabletomeData` and Domain to `SWIFT_STRICT_CONCURRENCY: complete`; confirm all Domain types `Sendable` (registry/descriptor/engine already are); standardize VMs on `@MainActor @Observable` (migrate off `ObservableObject` where cheap). Evaluate splitting the app target into SPM modules **only if** build times or boundary leakage demand it (Component A note) — not a goal in itself.
+- **Current:** `SWIFT_VERSION: 6.0`; `MiniBuddyData` = `SWIFT_STRICT_CONCURRENCY: minimal`, `MiniBuddyHobbyData` = `complete`, Domain unspecified (defaults). View models are `@MainActor` `ObservableObject`.
+- **Problem:** Mixed strictness hides data-race risk in `MiniBuddyData`; the registry/engines must be provably `Sendable` before they're shared across actors (sync, background catalog loads).
+- **Target:** raise `MiniBuddyData` and Domain to `SWIFT_STRICT_CONCURRENCY: complete`; confirm all Domain types `Sendable` (registry/descriptor/engine already are); standardize VMs on `@MainActor @Observable` (migrate off `ObservableObject` where cheap). Evaluate splitting the app target into SPM modules **only if** build times or boundary leakage demand it (Component A note) — not a goal in itself.
 - **Work:** flip strict-concurrency flags one target at a time, fix fallout, lock with CI.
 
 ---
@@ -283,7 +283,7 @@ Each phase is independently shippable, ends green, and has an explicit exit gate
 **Objective:** new editions/box sets become pure data.
 - Finalize JSON Schemas (catalog, boxset, manifest) reverse-engineered from current files.
 - Add `BoxSet` Domain model + loader; port `FeaturedArmiesConfig` Swift data → `<system>-boxsets-v1.json`.
-- Promote `Scripts/validate_content.py` (or `tabletome-content-lint`) to a **blocking** CI + pre-commit gate; convert the Swift catalog-audit tests' invariants into the linter.
+- Promote `Scripts/validate_content.py` (or `minibuddy-content-lint`) to a **blocking** CI + pre-commit gate; convert the Swift catalog-audit tests' invariants into the linter.
 - Document the importer → schema → lint authoring path.
 **Components:** D. **Exit:** a sample "add a box set" PR touches only JSON and passes lint; `FeaturedArmiesConfig` no longer hand-coded per system in Swift.
 
@@ -308,7 +308,7 @@ Each phase is independently shippable, ends green, and has an explicit exit gate
 ### Phase 8 — Persistence & concurrency hardening (medium)
 **Objective:** safe data evolution + Swift 6 strictness everywhere.
 - SwiftData `SchemaMigrationPlan` + migration tests; version `MatchSyncSnapshot` per engine with round-trip codec tests.
-- Raise `TabletomeData` + Domain to `SWIFT_STRICT_CONCURRENCY: complete`; standardize VMs on `@MainActor @Observable`.
+- Raise `MiniBuddyData` + Domain to `SWIFT_STRICT_CONCURRENCY: complete`; standardize VMs on `@MainActor @Observable`.
 **Components:** I, L. **Exit:** all targets `complete`; migration + codec tests green.
 
 ### Phase 9 — Naming normalization & spec promotion (small–medium, can trail)
@@ -375,7 +375,7 @@ The whole plan exists to make these three flows cheap. After the refactor:
 ## 9. Open decisions (lock before promoting to specs/)
 
 1. **Engine representation:** keep `PlayEngineConfig` enum vs promote to `protocol PlayEngine`? (Enum is simpler/Sendable-trivial; protocol is more extensible for exotic engines. Recommendation: **enum now, protocol when the 3rd archetype lands**.)
-2. **Content-lint host:** Python (`Scripts/`, matches existing importers) vs a SwiftPM `tabletome-content-lint` executable (one language, reuses Domain models). Recommendation: **SwiftPM executable** so the schema *is* the Domain `Codable` types — single source of truth.
+2. **Content-lint host:** Python (`Scripts/`, matches existing importers) vs a SwiftPM `minibuddy-content-lint` executable (one language, reuses Domain models). Recommendation: **SwiftPM executable** so the schema *is* the Domain `Codable` types — single source of truth.
 3. **Manifest vs codegen:** hand-authored manifest (fine < ~20 systems) vs generated from JSON at build time. Recommendation: **hand-authored** until > ~15 systems.
 4. **Module split:** stay single app target (faster, simpler) vs SPM-modularize `Features/Play`. Recommendation: **defer** — only split if build time or boundary leakage forces it.
 5. **`GameSystemId` openness:** keep closed `CaseIterable` enum (compile-time exhaustiveness, current) vs open `RawRepresentable` struct (remote/plugin content). Recommendation: **stay closed** until a remote-content product requirement is real.

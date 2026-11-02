@@ -1,7 +1,7 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 import SwiftData
-import TabletomeDomain
+import MiniBuddyDomain
 
 @MainActor
 public enum StageEventStore {

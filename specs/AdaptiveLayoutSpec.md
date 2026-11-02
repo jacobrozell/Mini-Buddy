@@ -11,11 +11,11 @@
 | `shortHeight` | compact height (any width) | iPhone landscape (incl. Pro Max), Duo folded landscape |
 | `regular` | regular width and height | iPad full screen, Duo open, wide Stage Manager window |
 
-Source: [`DesignSystem/TabletomeLayout.swift`](../DesignSystem/TabletomeLayout.swift) — `TabletomeLayout.context(horizontalSizeClass:verticalSizeClass:)`.
+Source: [`DesignSystem/MiniBuddyLayout.swift`](../DesignSystem/MiniBuddyLayout.swift) — `MiniBuddyLayout.context(horizontalSizeClass:verticalSizeClass:)`.
 
 ## Shell rules
 
-- **Tabs:** `AdaptiveTabStyle` uses `.sidebarAdaptable` only when `TabletomeLayout.usesSplitNavigation` is true; otherwise `.tabBarOnly`. See [`Support/TabBarAccessibilityBridge.swift`](../Support/TabBarAccessibilityBridge.swift).
+- **Tabs:** `AdaptiveTabStyle` uses `.sidebarAdaptable` only when `MiniBuddyLayout.usesSplitNavigation` is true; otherwise `.tabBarOnly`. See [`Support/TabBarAccessibilityBridge.swift`](../Support/TabBarAccessibilityBridge.swift).
 - **Guided Match split:** Same predicate as tabs; outer navigation bar hidden only when split is active. See [`GuidedMatchDestinationView.swift`](../Features/GuidedMatch/GuidedMatchDestinationView.swift).
 - **Fold / resize sync:** [`GuidedMatchLayoutSync.swift`](../Features/GuidedMatch/GuidedMatchLayoutSync.swift) maps hub tab ↔ split destination when `usesSplitNavigation` changes.
 
@@ -40,7 +40,7 @@ Layout container: [`BattleScreenLayout.swift`](../Features/Play/BattleScreen/Bat
 
 | Field | Value |
 |-------|-------|
-| Unit tests | `TabletomeLayoutTests`, `BattleScreenArrangementTests`, `GuidedMatchLayoutSyncTests` |
+| Unit tests | `MiniBuddyLayoutTests`, `BattleScreenArrangementTests`, `GuidedMatchLayoutSyncTests` |
 | UI tests | `GuidedMatchLandscapeUITests` |
 | Manual | iPhone 17 + Pro Max landscape battle; iPad 11 split/narrow window; iPhone Duo folded/open (see `ongoing/adaptive-layout-1.0.md`) |
 | Last verified | 2026-10-31 |

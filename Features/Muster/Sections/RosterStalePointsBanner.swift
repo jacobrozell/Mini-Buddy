@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct RosterStalePointsBanner: View {
     let status: RosterCatalogSync.Status

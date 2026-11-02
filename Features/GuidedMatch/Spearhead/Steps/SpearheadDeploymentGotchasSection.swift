@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Army-specific deployment reminders on setup step 5 (e.g. Skaven tunnels — §19.2).
 struct SpearheadDeploymentGotchasSection: View {

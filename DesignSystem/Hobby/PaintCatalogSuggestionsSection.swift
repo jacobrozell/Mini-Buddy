@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Catalog autocomplete rows shown while typing a paint or basing product name.
 struct PaintCatalogSuggestionsSection: View {

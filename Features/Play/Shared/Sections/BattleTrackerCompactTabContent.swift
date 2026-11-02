@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerSetupTabContent<StartOfRound: View, Deployment: View>: View {
     let showsBattleTacticDecks: Bool

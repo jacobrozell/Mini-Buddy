@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 // swiftlint:disable file_length type_body_length
 struct GuidedMatchView: View {
@@ -233,15 +233,15 @@ struct GuidedMatchView: View {
         }
     }
 
-    var layoutContext: TabletomeLayoutContext {
-        TabletomeLayout.context(
+    var layoutContext: MiniBuddyLayoutContext {
+        MiniBuddyLayout.context(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass
         )
     }
 
     var usesSplitNavigation: Bool {
-        TabletomeLayout.usesSplitNavigation(
+        MiniBuddyLayout.usesSplitNavigation(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass,
             dynamicTypeSize: dynamicTypeSize

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CombatPatrolTableStateCard: View {
     let mission: CombatPatrolMission?

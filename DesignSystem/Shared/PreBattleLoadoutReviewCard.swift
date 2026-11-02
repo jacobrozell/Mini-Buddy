@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Blocks silent skip of regiment abilities + enhancements after starter matchup.
 struct PreBattleLoadoutReviewCard: View {

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://tabletome.app/schemas/catalog-v1.schema.json",
-  "title": "Tabletome Play Catalog v1",
+  "$id": "https://minibuddy.app/schemas/catalog-v1.schema.json",
+  "title": "Mini Buddy Play Catalog v1",
   "description": "A game system's factions, armies (box rosters), optional missions, and guided-match steps. Generalizes the legacy 'Spearhead' catalog shape across all systems.",
   "type": "object",
   "required": ["schemaVersion", "factions"],

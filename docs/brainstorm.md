@@ -1,4 +1,4 @@
-# Brainstorm — Tabletome (non-authoritative)
+# Brainstorm — Mini Buddy (non-authoritative)
 
 > Ideas and product direction. Promote to `specs/` when behavior is locked.
 
@@ -72,7 +72,7 @@ Pattern-matching on bundled rule graph first; optional on-device LLM later behin
 
 | Decision | Choice |
 |----------|--------|
-| App name | Tabletome |
+| App name | Mini Buddy |
 | Bundle ID | `com.jacobrozell.tabletome` |
 | Min iOS | 17.0 |
 | Locales | English only (v1) |

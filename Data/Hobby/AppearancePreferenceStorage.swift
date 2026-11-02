@@ -15,7 +15,7 @@ public enum AppearancePreferenceStorage {
         UserDefaults.standard.set(theme.rawValue, forKey: userDefaultsKey)
     }
 
-    /// One-time: prefer an existing hobby-config theme when Tabletome has never set appearance.
+    /// One-time: prefer an existing hobby-config theme when Mini Buddy has never set appearance.
     @MainActor
     public static func migrateFromHobbyConfigurationIfNeeded(_ context: ModelContext) {
         guard !UserDefaults.standard.bool(forKey: migratedKey) else { return }

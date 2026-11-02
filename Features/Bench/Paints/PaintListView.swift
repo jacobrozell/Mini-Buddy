@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 @MainActor
 struct PaintListView: View {

@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public final class BundledPlayCatalogRepository: PlayCatalogRepository, @unchecked Sendable {
     private let bundle: Bundle

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 extension ArmySelectionView {
     func armyPickLevel(factionId: String) -> some View {

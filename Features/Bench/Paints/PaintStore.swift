@@ -1,6 +1,6 @@
 import Foundation
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 import SwiftData
 
 /// HobbyPaint CRUD. Ports `addPaint`, `updatePaint`, `removePaint` (`js/core/store.js`) and the

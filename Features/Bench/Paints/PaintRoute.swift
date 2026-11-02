@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeHobbyData
+import MiniBuddyHobbyData
 
 enum PaintRoute: Hashable {
     case paint(UUID)

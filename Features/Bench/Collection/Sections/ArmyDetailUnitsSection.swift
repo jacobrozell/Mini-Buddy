@@ -1,7 +1,7 @@
 import SwiftUI
 import TipKit
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 struct ArmyDetailUnitsSection: View {
     let padSidebar: Bool

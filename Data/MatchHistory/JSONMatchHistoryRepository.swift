@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 public actor JSONMatchHistoryRepository: MatchHistoryRepository {
     private let fileManager: FileManager

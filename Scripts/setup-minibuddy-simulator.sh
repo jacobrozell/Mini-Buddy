@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Creates (or reuses) a dedicated "Tabletome" iOS simulator for agent builds.
+# Creates (or reuses) a dedicated "MiniBuddy" iOS simulator for agent builds.
 set -euo pipefail
 
-SIM_NAME="Tabletome"
+SIM_NAME="MiniBuddy"
 DEVICE_TYPE="com.apple.CoreSimulator.SimDeviceType.iPhone-17"
 RUNTIME="com.apple.CoreSimulator.SimRuntime.iOS-26-4"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -29,6 +29,6 @@ fi
 
 echo ""
 echo "Configure XcodeBuildMCP (run once per machine / after MCP restart):"
-echo "  session_set_defaults with profile tabletome, simulatorId $udid, persist true"
+echo "  session_set_defaults with profile minibuddy, simulatorId $udid, persist true"
 echo ""
 echo "ios-simulator MCP: set IDB_UDID=$udid in .cursor/mcp.json"

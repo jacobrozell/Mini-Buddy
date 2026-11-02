@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -8,6 +8,7 @@ import UIKit
 public enum CrestImageStore {
     public static var directory: URL {
         let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        // Pre-rename folder name; changing it orphans saved crests.
         return base.appending(path: "Tabletome/Crests", directoryHint: .isDirectory)
     }
 

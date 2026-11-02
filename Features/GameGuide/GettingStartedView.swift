@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct GettingStartedView: View {
     let gameSystem: GameSystem

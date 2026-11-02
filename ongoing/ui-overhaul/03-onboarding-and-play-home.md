@@ -200,7 +200,7 @@ Back to [index](README.md). These are the first two screens a new user sees, and
 │ [   Yes, Start a Battle   ]       │  ← ttPrimary
 │  Browse armies to find yours      │  ← ttTertiary → armies browse
 │                                   │
-│ Different box? Tabletome currently│  ← footnote, inkTertiary
+│ Different box? Mini Buddy currently│  ← footnote, inkTertiary
 │ supports Spearhead only.          │
 └───────────────────────────────────┘
 ```

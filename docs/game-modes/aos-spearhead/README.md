@@ -1,7 +1,7 @@
 # Age of Sigmar — Spearhead
 
 **Game system id:** `aos-spearhead`  
-**Status:** Shipped — default game mode in Tabletome
+**Status:** Shipped — default game mode in Mini Buddy
 
 ## Authoritative spec
 

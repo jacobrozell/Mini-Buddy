@@ -155,7 +155,7 @@ Other APIs the new UI calls:
 
 **Verified on this branch:** the suspected stuck-round bug is already fixed. `completedTurnsThisRound` records each finished turn. `BattleFlowGuide` hands off after the first End of Turn, returns `.startNextRound` after the second, and returns `.battleComplete` only after both turns of the last round. `SpearheadBattleViewModel.completePhasedRoundTurnPhase` performs that handoff. Do not add `firstTurnPlayerIsOneThisRound`.
 
-**2026-11-01:** round-1 deployment no longer preempts a turn that has already left the Deployment phase. `testSecondPlayerEndOfTurnFinishesTheRoundInsteadOfHandingBack` and `testEndOfTurnDoesNotReopenAnUnfinishedDeploymentChecklist` pass on TabletomeCI (iPhone sim). A fresh battle still starts on the deployment checklist.
+**2026-11-01:** round-1 deployment no longer preempts a turn that has already left the Deployment phase. `testSecondPlayerEndOfTurnFinishesTheRoundInsteadOfHandingBack` and `testEndOfTurnDoesNotReopenAnUnfinishedDeploymentChecklist` pass on MiniBuddyCI (iPhone sim). A fresh battle still starts on the deployment checklist.
 
 > **Suspected bug, confirm before coding.** For Spearhead, `BattleFlowGuide.currentStep` never returns `.startNextRound`. At `.endOfTurn`, `completePhasedRoundTurnPhase(.endOfTurn)` only toggles the active player and resets to Hero. `battleRound` changes only through the round `Stepper` in `BattleTrackerControlPanel`, and that panel is **hidden** when `showsSlimTurnTab` is true, which is the Spearhead playbook path. Also, `battleComplete` triggers at the **first** end of turn in round 4, before the second player has played.
 >

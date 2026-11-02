@@ -28,8 +28,8 @@ APPEARANCE="${APPEARANCE:-dark}"
 ORIENTATIONS="${ORIENTATIONS:-portrait}"
 OUT_DIR="${OUT_DIR:-$ROOT/marketing-screenshots/raw}"
 BUNDLE_ID="com.jacobrozell.tabletome"
-SCHEME="Tabletome"
-PROJECT="$ROOT/Tabletome.xcodeproj"
+SCHEME="MiniBuddy"
+PROJECT="$ROOT/MiniBuddy.xcodeproj"
 DERIVED_DATA="${DERIVED_DATA:-$ROOT/.derivedData/marketing-screenshots}"
 LAUNCH_DELAY="${LAUNCH_DELAY:-8}"
 ORIENTATION_SETTLE_SEC="${ORIENTATION_SETTLE_SEC:-1.5}"
@@ -60,7 +60,7 @@ if [[ ! -d "$PROJECT" ]]; then
 fi
 
 mkdir -p "$OUT_DIR"
-CAPTURE_TMP="${TMPDIR:-/tmp}/tabletome-marketing-capture-$$"
+CAPTURE_TMP="${TMPDIR:-/tmp}/minibuddy-marketing-capture-$$"
 mkdir -p "$CAPTURE_TMP"
 trap 'rm -rf "$CAPTURE_TMP"' EXIT
 
@@ -102,7 +102,7 @@ xcodebuild \
   -derivedDataPath "$DERIVED_DATA" \
   build
 
-APP_PATH="$DERIVED_DATA/Build/Products/Debug-iphonesimulator/Tabletome.app"
+APP_PATH="$DERIVED_DATA/Build/Products/Debug-iphonesimulator/MiniBuddy.app"
 if [[ ! -d "$APP_PATH" ]]; then
   echo "Build succeeded but app not found at $APP_PATH" >&2
   exit 1

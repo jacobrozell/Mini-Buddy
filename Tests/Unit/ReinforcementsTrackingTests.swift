@@ -1,6 +1,6 @@
 import XCTest
-@testable import TabletomeData
-@testable import TabletomeDomain
+@testable import MiniBuddyData
+@testable import MiniBuddyDomain
 
 final class ReinforcementsTrackingTests: XCTestCase {
     func testIdentifiesReinforcementKeywordUnits() async throws {

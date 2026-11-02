@@ -19,7 +19,7 @@ Non-authoritative backlog. Promote to `specs/` when behavior locks.
 
 ## Problem
 
-Tabletome persists exactly **one live match per `gameSystemId`** in UserDefaults (`GuidedMatchState` + `BattleTrackerState`). **Reset Match** wipes everything with no trace.
+Mini Buddy persists exactly **one live match per `gameSystemId`** in UserDefaults (`GuidedMatchState` + `BattleTrackerState`). **Reset Match** wipes everything with no trace.
 
 After a long game (see playtest in `specs/BattleTableFlowSpec.md`), players want to:
 

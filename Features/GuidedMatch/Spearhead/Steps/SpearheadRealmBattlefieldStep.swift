@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct SpearheadRealmBattlefieldStep: View {
     @ObservedObject var viewModel: GuidedMatchViewModel

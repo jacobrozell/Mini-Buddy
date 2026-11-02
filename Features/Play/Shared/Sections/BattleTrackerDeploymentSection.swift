@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerDeploymentSection<DeploymentContent: View>: View {
     let battleRound: Int

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Tabletome
+@testable import MiniBuddy
 
 final class FirebaseCrashlyticsEventMappingTests: XCTestCase {
     func testMapsAllowlistedErrorToNonFatal() {

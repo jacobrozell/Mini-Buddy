@@ -309,7 +309,7 @@ final class CombatRollEvaluatorViewModel: ObservableObject {
 
 ### Reference patterns (when we build this)
 
-| Pattern | Roll20 / FG | Future Tabletome |
+| Pattern | Roll20 / FG | Future Mini Buddy |
 |---------|-------------|------------------|
 | Dice land in play area | 3D tumble in chat/table | `DiceTrayStage` at top of screen |
 | Roll log | `/roll 2d6+5 → (4,2) = 11` | `DiceRollLogView` |

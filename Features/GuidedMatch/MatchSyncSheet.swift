@@ -1,6 +1,6 @@
 import SwiftUI
-import TabletomeDomain
-import TabletomeData
+import MiniBuddyDomain
+import MiniBuddyData
 
 struct MatchSyncSheet: View {
     @ObservedObject var syncService: NearbyMatchSyncService
@@ -31,7 +31,7 @@ struct MatchSyncSheet: View {
                     Text(
                         String(
                             localized: """
-                            Both players need Tabletome on the same Wi-Fi or Bluetooth range. \
+                            Both players need Mini Buddy on the same Wi-Fi or Bluetooth range. \
                             One hosts, the other enters the 4-character code. Match setup and battle \
                             tracker sync automatically; match history stays on each device.
                             """

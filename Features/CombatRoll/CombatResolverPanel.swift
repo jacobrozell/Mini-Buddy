@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct CombatResolverPanel: View {
     enum Presentation {
@@ -40,7 +40,7 @@ struct CombatResolverPanel: View {
     }
 
     private var usesSideBySideMatchup: Bool {
-        TabletomeLayout.usesSideBySideLayout(
+        MiniBuddyLayout.usesSideBySideLayout(
             horizontalSizeClass: horizontalSizeClass,
             verticalSizeClass: verticalSizeClass,
             isAccessibilitySize: dynamicTypeSize.needsLayoutAdaptation

@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct BattleTrackerQuickActionsList: View {
     let actions: [BattleTrackerQuickAction]

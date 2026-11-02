@@ -1,8 +1,8 @@
-# Agent Build Checklist — Tabletome
+# Agent Build Checklist — Mini Buddy
 
 Living checklist for iOS app delivery.
 
-**App:** Tabletome · **Bundle ID:** `com.jacobrozell.tabletome` · **Version:** 1.0.0 · **Phase:** TestFlight ([status](release/status.md))
+**App:** Mini Buddy · **Bundle ID:** `com.jacobrozell.tabletome` · **Version:** 1.0.0 · **Phase:** TestFlight ([status](release/status.md))
 
 **Agent entry:** [`AGENTS.md`](../AGENTS.md) · **Doc hub:** [`docs/README.md`](README.md)
 
@@ -51,7 +51,7 @@ Living checklist for iOS app delivery.
 - [x] **0.9** SwiftLint
 - [x] **0.10** CONTRIBUTING.md
 - [x] **0.11** Verify xcodegen + xcodebuild
-- [x] **0.12** Dedicated `Tabletome` simulator + MCP profile
+- [x] **0.12** Dedicated `MiniBuddy` simulator + MCP profile
 - [x] **0.13** Doc hub [`docs/README.md`](README.md), [`development/code-map.md`](development/code-map.md)
 
 ## Phase 1 — Spec system

@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Spearhead hub tab policy (§15 / plan §6.1) — wraps `GuidedMatchHubTab` with starter-matchup rules.
 enum SpearheadHubTabs {

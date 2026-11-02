@@ -1,5 +1,5 @@
 import Foundation
-import TabletomeDomain
+import MiniBuddyDomain
 
 /// Lifetime feature-adoption flags for Firebase user-property segmentation.
 ///
@@ -84,12 +84,12 @@ enum AnalyticsFeatureUsageStore: Sendable {
 
         if let active = UserDefaults.standard.string(forKey: activeGameSystemKey), !active.isEmpty {
             values["active_game_system"] = active
-            values["active_game_section"] = TabletomeAnalytics.gameSystemSection(for: active)
+            values["active_game_section"] = MiniBuddyAnalytics.gameSystemSection(for: active)
         }
 
         if let lastMatch = UserDefaults.standard.string(forKey: lastMatchSystemKey), !lastMatch.isEmpty {
             values["last_match_system"] = lastMatch
-            values["last_match_section"] = TabletomeAnalytics.gameSystemSection(for: lastMatch)
+            values["last_match_section"] = MiniBuddyAnalytics.gameSystemSection(for: lastMatch)
         }
 
         if let sections = UserDefaults.standard.string(forKey: matchSystemsKey), !sections.isEmpty {
@@ -154,7 +154,7 @@ enum AnalyticsFeatureUsageStore: Sendable {
     }
 
     private static func appendMatchSystemSection(for gameSystemId: String) {
-        let section = TabletomeAnalytics.gameSystemSection(for: gameSystemId)
+        let section = MiniBuddyAnalytics.gameSystemSection(for: gameSystemId)
         var sections = Set(
             (UserDefaults.standard.string(forKey: matchSystemsKey) ?? "")
                 .split(separator: ",")

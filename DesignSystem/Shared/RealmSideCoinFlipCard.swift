@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 struct RealmSideCoinFlipCard: View {
     var compactMode: Bool = false

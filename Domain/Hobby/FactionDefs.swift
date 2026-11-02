@@ -1,7 +1,7 @@
 import Foundation
 
 /// Ported verbatim from MiniMuster `Domain/Factions/FactionDefs.swift`. Mirrors the JS
-/// catalogue under `js/data/factions/*`. Pure Foundation — safe to ship in `TabletomeDomain`.
+/// catalogue under `js/data/factions/*`. Pure Foundation — safe to ship in `MiniBuddyDomain`.
 
 public enum SupportedGames {
     public static let all = ["40k", "AoS", "TOW", "30k", "Necromunda", "Warcry", "Blood Bowl", "MESBG"]

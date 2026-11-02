@@ -6,7 +6,7 @@
 **Bundle:** `Resources/Rules/rules-v1.json` → `wh40k-11e`  
 **Method:** Cross-check against official [FutureIdeas/gw-downloads/11e_rules.pdf](../../../FutureIdeas/gw-downloads/11e_rules.pdf), GW mission articles, Goonhammer deep dives, and fan Field Manual.
 
-Tabletome copy is summarized in our own words. **Always defer to the official core rules PDF** for disputes.
+Mini Buddy copy is summarized in our own words. **Always defer to the official core rules PDF** for disputes.
 
 ---
 

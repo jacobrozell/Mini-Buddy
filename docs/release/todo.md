@@ -1,4 +1,4 @@
-# Tabletome — release todo
+# Mini Buddy — release todo
 
 Status legend: `[ ]` todo · `[x]` done
 

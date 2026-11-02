@@ -1,5 +1,5 @@
 import SwiftUI
-import TabletomeDomain
+import MiniBuddyDomain
 
 enum GuidedMatchHubTab: String, CaseIterable, Identifiable {
     case armies

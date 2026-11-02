@@ -22,7 +22,7 @@
 - **Guided Match** — setup steps footer when armies not chosen
 - **Release gating** — Paints CSV import/export hidden when Paints tab is gated
 - **Copy** — Models vs Collection naming aligned; hosted Privacy/Accessibility in Models data settings
-- **Deep links / backup** — scheme `tabletome://`; backup filename `tabletome-backup-*.json`
+- **Deep links / backup** — scheme `minibuddy://`; backup filename `minibuddy-backup-*.json`
 
 ## Known scope limits
 

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
-import TabletomeHobbyData
-import TabletomeDomain
+import MiniBuddyHobbyData
+import MiniBuddyDomain
 
 /// Bridges file URLs ↔ the DataIO layer for the screens' Import/Export menus.
 /// Returns a user-facing summary message (shown in an alert). Confirmation dialogs and the
@@ -294,7 +294,7 @@ enum DataActions {
         cfg.lastBackupAt = Date()
         try? ctx.save()
         let json = BackupCodec.export(ctx)
-        return (json, "tabletome-backup-\(Date().fileStamp).json")
+        return (json, "minibuddy-backup-\(Date().fileStamp).json")
     }
 
     static func armiesTemplateCSV() -> (text: String, filename: String) {
