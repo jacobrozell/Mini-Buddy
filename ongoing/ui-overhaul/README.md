@@ -211,7 +211,7 @@ Legend: ⬜ not started · 🟨 in progress · ✅ merged · ⏸ blocked. **Deps
 | BT-02 | Scoreboard header | BT-01 | [06](06-battle-tracker.md) | 🟨 |
 | BT-03 | Phase rail | BT-01 | [06](06-battle-tracker.md) | 🟨 |
 | BT-04 | Primary action bar (driven by `BattleFlowGuide`) | BT-01 | [06](06-battle-tracker.md) | 🟨 |
-| BT-05 | "Now" panel (phase abilities) | BT-03 | [06](06-battle-tracker.md) | 🟨 |
+| BT-05 | "Now" panel (phase abilities) | BT-03 | [06](06-battle-tracker.md) | ✅ |
 | BT-06 | Deployment + round-start interstitials | BT-04 | [06](06-battle-tracker.md) | 🟨 |
 | BT-07 | Turn handoff interstitial ("Pass to Gold") | BT-04 | [06](06-battle-tracker.md) | 🟨 |
 | BT-08 | Score sheet (VP entry) | BT-02 | [06](06-battle-tracker.md) | 🟨 |

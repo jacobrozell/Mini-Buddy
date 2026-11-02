@@ -4,18 +4,16 @@ import TabletomeDomain
 struct ShootingEligibleUnitsCard: View {
     let units: [SpearheadUnit]
     let armyName: String
-    var gameSystemId: GameSystemId = .default
     var onSelectUnit: ((String) -> Void)?
 
     init(
         units: [SpearheadUnit],
         armyName: String,
-        gameSystemId: GameSystemId = .default,
+        gameSystemId _: GameSystemId = .default,
         onSelectUnit: ((String) -> Void)? = nil
     ) {
         self.units = units
         self.armyName = armyName
-        self.gameSystemId = gameSystemId
         self.onSelectUnit = onSelectUnit
     }
 
@@ -33,41 +31,13 @@ struct ShootingEligibleUnitsCard: View {
         )
     }
 
-    private var playContext: GameSystemPlayContext {
-        GameSystemPlayContext.context(for: gameSystemId)
-    }
-
-    private var helperText: String {
-        if playContext.capabilities.resolvesWh40kRules {
-            return String(
-                localized: """
-                These \(armyName) units have ranged weapons for the Shooting phase. Tap a unit to open the dice \
-                resolver below.
-                """
-            )
-        }
-        return String(
-            localized: """
-            These \(armyName) units have ranged weapons for the shooting phase. Weapons with Shoot in Combat can \
-            also fire during the fight phase — check the unit rules card.
-            """
-        )
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
-            Label(String(localized: "Units that can shoot"), systemImage: "scope")
-                .font(.headline)
-
-            Text(helperText)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-
+            TTSectionHeader(String(localized: "Can Shoot"))
             if units.isEmpty {
-                Text(String(localized: "No ranged weapons in this army list."))
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                Text(String(localized: "No ranged weapons in this army."))
+                    .font(TTFont.callout)
+                    .foregroundStyle(TTColor.inkSecondary)
             } else {
                 VStack(spacing: DesignTokens.Spacing.xs) {
                     ForEach(units) { unit in
@@ -76,8 +46,8 @@ struct ShootingEligibleUnitsCard: View {
                 }
             }
         }
-        .surfaceCard()
         .accessibilityIdentifier("battleTracker.shootingEligible")
+        .accessibilityLabel(String(localized: "Can shoot, \(armyName)"))
     }
 
     @ViewBuilder
@@ -91,6 +61,7 @@ struct ShootingEligibleUnitsCard: View {
             }
             .buttonStyle(.plain)
             .frame(minHeight: DesignTokens.minTouchTarget)
+            .accessibilityHint(String(localized: "Opens the dice sheet"))
             .accessibilityIdentifier("battleTracker.shootingEligible.\(unit.id)")
         } else {
             rowLabel(unit: unit, weaponNames: weaponNames)
@@ -98,21 +69,17 @@ struct ShootingEligibleUnitsCard: View {
     }
 
     private func rowLabel(unit: SpearheadUnit, weaponNames: String) -> some View {
-        HStack(alignment: .top, spacing: DesignTokens.Spacing.sm) {
-            Image(systemName: "arrow.up.right.circle.fill")
-                .foregroundStyle(Color.accentColor)
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(unit.name)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
-                Text(weaponNames)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            Spacer(minLength: 0)
-        }
+        let count = unit.shootingWeapons.count
+        let countLabel = count == 1
+            ? String(localized: "1 weapon")
+            : String(localized: "\(count) weapons")
+        return TTRow(
+            title: unit.name,
+            subtitle: weaponNames.isEmpty ? countLabel : "\(countLabel) · \(weaponNames)",
+            systemImage: "scope",
+            tone: .brand,
+            accessory: .none
+        )
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

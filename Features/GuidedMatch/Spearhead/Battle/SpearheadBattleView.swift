@@ -31,6 +31,7 @@ struct SpearheadBattleView: View {
     @State var unitFocusSelection: UnitFocusSelection?
     @State var movementAction: MovementAction = .normal
 
+    @Environment(BannerCenter.self) private var banners
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
@@ -520,12 +521,27 @@ struct SpearheadBattleView: View {
         let defenderName = viewModel.defenderDisplayName(for: defenderKey)
 
         if damage > 0, let previous = viewModel.applyDamage(to: defenderKey, amount: damage) {
-            withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.25)) {
-                damageUndoNotice = DamageUndoNotice(
-                    message: String(localized: "Applied \(damage) damage to \(defenderName)."),
-                    woundKey: defenderKey,
-                    previousWounds: previous
+            if usesNewBattleScreen {
+                banners.show(
+                    BannerItem(
+                        id: "battle.damageUndo",
+                        message: String(localized: "\(damage) damage to \(defenderName)"),
+                        systemImage: "bandage.fill",
+                        tone: .danger,
+                        actionTitle: String(localized: "Undo"),
+                        action: {
+                            viewModel.undoDamage(to: defenderKey, previousWounds: previous)
+                        }
+                    )
                 )
+            } else {
+                withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.25)) {
+                    damageUndoNotice = DamageUndoNotice(
+                        message: String(localized: "Applied \(damage) damage to \(defenderName)."),
+                        woundKey: defenderKey,
+                        previousWounds: previous
+                    )
+                }
             }
         }
 

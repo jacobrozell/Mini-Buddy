@@ -19,37 +19,25 @@ struct MovementRangeCard: View {
     var body: some View {
         if !livingUnits.isEmpty {
             VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
-                Label(String(localized: "Move distances"), systemImage: "figure.walk")
-                    .font(.subheadline.weight(.semibold))
-
-                Text(
-                    String(
-                        localized: """
-                        \(playerName)'s units — normal move up to Move\"; Run adds more but usually blocks shooting and charging.
-                        """
-                    )
-                )
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-
+                TTSectionHeader(String(localized: "\(playerName)'s move"))
                 VStack(spacing: DesignTokens.Spacing.xs) {
                     ForEach(livingUnits, id: \.0.id) { unit, move in
                         HStack {
                             Text(unit.name)
-                                .font(.callout)
+                                .font(TTFont.body)
+                                .foregroundStyle(TTColor.inkPrimary)
                                 .lineLimit(2)
                             Spacer(minLength: DesignTokens.Spacing.sm)
                             Text(moveLabel(move))
-                                .font(.callout.weight(.semibold))
-                                .monospacedDigit()
-                                .foregroundStyle(Color.accentOnSurface)
+                                .font(TTFont.numericSmall)
+                                .foregroundStyle(TTColor.inkPrimary)
                         }
-                        .padding(.vertical, 2)
+                        .padding(.vertical, DesignTokens.Spacing.xxs)
+                        .accessibilityElement(children: .combine)
+                        .accessibilityLabel(String(localized: "\(unit.name), move \(moveLabel(move))"))
                     }
                 }
             }
-            .surfaceCard()
             .accessibilityIdentifier("battleTracker.movementRanges")
         }
     }

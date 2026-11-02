@@ -68,7 +68,7 @@ extension SpearheadBattleView {
         }
     }
 
-    private var showsPileInGuide: Bool {
+    var showsPileInGuide: Bool {
         PlayerCoachingPolicy.shouldShowTip(
             tipKey: .pileInGuide,
             profile: activePlayerProfile,

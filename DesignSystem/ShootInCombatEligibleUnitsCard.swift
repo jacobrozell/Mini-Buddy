@@ -7,28 +7,13 @@ struct ShootInCombatEligibleUnitsCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
-            Label(String(localized: "Shoot in Combat"), systemImage: "flame.fill")
-                .font(.headline)
-
-            Text(
-                String(
-                    localized: """
-                    These units can fire ranged weapons during the fight phase while they are engaged. \
-                    Resolve them in Combat below — not during the shooting phase.
-                    """
-                )
-            )
-            .font(.caption)
-            .foregroundStyle(.secondary)
-            .fixedSize(horizontal: false, vertical: true)
-
+            TTSectionHeader(String(localized: "Shoot in Combat"))
             VStack(spacing: DesignTokens.Spacing.xs) {
                 ForEach(units) { unit in
                     combatShootingUnitRow(unit)
                 }
             }
         }
-        .surfaceCard()
         .accessibilityIdentifier("battleTracker.shootInCombatEligible")
     }
 
@@ -45,6 +30,7 @@ struct ShootInCombatEligibleUnitsCard: View {
             }
             .buttonStyle(.plain)
             .frame(minHeight: DesignTokens.minTouchTarget)
+            .accessibilityHint(String(localized: "Opens the dice sheet"))
             .accessibilityIdentifier("battleTracker.shootInCombatEligible.\(unit.id)")
         } else {
             rowLabel(unit: unit, weaponNames: weaponNames)
@@ -52,21 +38,17 @@ struct ShootInCombatEligibleUnitsCard: View {
     }
 
     private func rowLabel(unit: SpearheadUnit, weaponNames: String) -> some View {
-        HStack(alignment: .top, spacing: DesignTokens.Spacing.sm) {
-            Image(systemName: "scope")
-                .foregroundStyle(TTColor.warning)
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(unit.name)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
-                Text(weaponNames)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            Spacer(minLength: 0)
-        }
+        let count = unit.weapons.filter { $0.hasShootInCombat && $0.isRanged }.count
+        let countLabel = count == 1
+            ? String(localized: "1 weapon")
+            : String(localized: "\(count) weapons")
+        return TTRow(
+            title: unit.name,
+            subtitle: weaponNames.isEmpty ? countLabel : "\(countLabel) · \(weaponNames)",
+            systemImage: "scope",
+            tone: .warning,
+            accessory: .none
+        )
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

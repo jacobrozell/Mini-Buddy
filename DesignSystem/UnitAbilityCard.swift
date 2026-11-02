@@ -17,7 +17,10 @@ struct UnitAbilityCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
-                Text(phaseUsageLabel).ttEyebrow()
+                Text(ability.source)
+                    .font(TTFont.caption)
+                    .foregroundStyle(TTColor.inkSecondary)
+                    .lineLimit(2)
                 HStack(alignment: .top) {
                     Text(ability.name)
                         .font(TTFont.headline)
@@ -132,22 +135,6 @@ struct UnitAbilityCard: View {
         .buttonStyle(.ttTertiary)
         .frame(minHeight: DesignTokens.minTouchTarget)
         .accessibilityIdentifier("battleTracker.rollTools.\(ability.id)")
-    }
-
-    private var phaseUsageLabel: String {
-        let phases = ability.phases.map(\.title).joined(separator: " · ")
-        return "\(phases) · \(usageTitle)"
-    }
-
-    private var usageTitle: String {
-        switch ability.usageLimit {
-        case .passive: String(localized: "Passive")
-        case .eachTurn: String(localized: "Each turn")
-        case .eachPhase: String(localized: "Each phase")
-        case .oncePerBattle: String(localized: "Once per battle")
-        case .oncePerPhase: String(localized: "Once per phase")
-        case .reaction: String(localized: "Reaction")
-        }
     }
 
     private var badgeRow: some View {

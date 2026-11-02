@@ -2,49 +2,37 @@ import SwiftUI
 import TabletomeDomain
 
 struct PileInGuideCard: View {
-    @State private var isExpanded = false
+    @State private var showsDetail = false
 
     var body: some View {
-        DisclosureGroup(isExpanded: $isExpanded) {
-            VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
+        VStack(alignment: .leading, spacing: DesignTokens.Spacing.xs) {
+            TTNotice(
+                title: String(localized: "Pile in"),
+                message: String(localized: "Before you fight, move up to 3\" closer to the enemy."),
+                systemImage: "arrow.down.right.circle",
+                tone: .neutral,
+                action: (String(localized: "More"), { showsDetail.toggle() }),
+                onDismiss: NewPlayerTipsStore.hasDismissedPileInGuide
+                    ? nil
+                    : {
+                        NewPlayerTipsStore.dismissPileInGuide()
+                    }
+            )
+            if showsDetail {
                 Text(
                     String(
                         localized: """
-                        At the start of the combat phase, before any attack rolls: models not already in base contact \
-                        with the enemy can pile in. Each may move up to 3" toward the closest enemy model and must \
-                        end closer to an enemy than it started.
+                        Models not already in base contact may each move up to 3\" toward the closest enemy \
+                        and must end closer than they started. Units already in combat fight from where they are.
                         """
                     )
                 )
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .font(TTFont.footnote)
+                .foregroundStyle(TTColor.inkSecondary)
                 .fixedSize(horizontal: false, vertical: true)
-
-                Text(String(localized: "Units already in combat do not pile in — they fight from where they are."))
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                if !NewPlayerTipsStore.hasDismissedPileInGuide {
-                    Button(String(localized: "Got it")) {
-                        NewPlayerTipsStore.dismissPileInGuide()
-                        isExpanded = false
-                    }
-                    .buttonStyle(.bordered)
-                    .frame(minHeight: DesignTokens.minTouchTarget)
-                    .accessibilityIdentifier("battleTracker.pileInGuide.dismiss")
-                }
             }
-            .padding(.top, DesignTokens.Spacing.sm)
-        } label: {
-            Label(String(localized: "Pile in reminder"), systemImage: "arrow.down.right.circle")
-                .font(.subheadline.weight(.semibold))
         }
-        .surfaceCard()
         .accessibilityIdentifier("battleTracker.pileInGuide")
-        .onAppear {
-            isExpanded = !NewPlayerTipsStore.hasDismissedPileInGuide
-        }
     }
 }
 

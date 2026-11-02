@@ -42,4 +42,18 @@ extension BattleTurnPhase {
         default: title
         }
     }
+
+    /// One line under the empty Now panel when a phase has no abilities and no helper.
+    var nowEmptyDetail: String {
+        switch self {
+        case .hero:
+            String(localized: "No heroic actions for this army.")
+        case .charge:
+            String(localized: "Declare a charge, or continue.")
+        case .command:
+            String(localized: "Use a command, or continue.")
+        default:
+            String(localized: "Nothing else to do this phase.")
+        }
+    }
 }

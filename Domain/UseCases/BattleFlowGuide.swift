@@ -53,6 +53,7 @@ public enum BattleFlowGuide {
         }
 
         if trackerState.battleRound == 1,
+           trackerState.currentPhase == .deployment,
            let deploymentStep = nextIncompleteDeploymentStep(in: trackerState.completedDeploymentSteps) {
             return deploymentGuide(for: deploymentStep, matchState: matchState)
         }

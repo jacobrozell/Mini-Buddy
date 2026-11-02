@@ -177,6 +177,22 @@ final class BattleFlowGuideTests: XCTestCase {
         XCTAssertEqual(engine.battleRoundCount(), 5)
     }
 
+    func testEndOfTurnDoesNotReopenAnUnfinishedDeploymentChecklist() {
+        var tracker = BattleTrackerState()
+        tracker.battleRound = 1
+        tracker.currentPhase = .endOfTurn
+        tracker.completedTurnsThisRound = [true]
+        let key = BattleRoundChecklist.storageKey(round: 1)
+        tracker.completedRoundChecklistSteps[key] = Set(BattleRoundChecklistStep.allCases.map(\.rawValue))
+
+        let step = BattleFlowGuide.currentStep(
+            matchState: GuidedMatchState(),
+            trackerState: tracker
+        )
+
+        XCTAssertEqual(step?.kind, .turnPhase(.endOfTurn))
+    }
+
     func testMovesToRoundOpenerAfterDeployment() {
         var tracker = BattleTrackerState()
         tracker.completedDeploymentSteps = Set(DeploymentChecklistStep.allCases.map(\.rawValue))

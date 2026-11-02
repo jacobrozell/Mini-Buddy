@@ -146,12 +146,16 @@ Accessibility: `battleTracker.phoneLandscapeSplit`, `battleTracker.pinnedWarscro
 
 A Spearhead round is the first player's turn plus the second player's turn. `BattleTrackerState.completedTurnsThisRound` records which players have finished End of Turn. `BattleFlowGuide.currentStep` hands off while that set has one player, returns `.startNextRound` after both turns when rounds remain, and returns `.battleComplete` only after both turns of the last round. `SpearheadBattleViewModel.completePhasedRoundTurnPhase` toggles the active player on the first End of Turn and leaves the round in place on the second. `advanceBattleRound()` clears the set and opens the next round's opener. The manual round stepper is only the battle menu escape hatch.
 
+## Now panel
+
+During a phase, the battle screen shows the active player's turn, a short headline, abilities that match that phase, and only that phase's helpers (movement type, shooting rows, or combat). Start-of-round abilities stay on the round-start panel. Marking a once-per-battle ability used updates its badge without leaving the phase. The one-time coach is the only notice on this panel.
+
 ## Verification
 
 | Field | Value |
 |-------|-------|
-| Target release | v0.3 (Phases A–E) |
-| Last verified | 2026-10-27 |
-| UI tests | `Tests/UI/GuidedMatchResumeUITests.swift` — Play → Return to battle lands on the embedded battle tracker |
+| Target release | v1.0.0 |
+| Last verified | 2026-11-01 |
+| UI tests | `Tests/UI/GuidedMatchResumeUITests.swift` — Play → Return to battle lands on the embedded battle tracker. Now panel blocks and ability filtering: `Tests/Unit/SpearheadBattleNowContentTests.swift` |
 | Code paths | `Features/GuidedMatch/BattleTrackerPhaseDock.swift`, `Features/GuidedMatch/BattlePhaseTrackerView+PhaseDock.swift`, `Features/GuidedMatch/UnitFocusSheet.swift`, `Features/CombatRoll/BatchCombatResolverSection.swift`, `Support/PlayContinuationResolver.swift`, `DesignSystem/GuidedMatchHubChrome.swift`, `Support/TabBarChrome.swift`, `Support/TabBarAccessibilityBridge.swift`, `App/RootTabView.swift`, `Domain/UseCases/BattleTrackerStore.swift` |
 | Resume contract | A battle is resumable only when `BattleTrackerState.hasBattleProgress` is true (not on tracker open alone). `MatchSessionStore` timestamps are recorded when progress is saved. Play continuation prefers the game system with battle progress, then onboarding choice, then active context. |

@@ -78,7 +78,6 @@ extension SpearheadBattleView {
     @ViewBuilder
     private var battleNowContent: some View {
         VStack(alignment: .leading, spacing: DesignTokens.Spacing.lg) {
-            damageUndoBanner
             if showsBattleCoach {
                 TTNotice(
                     title: String(localized: "How battle works"),
@@ -98,48 +97,22 @@ extension SpearheadBattleView {
             } else if viewModel.roundOpenerIsIncomplete {
                 BattleRoundStartPanel(viewModel: viewModel)
             } else {
-                phaseMoment
+                BattleNowPanel(
+                    viewModel: viewModel,
+                    movementAction: $movementAction,
+                    showsPileIn: showsPileInGuide,
+                    onResolveAbility: openAbilityResolver,
+                    onSelectShootingUnit: openShootingUnit,
+                    onSelectCombatShooter: { unitId, weaponId in
+                        guard let armyId = viewModel.activeArmy?.id else { return }
+                        handleSelectWeapon(armyId: armyId, unitId: unitId, weaponId: weaponId)
+                    }
+                ) {
+                    if viewModel.trackerState.currentPhase == .movement {
+                        reinforcementsSection
+                    }
+                }
             }
-        }
-    }
-
-    private var phaseMoment: some View {
-        VStack(alignment: .leading, spacing: DesignTokens.Spacing.md) {
-            Text(String(localized: "\(viewModel.activePlayerName.uppercased())'S TURN · \(phaseTitle)"))
-                .ttEyebrow(TTTone.player(viewModel.trackerState.activePlayerIsOne).foreground)
-            Text(viewModel.trackerState.currentPhase.battleHeadline)
-                .font(TTFont.title)
-                .foregroundStyle(TTColor.inkPrimary)
-            if viewModel.trackerState.currentPhase == .endOfTurn {
-                endOfTurnScoring
-            }
-            SpearheadPhasePlaybook(viewModel: viewModel, showsOwnChrome: false, onAdvance: {})
-            phaseHelpers
-            reinforcementCallBanner
-            reinforcementsSection
-        }
-    }
-
-    private var endOfTurnScoring: some View {
-        let scoring = viewModel.playContext.victoryPointsScoring
-        let isOne = viewModel.trackerState.activePlayerIsOne
-        return VStack(alignment: .leading, spacing: DesignTokens.Spacing.sm) {
-            Button(scoring.primaryQuickAddLabel) {
-                viewModel.adjustVictoryPoints(
-                    playerIsOne: isOne,
-                    delta: scoring.primaryQuickAddAmount,
-                    reason: .objective
-                )
-            }
-            .buttonStyle(.ttSecondary)
-            Button(scoring.secondaryQuickAddLabel) {
-                viewModel.adjustVictoryPoints(
-                    playerIsOne: isOne,
-                    delta: scoring.secondaryQuickAddAmount,
-                    reason: .tactic
-                )
-            }
-            .buttonStyle(.ttSecondary)
         }
     }
 
@@ -345,8 +318,32 @@ extension SpearheadBattleView {
         return false
     }
 
-    private var phaseTitle: String {
-        viewModel.trackerState.currentPhase.title.uppercased()
+    func openShootingUnit(_ unitId: String) {
+        guard let army = viewModel.activeArmy,
+              let unit = army.units.first(where: { $0.id == unitId }) else { return }
+        if let weapon = unit.shootingWeapons.first {
+            handleSelectWeapon(armyId: army.id, unitId: unitId, weaponId: weapon.id)
+        } else {
+            focusActivePlayerUnit(unitId: unitId)
+        }
+    }
+
+    func openAbilityResolver(_ ability: TriggeredAbility) {
+        let parts = ability.id.split(separator: ":").map(String.init)
+        guard parts.count >= 2,
+              let army = viewModel.army(withId: parts[0]) ?? viewModel.activeArmy,
+              let unit = army.units.first(where: { $0.id == parts[1] }) else {
+            seedCombatContextIfNeeded()
+            showsCombatSheet = true
+            return
+        }
+        let weapon = unit.shootingWeapons.first ?? unit.weapons.first
+        guard let weapon else {
+            seedCombatContextIfNeeded()
+            showsCombatSheet = true
+            return
+        }
+        handleSelectWeapon(armyId: army.id, unitId: unit.id, weaponId: weapon.id)
     }
 
     private var actionPresentation: BattleActionPresentation {
