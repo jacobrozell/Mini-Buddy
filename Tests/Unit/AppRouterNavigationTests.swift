@@ -18,13 +18,14 @@ final class AppRouterNavigationTests: XCTestCase {
         XCTAssertEqual(router.learnPath.count, 1)
     }
 
-    func testOpenGameGuideSetsTabPathAndActiveGameSystem() {
+    func testOpenGameGuideForGatedSystemKeepsVisibleActiveSystem() {
+        XCTAssertFalse(ReleaseSurface.isGameSystemIdVisible("wh40k-11e"))
         let router = AppRouter()
 
         router.openGameGuide(gameSystemId: "wh40k-11e")
 
         XCTAssertEqual(router.selectedTab, .learn)
-        XCTAssertEqual(router.activeGameSystemId, "wh40k-11e")
+        XCTAssertEqual(router.activeGameSystemId, "aos-spearhead")
         XCTAssertEqual(router.learnPath.count, 1)
     }
 
@@ -42,10 +43,10 @@ final class AppRouterNavigationTests: XCTestCase {
     func testOpenRulesSearchQueuesQueryAndSwitchesTab() {
         let router = AppRouter()
 
-        router.openRulesSearch(gameSystemId: "wh40k-10e-cp", query: "Command Phase")
+        router.openRulesSearch(gameSystemId: "aos-spearhead", query: "Command Phase")
 
         XCTAssertEqual(router.selectedTab, .search)
-        XCTAssertEqual(router.activeGameSystemId, "wh40k-10e-cp")
+        XCTAssertEqual(router.activeGameSystemId, "aos-spearhead")
         XCTAssertEqual(router.consumePendingRulesSearchQuery(), "Command Phase")
         XCTAssertNil(router.consumePendingRulesSearchQuery())
     }
@@ -75,9 +76,13 @@ final class AppRouterNavigationTests: XCTestCase {
         XCTAssertEqual(router.hobbyTab, .armies)
     }
 
-    func testSetActiveGameSystemPersistsAcrossRouterInstances() {
+    func testSetActiveGameSystemPersistsAndFallsBackWhenGated() {
         let router = AppRouter()
         router.setActiveGameSystem("wh40k-10e-cp")
-        XCTAssertEqual(AppRouter().activeGameSystemId, "wh40k-10e-cp")
+        XCTAssertEqual(
+            UserDefaults.standard.string(forKey: ActiveGameContextPersistence.storageKey),
+            "wh40k-10e-cp"
+        )
+        XCTAssertEqual(AppRouter().activeGameSystemId, "aos-spearhead")
     }
 }

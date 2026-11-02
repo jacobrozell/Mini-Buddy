@@ -26,7 +26,7 @@ final class FirstSessionStoreTests: XCTestCase {
     }
 
     func testContinueCardRequiresChoiceAndNoGuide() {
-        FirstSessionStore.recordOnboardingChoice(gameSystemId: "wh40k-10e-cp")
+        FirstSessionStore.recordOnboardingChoice(gameSystemId: GameSystemId.aosSpearhead.rawValue)
         XCTAssertTrue(FirstSessionStore.shouldShowContinueCard())
 
         FirstSessionStore.recordGameGuideOpened()
@@ -42,7 +42,7 @@ final class FirstSessionStoreTests: XCTestCase {
     }
 
     func testContinueCardReturnsAfterGuideWhenMatchInProgress() {
-        let gameSystemId = "wh40k-10e-cp"
+        let gameSystemId = GameSystemId.aosSpearhead.rawValue
 
         FirstSessionStore.recordOnboardingChoice(gameSystemId: gameSystemId)
         FirstSessionStore.recordGameGuideOpened()

@@ -33,6 +33,7 @@ struct BattleRoundStartPanel: View {
                 checklistRow(step, round: round)
             }
         }
+        .accessibilityElement(children: .contain)
         .accessibilityIdentifier("battleTracker.roundStart")
         .onAppear {
             UIAccessibility.post(

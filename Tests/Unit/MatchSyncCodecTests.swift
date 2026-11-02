@@ -126,6 +126,10 @@ final class MatchSyncCodecTests: XCTestCase {
         var tracker = BattleTrackerState(battleRound: 2, currentPhase: .command)
         tracker.playerOneVictoryPoints = 15
         tracker.playerTwoVictoryPoints = 10
+        tracker.victoryPointsByRound = [
+            1: RoundVictoryPoints(playerOne: 8, playerTwo: 6),
+            2: RoundVictoryPoints(playerOne: 7, playerTwo: 4),
+        ]
         tracker.usedOncePerBattleAbilityIds = ["space-marines-strike-force:captain:grimoire"]
 
         MatchSetupStore.save(matchState, gameSystemId: gameSystemId, notifySync: false)

@@ -12,20 +12,20 @@ final class SettingsFeedbackUITests: ModelsFlowUITestCase {
         feedbackLink.tap()
 
         let sendButton = app.buttons["feedback.send"]
-        XCTAssertTrue(sendButton.waitForExistence(timeout: 8))
-        XCTAssertFalse(sendButton.isEnabled)
-
         let itemField = app.textFields["feedback.specificItem"]
         XCTAssertTrue(itemField.waitForExistence(timeout: 8))
         itemField.tap()
         itemField.typeText("Paints")
+
+        XCTAssertTrue(scrollUntilHittable(sendButton))
         XCTAssertFalse(sendButton.isEnabled)
 
         let summaryField = app.textFields["feedback.summary"]
-        XCTAssertTrue(summaryField.waitForExistence(timeout: 8))
+        XCTAssertTrue(scrollUntilHittable(summaryField, towardBottom: false))
         summaryField.tap()
         summaryField.typeText("Add more filter presets")
 
+        XCTAssertTrue(scrollUntilHittable(sendButton))
         waitForEnabled(sendButton, timeout: 8)
     }
 }

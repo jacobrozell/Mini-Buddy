@@ -21,16 +21,18 @@ struct BattleScreenLayout<Scoreboard: View, PhaseRail: View, Content: View, Acti
                 switch arrangement {
                 case .stacked:
                     stacked
+                        .accessibilityElement(children: .contain)
                         .accessibilityIdentifier("battleScreen.layout.stacked")
                 case .twoColumn:
                     twoColumn(width: proxy.size.width)
+                        .accessibilityElement(children: .contain)
                         .accessibilityIdentifier("battleScreen.layout.twoColumn")
                 case .wide:
                     wide(width: proxy.size.width)
+                        .accessibilityElement(children: .contain)
                         .accessibilityIdentifier("battleScreen.layout.wide")
                 }
             }
-            .accessibilityElement(children: .contain)
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .topLeading)
         }
     }

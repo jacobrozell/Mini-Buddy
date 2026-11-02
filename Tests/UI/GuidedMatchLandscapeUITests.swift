@@ -96,11 +96,11 @@ final class GuidedMatchLandscapeUITests: XCTestCase {
 
         XCUIDevice.shared.orientation = .landscapeLeft
 
-        let startButton = app.buttons["home.chooser.spearhead.startGuidedMatch"]
+        let startButton = app.buttons["home.startBattle"]
         if !startButton.waitForExistence(timeout: 6) {
-            let continueCard = app.buttons["home.continueCard"]
-            XCTAssertTrue(continueCard.waitForExistence(timeout: 6))
-            continueCard.tap()
+            let continueButton = app.buttons["home.continueGuidedMatch"]
+            XCTAssertTrue(continueButton.waitForExistence(timeout: 6))
+            continueButton.tap()
         } else {
             startButton.tap()
         }

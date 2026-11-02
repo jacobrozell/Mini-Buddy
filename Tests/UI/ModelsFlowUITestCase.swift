@@ -82,6 +82,20 @@ class ModelsFlowUITestCase: XCTestCase {
         label.tap()
     }
 
+    /// Forms only build rows near the viewport, so swipe until the element is on screen.
+    @discardableResult
+    func scrollUntilHittable(_ element: XCUIElement, towardBottom: Bool = true, maxSwipes: Int = 8) -> Bool {
+        for _ in 0..<maxSwipes {
+            if element.exists, element.isHittable { return true }
+            if towardBottom {
+                app.swipeUp()
+            } else {
+                app.swipeDown()
+            }
+        }
+        return element.exists && element.isHittable
+    }
+
     func waitForEnabled(_ element: XCUIElement, timeout: TimeInterval) {
         let enabled = NSPredicate(format: "isEnabled == true")
         let expectation = XCTNSPredicateExpectation(predicate: enabled, object: element)

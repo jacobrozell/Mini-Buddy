@@ -6,8 +6,9 @@ final class CollectionFlowUITests: ModelsFlowUITestCase {
 
         tapNewArmy()
 
+        XCTAssertTrue(app.buttons["addArmyConfirm"].waitForExistence(timeout: 8))
         let starterToggle = app.switches["addStarterBoxUnits"]
-        XCTAssertTrue(starterToggle.waitForExistence(timeout: 8))
+        XCTAssertTrue(scrollUntilHittable(starterToggle, maxSwipes: 12))
 
         confirmAddArmy()
 

@@ -24,12 +24,12 @@ final class GuidedMatchResumeUITests: XCTestCase {
         ]
         app.launch()
 
-        let battleMarker = app.descendants(matching: .any)["spearheadBattle.vpSummary"]
+        let battleMarker = app.descendants(matching: .any)["battleTracker.scoreboard.playerOne"]
         XCTAssertTrue(battleMarker.waitForExistence(timeout: 30), "Battle tracker should open after setup automation")
 
         battleMarker.tap()
-        let incrementVP = app.buttons["battleTracker.victoryPoints-Increment"].firstMatch
-        XCTAssertTrue(incrementVP.waitForExistence(timeout: 8), "Victory points sheet should open from the header")
+        let incrementVP = app.buttons["battleTracker.vp.playerOne-Increment"].firstMatch
+        XCTAssertTrue(incrementVP.waitForExistence(timeout: 8), "Victory points sheet should open from the scoreboard")
         incrementVP.tap()
 
         app.terminate()
@@ -37,9 +37,9 @@ final class GuidedMatchResumeUITests: XCTestCase {
         app.launch()
 
         let continueButton = app.buttons
-            .matching(NSPredicate(format: "identifier == %@ AND label == %@", "home.continueCard", "Return to battle"))
+            .matching(NSPredicate(format: "identifier == %@ AND label == %@", "home.continueGuidedMatch", "Resume Battle"))
             .firstMatch
-        XCTAssertTrue(continueButton.waitForExistence(timeout: 12), "Play home should offer Return to battle")
+        XCTAssertTrue(continueButton.waitForExistence(timeout: 12), "Play home should offer Resume Battle")
         continueButton.tap()
 
         XCTAssertTrue(
