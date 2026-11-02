@@ -1,7 +1,7 @@
 # Unified App Plan — Prep → Muster → Play
 
 **Status:** Future work (non-authoritative until promoted to `specs/`)  
-**Canonical repo:** **Mini Buddy** (`/Users/jrozell/Desktop/personal/MiniBuddy`)  
+**Canonical repo:** **Mini Buddy** (`/Users/jrozell/Desktop/personal/apps/MiniBuddy`)  
 **Port source:** MiniMuster iOS (`WarhammerTracker/ios/`) — **frozen**; no new feature work there  
 **Related:** [CatalogKeyAudit.md](CatalogKeyAudit.md) · [MiniMusterPortFreeze.md](MiniMusterPortFreeze.md)
 
