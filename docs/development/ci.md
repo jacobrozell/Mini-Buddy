@@ -54,7 +54,7 @@ xcodebuild test -scheme MiniBuddyCI \
 ## What CI does not run (yet)
 
 - UI test matrix (nightly)
-- TestFlight archive (manual / future Xcode Cloud)
+- TestFlight archive is Xcode Cloud. `ci_scripts/ci_post_clone.sh` decodes `GOOGLE_SERVICE_INFO_PLIST_BASE64` into `Resources/GoogleService-Info.plist` and fails the build if the secret is missing. GitHub Actions still uses the example plist.
 - Documentation drift report (see Dart Buddy `documentation-summary.sh` as a future addition)
 
 ---

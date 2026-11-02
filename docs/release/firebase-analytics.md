@@ -38,7 +38,7 @@ Feature code → AppDependencies.logger → DefaultAppLogger
 | Release + placeholder plist | Off | Off |
 | Release + real plist | On | On |
 
-CI copies [`Resources/GoogleService-Info.plist.example`](../../Resources/GoogleService-Info.plist.example). Never commit the real plist.
+GitHub Actions copies [`Resources/GoogleService-Info.plist.example`](../../Resources/GoogleService-Info.plist.example). Xcode Cloud writes the real plist from the `GOOGLE_SERVICE_INFO_PLIST_BASE64` workflow secret before `xcodegen`, and stops the archive if that secret is missing or still a placeholder. Never commit the real plist.
 
 ---
 
@@ -148,7 +148,7 @@ Register before relying on breakdowns in Explorations. Allow 24–48h after regi
 
 ### Release / TestFlight smoke
 
-- [ ] Archive uses real plist (not `REPLACE_WITH`)
+- [ ] Xcode Cloud Release workflow has secret `GOOGLE_SERVICE_INFO_PLIST_BASE64` (`base64 -i Resources/GoogleService-Info.plist | pbcopy`)
 - [ ] Crashlytics build phase succeeds (dSYM upload)
 - [ ] TestFlight: `app_open` in Realtime within minutes
 - [ ] One Spearhead + one 40k 11e guided match → `guided_match_started` with correct `gameSystemSection`

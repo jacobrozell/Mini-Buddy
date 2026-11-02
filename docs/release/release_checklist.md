@@ -42,7 +42,7 @@ Locked 28 Oct 2026. No launch arguments.
 
 ## Telemetry (Release)
 
-- [ ] Real `GoogleService-Info.plist` for archive (copy from [`Resources/GoogleService-Info.plist.example`](../../Resources/GoogleService-Info.plist.example))
+- [ ] Xcode Cloud secret `GOOGLE_SERVICE_INFO_PLIST_BASE64` set from the local real plist (`base64 -i Resources/GoogleService-Info.plist | pbcopy`)
 - [ ] Crashlytics dSYM upload succeeds on archive
 - [ ] TestFlight smoke: `app_open`, one guided match, Models tab visit — see [firebase-analytics.md](firebase-analytics.md)
 - [x] Hosted privacy policy updated for Analytics/Crashlytics — [`privacy.html`](../privacy.html) (2026-06-29); live on GitHub Pages after `main` merge

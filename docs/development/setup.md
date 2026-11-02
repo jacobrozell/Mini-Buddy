@@ -50,7 +50,7 @@ Telemetry is **off in Debug** unless opted in. Release/TestFlight needs a real p
    cp Resources/GoogleService-Info.plist.example Resources/GoogleService-Info.plist
    ```
 2. Replace placeholder values from Firebase Console (bundle ID `com.jacobrozell.tabletome`).
-3. **Never commit** `GoogleService-Info.plist` — it is gitignored; CI uses the example.
+3. **Never commit** `GoogleService-Info.plist` — it is gitignored. GitHub Actions uses the example. Xcode Cloud Release needs workflow secret `GOOGLE_SERVICE_INFO_PLIST_BASE64` (`base64 -i Resources/GoogleService-Info.plist | pbcopy`). [`ci_scripts/ci_post_clone.sh`](../../ci_scripts/ci_post_clone.sh) decodes it and refuses the archive if it is missing.
 
 ### Debug with Analytics DebugView
 
