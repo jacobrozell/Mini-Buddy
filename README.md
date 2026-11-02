@@ -2,7 +2,7 @@
 
 Offline-first iOS reference and rules companion for Warhammer tabletop games — guided matches, roll evaluation, rules browser, and miniature collection tracking. No account required; all rules data ships in the bundle.
 
-**Status:** TestFlight 1.0.0 (build 11) · **Branch:** `release/1.0.0` · [Release status](docs/release/status.md)
+**Status:** TestFlight 1.0.0 (build 13) · **Branch:** `main` · [Release status](docs/release/status.md)
 
 **Shipped in 1.0:** Age of Sigmar **Spearhead** (play, guided match, rules) plus **Models** (collection + paints). 40k, Combat Patrol, StarCraft, Lists, Rules Q&A, and Players Hub are bundled but gated (Players Hub is on in Debug only) — see [release status](docs/release/status.md) and [release surface spec](specs/ReleaseSurfaceSpec.md).
 

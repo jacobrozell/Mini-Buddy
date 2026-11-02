@@ -13,7 +13,7 @@ Update this file when listing copy changes; keep URLs in sync with `Support/AppL
 |--------|--------|
 | **App name** | Mini Buddy: Wargame Companion |
 | **Bundle ID** | `com.jacobrozell.tabletome` |
-| **Version** | 1.0.0 (build 11) |
+| **Version** | 1.0.0 (build 13) |
 | **Min iOS** | 18.0 |
 | **Devices** | iPhone + iPad |
 | **Primary category** | Reference |
@@ -321,6 +321,24 @@ Please report crashes, VoiceOver issues, and any rules wording that feels wrong.
 ```
 
 ---
+
+## TestFlight — What to Test (build 13 / 1.0.0)
+
+See [`testflight-1.0.0-build-13.md`](testflight-1.0.0-build-13.md). Build 11 notes stay in [`testflight-1.0.0-build-11.md`](testflight-1.0.0-build-11.md).
+
+```
+Thanks for testing Mini Buddy 1.0.0 (13).
+
+This build replaces the Tabletome name. After install, the home screen icon should say Mini Buddy.
+
+Please try:
+1. First launch — Spearhead only. 40k, Combat Patrol, and StarCraft should not appear.
+2. Settings — the app card says Mini Buddy.
+3. Spearhead — Getting Started, Guided Match, then leave and resume.
+4. Rules and Models — same as the last build.
+
+Send feedback via TestFlight → Send Beta Feedback.
+```
 
 ## TestFlight — What to Test (build 11 / 1.0.0)
 

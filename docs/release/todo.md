@@ -19,7 +19,7 @@ Metadata: [`status.md`](status.md) · Expanded: [`release_checklist.md`](release
 - [x] **Privacy policy** — [`privacy.html`](../privacy.html) Firebase disclosure
 - [x] **App Store listing draft** — analytics + nutrition labels in [`app-store-listing.md`](app-store-listing.md)
 - [x] **Push GitHub Pages** — `main` merged from `release/1.0.0` (2026-06-29); allow 1–3 min for deploy
-- [ ] **Next TestFlight** — a new build after the UI overhaul tracker ([`../../ongoing/ui-overhaul/README.md`](../../ongoing/ui-overhaul/README.md) §6). Build 11 notes stay in [`testflight-1.0.0-build-11.md`](testflight-1.0.0-build-11.md).
+- [ ] **TestFlight 1.0.0 (13)** — Xcode Cloud Release. Home screen name is Mini Buddy (build 12 still said Tabletome). Notes: [`testflight-1.0.0-build-13.md`](testflight-1.0.0-build-13.md).
 - [ ] **Telemetry smoke** — `app_open` in Firebase after TestFlight install
 - [ ] **App Store Connect privacy** — Diagnostics + Usage data (not “Data Not Collected”)
 - [ ] **Gated backlog triage** — [`gated-features-testing.md`](gated-features-testing.md) before ungating

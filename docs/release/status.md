@@ -5,7 +5,7 @@
 | **Version** | 1.0.0 (`MARKETING_VERSION` in `project.yml`) |
 | **Phase** | **TestFlight** — not App Store production |
 | **Branch** | `main` |
-| **Build** | **11** (`CURRENT_PROJECT_VERSION` in `project.yml`) — [TestFlight notes](testflight-1.0.0-build-11.md) |
+| **Build** | **13** (`CURRENT_PROJECT_VERSION` in `project.yml`) — [TestFlight notes](testflight-1.0.0-build-13.md) |
 
 ## 1.0.0 scope
 
@@ -25,7 +25,7 @@ Gated until a later release (dogfood with `-enable_full_product_surface`):
 
 **Not planned:** Full 10th Edition matched play — see [PRODUCT_SCOPE.md](../game-modes/PRODUCT_SCOPE.md). Combat Patrol is a later Mini Buddy release, not 1.0.
 
-**Work now:** the UI overhaul in [`ongoing/ui-overhaul/README.md`](../../ongoing/ui-overhaul/README.md). The next TestFlight is a new build after that tracker. Stay inside Spearhead. Do not ungate other modes. Do not grow paints. Agent entry: [`AGENTS.md`](../../AGENTS.md).
+**Work now:** TestFlight 1.0.0 (13) ships the Mini Buddy name. Build 12 still showed Tabletome on the home screen. It also includes the overhaul work already on `main`. The [UI overhaul](../../ongoing/ui-overhaul/README.md) tracker is still in progress. Stay inside Spearhead. Do not ungate other modes. Do not grow paints. Agent entry: [`AGENTS.md`](../../AGENTS.md).
 
 **QA:** Spearhead path only for this submit. Gated modes stay in [gated-features-testing.md](gated-features-testing.md).
 
@@ -38,6 +38,7 @@ Add `-enable_full_product_surface` in **Edit Scheme → Run → Arguments** to u
 ## Related docs
 
 - [Release checklist (1.0.0 TestFlight)](release_checklist.md)
+- [TestFlight build 13 notes](testflight-1.0.0-build-13.md)
 - [TestFlight build 11 notes](testflight-1.0.0-build-11.md)
 - [App Store listing copy](app-store-listing.md)
 - [Firebase analytics](firebase-analytics.md)
