@@ -876,7 +876,7 @@ Screenshot from session not in repo — treat as **open**.
 - [ ] Manual playtest script passed on iPhone + iPad
 - [ ] `check-firebase-parity` N/A; unit tests green; CI green
 - [ ] This doc’s P0 items moved to **Finished** in [`ongoing/README.md`](README.md)
-- [ ] [`workspace/projects/mini-buddy.md`](../../workspace/projects/mini-buddy.md) updated: Spearhead GM v1 shipped
+- [ ] [`workspace/projects/mini-buddy.md`](../../../workspace/projects/mini-buddy.md) updated: Spearhead GM v1 shipped
 
 ---
 
